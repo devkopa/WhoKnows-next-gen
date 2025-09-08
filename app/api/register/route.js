@@ -1,10 +1,10 @@
 import { userService } from "@/services/userService";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 
-export async function POST(request, response) {
+export async function POST(request) {
 
-    const { username, email, password } = request.body;
+    const { username, email, password } = await request.json();
 
     try{
         const user = await userService.register({username, email, password});
@@ -13,5 +13,4 @@ export async function POST(request, response) {
         return NextResponse.json(error);
     }
     
-
 }
