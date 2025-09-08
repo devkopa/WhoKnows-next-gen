@@ -25,6 +25,20 @@ export const userRepository = {
                 username: true
             }
         })
+    },
+
+    async getUserByUsername(username) {
+        return await prisma.users.findUnique({
+            where: {
+                username: username
+            },
+
+            select: {
+                id: true,
+                username: true,
+                password: true
+            }
+        });
     }
 
 }

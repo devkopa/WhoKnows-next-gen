@@ -35,6 +35,26 @@ export const userService = {
 
     },
 
+    async login(user) {
+        try {
+            const storedUser = await userRepository.getUserByUsername(user.username);
+            if(!storedUser) {
+                throw new Error("Wrong username.");
+            }
+
+            const passwordMatches = await this.passwordMatches(user.password, storedUser.password);
+            
+            if(!passwordMatches) {
+                throw new Error("Wrong password.");
+            }   
+            
+            return storedUser;
+        } catch (error) {
+                console.error("Service layer error for login: " + error.message);
+                throw error;
+            }
+        },
+
 
     // Security functions
 
@@ -46,5 +66,4 @@ export const userService = {
         return hashedPassword;
 
     }
-
 }
