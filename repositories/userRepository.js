@@ -7,8 +7,7 @@ const prisma = new PrismaClient();
 export const userRepository = {
 
     async getUserId(usernameReq) {
-        if (typeof usernameReq === "string") {
-            return await prisma.users.findUnique({
+        return await prisma.users.findUnique({
                 where: {
                     username: usernameReq
                 },
@@ -16,7 +15,6 @@ export const userRepository = {
                     id: true
                 }
             })
-        }
     }
 
 }
