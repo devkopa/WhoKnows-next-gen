@@ -10,4 +10,3 @@ This is the migrated Whoknows variations repository. It is not meant for product
 ## Stack
 
   - React, Next.js
-  -
