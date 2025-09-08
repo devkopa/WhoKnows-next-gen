@@ -15,6 +15,16 @@ export const userRepository = {
                     id: true
                 }
             })
+    },
+
+    async addUser(user) {
+        return await prisma.users.create({
+            data: user,
+            select: {
+                id: true,
+                username: true
+            }
+        })
     }
 
 }
