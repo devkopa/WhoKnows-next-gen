@@ -16,6 +16,8 @@ export async function GET(request) {
         
     }
 
-    return NextResponse.json(searchResults);
+    return NextResponse.json({
+        data: searchResults
+    });
 
 }
