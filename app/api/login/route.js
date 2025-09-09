@@ -10,7 +10,10 @@ export async function POST(request) {
         const user = await userService.login({username, password});
         return NextResponse.json(user, { status: 200 });
     } catch(error) {
-        return NextResponse.json(error);
+        return NextResponse.json(
+            { message: error.message },
+            { status: 400 }
+        );
     }
     
 }

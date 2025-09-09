@@ -39,6 +39,10 @@ export const userRepository = {
                 password: true
             }
         });
-    }
+    },
 
+    async logout(userId) {
+        console.log("Logging out user with ID:", userId);
+        return true;
+    }
 }

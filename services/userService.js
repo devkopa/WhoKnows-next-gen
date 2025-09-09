@@ -38,25 +38,48 @@ export const userService = {
     async login(user) {
         try {
             const storedUser = await userRepository.getUserByUsername(user.username);
-            if(!storedUser) {
+            
+            if (!storedUser) {
                 throw new Error("Wrong username.");
             }
 
-            const passwordMatches = await this.passwordMatches(user.password, storedUser.password);
-            
-            if(!passwordMatches) {
+            const passwordMatches = await this.passwordMatches(user.password,storedUser.password);
+
+            if (!passwordMatches) {
                 throw new Error("Wrong password.");
-            }   
-            
-            return storedUser;
-        } catch (error) {
-                console.error("Service layer error for login: " + error.message);
-                throw error;
             }
-        },
 
+            return {
+                id: storedUser.id,
+                username: storedUser.username,
+                message: "Login successful",
+            };
+        } catch (error) {
+            console.error("Service layer error for login: " + error.message);
+            throw error;
+        }
+    },
 
-    // Security functions
+    async logout(user) {
+        const userId = await this.getUserId(user.username);
+        
+        if (!userId) {
+            throw new Error("User not found.");
+        }
+
+        await userRepository.logout(userId);
+
+        return {
+            id: userId,
+            username: user.username,
+            message: "Logout successful",
+        };
+        
+    },
+
+    async passwordMatches(plainPassword, hashedPassword) {
+        return bcrypt.compare(plainPassword, hashedPassword);
+    },
 
     async hashPassword(password) {
         const saltRounds = 10;
@@ -64,6 +87,5 @@ export const userService = {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         return hashedPassword;
-
     }
 }
