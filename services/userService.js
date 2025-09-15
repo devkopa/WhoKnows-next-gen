@@ -1,5 +1,6 @@
 import { userRepository } from "@/repositories/userRepository";
 import bcrypt from "bcrypt";
+import { redirect } from "next/dist/server/api-utils";
 
 
 export const userService = {
@@ -37,7 +38,7 @@ export const userService = {
 
     async login(user) {
         try {
-            const storedUser = await userRepository.getUserByUsername(user.username);
+            const storedUser = await userRepository.login(user.username);
             
             if (!storedUser) {
                 throw new Error("Wrong username.");

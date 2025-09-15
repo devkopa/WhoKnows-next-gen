@@ -4,9 +4,9 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
 
-    const { username, email, password } = await request.json();
+    const { username, password } = await request.json();
 
-    try{
+    try {
         const user = await userService.login({username, password});
         return NextResponse.json(user, { status: 200 });
     } catch(error) {

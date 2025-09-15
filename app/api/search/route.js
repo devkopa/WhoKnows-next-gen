@@ -9,7 +9,6 @@ export async function GET(request) {
     const language = searchParams.get('language');
 
     let searchResults = [];
-    
 
     if(searchString && language) {
         searchResults = await pagesService.findBySearch(searchString, language);

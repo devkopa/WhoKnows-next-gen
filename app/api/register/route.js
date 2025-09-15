@@ -8,15 +8,21 @@ export async function POST(request) {
 
     try{
         const user = await userService.register({username, email, password});
+
         return NextResponse.json({
             statusCode: 200,
-            message: "User " + user.username + " have been registered"
+            message: user.username + " has been registered"
         });
-    } catch(error) {
-        return NextResponse.json({
-            statusCode: 422,
-            message: "Validation error"
-        });
-    }
+    } catch (error) {
     
+    if (error.message.includes("username")) {
+      return NextResponse.json({ statusCode: 422, message: "Username is already taken." });
+    }
+
+    if (error.message.includes("email")) {
+      return NextResponse.json({ statusCode: 422, message: "Email is already taken." });
+    }
+
+    return NextResponse.json({ statusCode: 500, message: "Server error" });
+  }
 }
