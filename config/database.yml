@@ -13,10 +13,10 @@ development:
 
 test:
   <<: *default
-  database: postgres
+  database: db
 
 production:
   <<: *default
-  database: db
+  database: postgres
   username: <%= ENV["POSTGRES_USER"] %>
   password: <%= ENV["POSTGRES_PASSWORD"] %>
