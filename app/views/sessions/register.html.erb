@@ -1,0 +1,43 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+  <div id="register-form" class="w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8"></div>
+</div>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script>
+  const e = React.createElement;
+
+  function RegisterForm() {
+    const [username, setUsername] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [confirm_password, setConfirm_password] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [message, setMessage] = React.useState("");
+
+    const handleregister = async (event) => {
+      event.preventDefault();
+      if(password !== confirm_password) {
+        setMessage("Passwords do not match");
+        return;
+      }
+      const res = await fetch("/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password, password_confirmation: confirm_password }),
+      });
+      const data = await res.json();
+      setMessage(data.message);
+    };
+
+    return e("form", { onSubmit: handleregister, className: "flex flex-col gap-4" },
+      e("input", { type: "text", placeholder: "Username", value: username, onChange: (ev) => setUsername(ev.target.value), className: "px-4 py-2 rounded border" }),
+      e("input", { type: "email", placeholder: "E-mail", value: email, onChange: (ev) => setEmail(ev.target.value), className: "px-4 py-2 rounded border" }),
+      e("input", { type: "password", placeholder: "Password", value: password, onChange: (ev) => setPassword(ev.target.value), className: "px-4 py-2 rounded border" }),
+      e("input", { type: "password", placeholder: "Confirm password", value: confirm_password, onChange: (ev) => setConfirm_password(ev.target.value), className: "px-4 py-2 rounded border" }),
+      e("button", { type: "submit", className: "bg-blue-600 text-white py-2 rounded" }, "Register"),
+      message && e("p", { className: "text-red-600 mt-2" }, message)
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById("register-form")).render(e(RegisterForm));
+</script>
