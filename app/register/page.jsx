@@ -30,7 +30,7 @@ export default function RegisterPage() {
 
       if (res.ok) {
         setMessage(data.message);
-        router.push("/login"); // redirect to login after successful registration
+        router.push("/login");
       } else {
         setMessage(data.message);
       }
