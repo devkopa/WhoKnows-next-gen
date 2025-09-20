@@ -6220,3 +6220,529 @@ Migrating to AddPasswordDigestToUsers (20250919081752)
   [1m[35m (72.8ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying /*application='Openapi'*/[0m
   [1m[36mTRANSACTION (33.5ms)[0m  [1m[31mROLLBACK /*application='Openapi'*/[0m
   [1m[35m (33.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505) /*application='Openapi'*/[0m
+DEPRECATION WARNING: The config.web_console.whitelisted_ips is deprecated and will be ignored in future release of web_console. Please use config.web_console.allowed_ips instead. (called from <main> at C:/Users/omara/OneDrive/Skrivebord/DevOps/openapi/config/environment.rb:5)
+Started GET "/" for ::1 at 2025-09-20 10:04:55 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (35.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20250919081752_add_password_digest_to_users.rb
+
+
+):
+  
+activerecord (8.0.2.1) lib/active_record/migration.rb:743:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.2.1) lib/active_record/migration.rb:660:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.2.1) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activerecord (8.0.2.1) lib/active_record/migration.rb:665:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.2.1) lib/active_record/migration.rb:657:in 'Thread::Mutex#synchronize'
+activerecord (8.0.2.1) lib/active_record/migration.rb:657:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.1) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.1) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.1) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (7.0.3) lib/puma/configuration.rb:299:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (7.0.3) lib/puma/request.rb:101:in 'block in Puma::Request#handle_request'
+puma (7.0.3) lib/puma/thread_pool.rb:346:in 'Puma::ThreadPool#with_force_shutdown'
+puma (7.0.3) lib/puma/request.rb:100:in 'Puma::Request#handle_request'
+puma (7.0.3) lib/puma/server.rb:497:in 'Puma::Server#process_client'
+puma (7.0.3) lib/puma/server.rb:266:in 'block in Puma::Server#run'
+puma (7.0.3) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2025-09-20 10:04:56 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (33.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20250919081752_add_password_digest_to_users.rb
+
+
+):
+  
+activerecord (8.0.2.1) lib/active_record/migration.rb:743:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.2.1) lib/active_record/migration.rb:660:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.2.1) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activerecord (8.0.2.1) lib/active_record/migration.rb:665:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.2.1) lib/active_record/migration.rb:657:in 'Thread::Mutex#synchronize'
+activerecord (8.0.2.1) lib/active_record/migration.rb:657:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.1) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.1) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.1) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (7.0.3) lib/puma/configuration.rb:299:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (7.0.3) lib/puma/request.rb:101:in 'block in Puma::Request#handle_request'
+puma (7.0.3) lib/puma/thread_pool.rb:346:in 'Puma::ThreadPool#with_force_shutdown'
+puma (7.0.3) lib/puma/request.rb:100:in 'Puma::Request#handle_request'
+puma (7.0.3) lib/puma/server.rb:497:in 'Puma::Server#process_client'
+puma (7.0.3) lib/puma/server.rb:266:in 'block in Puma::Server#run'
+puma (7.0.3) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/rails/actions" for ::1 at 2025-09-20 10:05:01 +0200
+  [1m[35m (34.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(737815420147457505) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (35.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (34.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+Migrating to AddPasswordDigestToUsers (20250919081752)
+  [1m[36mTRANSACTION (34.3ms)[0m  [1m[35mBEGIN /*application='Openapi'*/[0m
+  [1m[35m (78.1ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying /*application='Openapi'*/[0m
+  [1m[36mTRANSACTION (33.8ms)[0m  [1m[31mROLLBACK /*application='Openapi'*/[0m
+  [1m[35m (34.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505) /*application='Openapi'*/[0m
+  
+StandardError (An error has occurred, this and all later migrations canceled:
+
+PG::DuplicateColumn: ERROR:  column "password_digest" of relation "users" already exists
+)
+Caused by: ActiveRecord::StatementInvalid (PG::DuplicateColumn: ERROR:  column "password_digest" of relation "users" already exists
+)
+Caused by: PG::DuplicateColumn (ERROR:  column "password_digest" of relation "users" already exists
+)
+
+Information for: StandardError (An error has occurred, this and all later migrations canceled:
+
+PG::DuplicateColumn: ERROR:  column "password_digest" of relation "users" already exists
+):
+  
+
+Information for cause: ActiveRecord::StatementInvalid (PG::DuplicateColumn: ERROR:  column "password_digest" of relation "users" already exists
+):
+  
+
+Information for cause: PG::DuplicateColumn (ERROR:  column "password_digest" of relation "users" already exists
+):
+  
+activerecord (8.0.2.1) lib/active_record/connection_adapters/postgresql/database_statements.rb:160:in 'PG::Connection#exec'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/postgresql/database_statements.rb:160:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::DatabaseStatements#perform_query'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:556:in 'block (2 levels) in ActiveRecord::ConnectionAdapters::DatabaseStatements#raw_execute'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract_adapter.rb:1015:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#with_raw_connection'
+activesupport (8.0.2.1) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract_adapter.rb:984:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#with_raw_connection'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:555:in 'block in ActiveRecord::ConnectionAdapters::DatabaseStatements#raw_execute'
+activesupport (8.0.2.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract_adapter.rb:1135:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#log'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:554:in 'ActiveRecord::ConnectionAdapters::DatabaseStatements#raw_execute'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:591:in 'ActiveRecord::ConnectionAdapters::DatabaseStatements#internal_execute'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:137:in 'ActiveRecord::ConnectionAdapters::DatabaseStatements#execute'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract/query_cache.rb:27:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#execute'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/postgresql/database_statements.rb:40:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::DatabaseStatements#execute'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract/schema_statements.rb:640:in 'ActiveRecord::ConnectionAdapters::SchemaStatements#add_column'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/postgresql/schema_statements.rb:462:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements#add_column'
+activerecord (8.0.2.1) lib/active_record/migration/default_strategy.rb:10:in 'ActiveRecord::Migration::DefaultStrategy#method_missing'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1056:in 'block in ActiveRecord::Migration#method_missing'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1022:in 'block in ActiveRecord::Migration#say_with_time'
+activesupport (8.0.2.1) lib/active_support/benchmark.rb:17:in 'ActiveSupport::Benchmark.realtime'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1022:in 'ActiveRecord::Migration#say_with_time'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1045:in 'ActiveRecord::Migration#method_missing'
+db/migrate/20250919081752_add_password_digest_to_users.rb:3:in 'AddPasswordDigestToUsers#change'
+activerecord (8.0.2.1) lib/active_record/migration.rb:991:in 'ActiveRecord::Migration#exec_migration'
+activerecord (8.0.2.1) lib/active_record/migration.rb:975:in 'block (2 levels) in ActiveRecord::Migration#migrate'
+activesupport (8.0.2.1) lib/active_support/benchmark.rb:17:in 'ActiveSupport::Benchmark.realtime'
+activerecord (8.0.2.1) lib/active_record/migration.rb:974:in 'block in ActiveRecord::Migration#migrate'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:412:in 'ActiveRecord::ConnectionAdapters::ConnectionPool#with_connection'
+activerecord (8.0.2.1) lib/active_record/migration.rb:973:in 'ActiveRecord::Migration#migrate'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1187:in 'ActiveRecord::MigrationProxy#migrate'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1535:in 'block in ActiveRecord::Migrator#execute_migration_in_transaction'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract/transaction.rb:626:in 'block in ActiveRecord::ConnectionAdapters::TransactionManager#within_new_transaction'
+activesupport (8.0.2.1) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract/transaction.rb:623:in 'ActiveRecord::ConnectionAdapters::TransactionManager#within_new_transaction'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:367:in 'ActiveRecord::ConnectionAdapters::DatabaseStatements#within_new_transaction'
+activerecord (8.0.2.1) lib/active_record/connection_adapters/abstract/database_statements.rb:359:in 'ActiveRecord::ConnectionAdapters::DatabaseStatements#transaction'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1586:in 'ActiveRecord::Migrator#ddl_transaction'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1534:in 'ActiveRecord::Migrator#execute_migration_in_transaction'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1509:in 'Array#each'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1509:in 'ActiveRecord::Migrator#migrate_without_lock'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1454:in 'block in ActiveRecord::Migrator#migrate'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1606:in 'ActiveRecord::Migrator#with_advisory_lock'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1454:in 'ActiveRecord::Migrator#migrate'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1261:in 'ActiveRecord::MigrationContext#up'
+activerecord (8.0.2.1) lib/active_record/migration.rb:1236:in 'ActiveRecord::MigrationContext#migrate'
+activerecord (8.0.2.1) lib/active_record/tasks/database_tasks.rb:270:in 'ActiveRecord::Tasks::DatabaseTasks#migrate'
+activerecord (8.0.2.1) lib/active_record/migration.rb:151:in 'block in <class:PendingMigrationError>'
+activesupport (8.0.2.1) lib/active_support/actionable_error.rb:30:in 'ActiveSupport::ActionableError.dispatch'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:20:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.1) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.1) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.1) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (7.0.3) lib/puma/configuration.rb:299:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (7.0.3) lib/puma/request.rb:101:in 'block in Puma::Request#handle_request'
+puma (7.0.3) lib/puma/thread_pool.rb:346:in 'Puma::ThreadPool#with_force_shutdown'
+puma (7.0.3) lib/puma/request.rb:100:in 'Puma::Request#handle_request'
+puma (7.0.3) lib/puma/server.rb:497:in 'Puma::Server#process_client'
+puma (7.0.3) lib/puma/server.rb:266:in 'block in Puma::Server#run'
+puma (7.0.3) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2025-09-20 10:05:03 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (34.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20250919081752_add_password_digest_to_users.rb
+
+
+):
+  
+activerecord (8.0.2.1) lib/active_record/migration.rb:743:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.2.1) lib/active_record/migration.rb:660:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.2.1) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activerecord (8.0.2.1) lib/active_record/migration.rb:665:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.2.1) lib/active_record/migration.rb:657:in 'Thread::Mutex#synchronize'
+activerecord (8.0.2.1) lib/active_record/migration.rb:657:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.1) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.1) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.1) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (7.0.3) lib/puma/configuration.rb:299:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (7.0.3) lib/puma/request.rb:101:in 'block in Puma::Request#handle_request'
+puma (7.0.3) lib/puma/thread_pool.rb:346:in 'Puma::ThreadPool#with_force_shutdown'
+puma (7.0.3) lib/puma/request.rb:100:in 'Puma::Request#handle_request'
+puma (7.0.3) lib/puma/server.rb:497:in 'Puma::Server#process_client'
+puma (7.0.3) lib/puma/server.rb:266:in 'block in Puma::Server#run'
+puma (7.0.3) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
+DEPRECATION WARNING: The config.web_console.whitelisted_ips is deprecated and will be ignored in future release of web_console. Please use config.web_console.allowed_ips instead. (called from <main> at C:/Users/omara/OneDrive/Skrivebord/DevOps/openapi/config/environment.rb:5)
+  [1m[35m (35.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(737815420147457505) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (35.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (33.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+Migrating to AddPasswordDigestToUsers (20250919081752)
+  [1m[36mTRANSACTION (35.0ms)[0m  [1m[35mBEGIN /*application='Openapi'*/[0m
+  [1m[35m (75.5ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying /*application='Openapi'*/[0m
+  [1m[36mTRANSACTION (34.6ms)[0m  [1m[31mROLLBACK /*application='Openapi'*/[0m
+  [1m[35m (38.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505) /*application='Openapi'*/[0m
+DEPRECATION WARNING: The config.web_console.whitelisted_ips is deprecated and will be ignored in future release of web_console. Please use config.web_console.allowed_ips instead. (called from <main> at C:/Users/omara/OneDrive/Skrivebord/DevOps/openapi/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Load (35.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Started GET "/" for ::1 at 2025-09-20 10:10:24 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (7.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 43.4ms | GC: 0.0ms)
+Completed 200 OK in 3123ms (Views: 131.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-20 10:10:29 +0200
+Started GET "/icon.svg" for ::1 at 2025-09-20 10:10:30 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/icon.svg"):
+  
+Started GET "/icon.png" for ::1 at 2025-09-20 10:10:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+Started GET "/" for ::1 at 2025-09-20 23:50:43 +0200
+Started GET "/login" for ::1 at 2025-09-20 23:50:43 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (10.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Processing by HomeController#index as HTML
+Started GET "/login" for ::1 at 2025-09-20 23:50:48 +0200
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.6ms | GC: 0.0ms)
+Started GET "/" for ::1 at 2025-09-20 23:50:56 +0200
+  Rendered layout layouts/application.html.erb (Duration: 647.0ms | GC: 0.0ms)
+Completed 200 OK in 9701ms (Views: 713.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 4.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | GC: 0.0ms)
+Completed 200 OK in 5973ms (Views: 414.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | GC: 0.0ms)
+Completed 200 OK in 2757ms (Views: 5.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-20 23:51:00 +0200
+Started GET "/login" for ::1 at 2025-09-20 23:51:07 +0200
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 1779ms (Views: 5.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-20 23:51:09 +0200
+Started GET "/login" for ::1 at 2025-09-20 23:51:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 92.1ms | GC: 0.0ms)
+Completed 200 OK in 3087ms (Views: 181.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-20 23:51:44 +0200
+Started POST "/login" for ::1 at 2025-09-20 23:51:50 +0200
+Processing by UsersController#login as */*
+  Parameters: {"username" => "omar", "password" => "[FILTERED]", "user" => {"username" => "omar"}}
+Started POST "/login" for ::1 at 2025-09-20 23:51:53 +0200
+  [1m[36mUser Load (15.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'omar' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:7:in 'UsersController#login'
+Processing by UsersController#login as */*
+  Parameters: {"username" => "omar", "password" => "[FILTERED]", "user" => {"username" => "omar"}}
+Completed 200 OK in 3728ms (Views: 0.5ms | ActiveRecord: 261.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-09-20 23:51:55 +0200
+Started POST "/login" for ::1 at 2025-09-20 23:51:55 +0200
+Processing by HomeController#index as HTML
+Processing by UsersController#login as */*
+  Parameters: {"username" => "omar", "password" => "[FILTERED]", "user" => {"username" => "omar"}}
+  [1m[36mUser Load (71.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'omar' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:7:in 'UsersController#login'
+Completed 200 OK in 5185ms (Views: 0.2ms | ActiveRecord: 71.8ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/" for ::1 at 2025-09-20 23:51:59 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 134.8ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 180.8ms | GC: 0.2ms)
+Completed 200 OK in 6358ms (Views: 239.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+  [1m[36mUser Load (11.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'omar' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:7:in 'UsersController#login'
+Completed 200 OK in 7091ms (Views: 0.4ms | ActiveRecord: 11.9ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/" for ::1 at 2025-09-20 23:52:04 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 9.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | GC: 0.0ms)
+Completed 200 OK in 5091ms (Views: 37.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | GC: 0.0ms)
+Completed 200 OK in 3044ms (Views: 5.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-20 23:52:08 +0200
+Started GET "/" for ::1 at 2025-09-20 23:55:26 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (4.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 90.3ms | GC: 0.0ms)
+Completed 200 OK in 4269ms (Views: 135.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-20 23:55:31 +0200
+Started GET "/login" for ::1 at 2025-09-20 23:55:36 +0200
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | GC: 0.0ms)
+Completed 200 OK in 2456ms (Views: 33.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-20 23:55:39 +0200
+Started POST "/login" for ::1 at 2025-09-20 23:55:46 +0200
+Processing by UsersController#login as */*
+  Parameters: {"username" => "omar", "password" => "[FILTERED]", "user" => {"username" => "omar"}}
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'omar' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:7:in 'UsersController#login'
+Completed 200 OK in 3064ms (Views: 0.6ms | ActiveRecord: 245.0ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/" for ::1 at 2025-09-20 23:55:50 +0200
+Processing by HomeController#index as HTML
+Started POST "/login" for ::1 at 2025-09-20 23:55:51 +0200
+Processing by UsersController#login as */*
+  Parameters: {"username" => "omar", "password" => "[FILTERED]", "user" => {"username" => "omar"}}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | GC: 0.0ms)
+Completed 200 OK in 4004ms (Views: 19.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-20 23:55:55 +0200
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'omar' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:7:in 'UsersController#login'
+Completed 200 OK in 4966ms (Views: 0.3ms | ActiveRecord: 9.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2025-09-20 23:56:04 +0200
+Processing by SessionsController#login as HTML
+Started GET "/logout" for ::1 at 2025-09-20 23:56:05 +0200
+Processing by UsersController#logout as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | GC: 0.0ms)
+Completed 200 OK in 3930ms (Views: 21.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-20 23:56:08 +0200
+Completed 200 OK in 3851ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2025-09-20 23:56:10 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for ::1 at 2025-09-20 23:56:14 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | GC: 0.0ms)
+Completed 200 OK in 2558ms (Views: 6.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-20 23:56:17 +0200
+Started GET "/login" for ::1 at 2025-09-20 23:56:21 +0200
+Processing by SessionsController#login as HTML
+Started GET "/register" for ::1 at 2025-09-20 23:56:23 +0200
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | GC: 0.0ms)
+Completed 200 OK in 2699ms (Views: 11.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/search" for ::1 at 2025-09-20 23:56:24 +0200
+Processing by SessionsController#register as HTML
+Processing by SearchController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 7.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | GC: 0.0ms)
+Completed 200 OK in 3444ms (Views: 411.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | GC: 0.0ms)
+Completed 200 OK in 2688ms (Views: 21.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-20 23:56:30 +0200
+Started GET "/search?q=login" for ::1 at 2025-09-20 23:56:36 +0200
+Processing by SearchController#index as HTML
+  Parameters: {"q" => "login"}
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | GC: 0.0ms)
+Completed 200 OK in 2423ms (Views: 8.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-20 23:56:39 +0200
