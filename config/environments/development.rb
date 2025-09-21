@@ -12,6 +12,9 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  # Allow web console from any IP
+  config.web_console.permissions = "0.0.0.0/0"
+
   # Enable server timing.
   config.server_timing = true
 
