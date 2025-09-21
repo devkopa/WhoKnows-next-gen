@@ -7985,3 +7985,188 @@ Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-
   
 ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
   
+Started GET "/" for ::1 at 2025-09-21 14:23:59 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (34.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 6.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 128.6ms | GC: 0.6ms)
+Completed 200 OK in 4626ms (Views: 163.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/assets/tailwind-7a159ba0.css" for ::1 at 2025-09-21 14:24:05 +0200
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-21 14:24:05 +0200
+Started GET "/" for ::1 at 2025-09-21 14:55:24 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (35.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 3.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 546.0ms | GC: 0.0ms)
+Completed 200 OK in 7301ms (Views: 839.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-21 14:55:36 +0200
+Started GET "/login" for ::1 at 2025-09-21 14:55:46 +0200
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | GC: 0.0ms)
+Completed 200 OK in 2573ms (Views: 112.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-21 14:55:49 +0200
+Started POST "/login" for ::1 at 2025-09-21 14:56:04 +0200
+Processing by UsersController#login as */*
+  Parameters: {"username" => "testing", "password" => "[FILTERED]", "user" => {"username" => "testing"}}
+  [1m[36mUser Load (70.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'testing' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:7:in 'UsersController#login'
+Completed 200 OK in 3206ms (Views: 0.3ms | ActiveRecord: 1371.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2025-09-21 14:56:09 +0200
+Started GET "/" for ::1 at 2025-09-21 14:56:09 +0200
+Processing by HomeController#index as HTML
+Processing by UsersController#login as */*
+  Parameters: {"username" => "testing", "password" => "[FILTERED]", "user" => {"username" => "testing"}}
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | GC: 0.0ms)
+Completed 200 OK in 3707ms (Views: 16.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mUser Load (68.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'testing' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:7:in 'UsersController#login'
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-21 14:56:13 +0200
+Completed 200 OK in 4425ms (Views: 0.3ms | ActiveRecord: 69.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2025-09-21 14:56:21 +0200
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | GC: 0.0ms)
+Completed 200 OK in 1960ms (Views: 6.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-21 14:56:24 +0200
+Started GET "/logout" for ::1 at 2025-09-21 14:59:34 +0200
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2047ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-09-21 14:59:37 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 180.4ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 225.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1537.9ms | GC: 0.0ms)
+Completed 200 OK in 3014ms (Views: 1752.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-21 14:59:41 +0200
+Started GET "/" for ::1 at 2025-09-21 15:02:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (33.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 3.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 184.2ms | GC: 0.2ms)
+Completed 200 OK in 4894ms (Views: 247.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-21 15:02:24 +0200
+Started GET "/login" for ::1 at 2025-09-21 15:02:29 +0200
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 4.0ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | GC: 0.0ms)
+Completed 200 OK in 2390ms (Views: 34.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-21 15:02:32 +0200
+Started POST "/login" for ::1 at 2025-09-21 15:02:39 +0200
+Processing by UsersController#login as */*
+  Parameters: {"username" => "testing", "password" => "[FILTERED]", "user" => {"username" => "testing"}}
+Started POST "/login" for ::1 at 2025-09-21 15:02:42 +0200
+Processing by UsersController#login as */*
+  Parameters: {"username" => "testing", "password" => "[FILTERED]", "user" => {"username" => "testing"}}
+  [1m[36mUser Load (71.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'testing' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:6:in 'UsersController#login'
+Completed 200 OK in 3205ms (Views: 0.5ms | ActiveRecord: 1172.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-09-21 15:02:44 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (342.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'testing' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:6:in 'UsersController#login'
+Completed 200 OK in 4038ms (Views: 0.2ms | ActiveRecord: 342.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-09-21 15:02:47 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 5.0ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | GC: 0.0ms)
+Completed 200 OK in 3168ms (Views: 16.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | GC: 0.0ms)
+Completed 200 OK in 2371ms (Views: 6.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-21 15:02:50 +0200
+Started GET "/login" for ::1 at 2025-09-21 15:02:56 +0200
+Processing by SessionsController#login as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2279ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-09-21 15:02:59 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | GC: 0.0ms)
+Completed 200 OK in 2324ms (Views: 11.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-21 15:03:02 +0200
+Started GET "/register" for ::1 at 2025-09-21 15:03:06 +0200
+Processing by SessionsController#register as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2254ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-09-21 15:03:09 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | GC: 0.0ms)
+Completed 200 OK in 2241ms (Views: 8.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-09-21 15:03:12 +0200

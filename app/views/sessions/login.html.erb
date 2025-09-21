@@ -14,23 +14,23 @@
 
     const handleLogin = async (event) => {
       event.preventDefault();
-      console.log("Login button clicked"); // <-- ADD THIS
+      console.log("Login button clicked");
 
       const res = await fetch("/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
-        credentials: "include" // <-- important
+        credentials: "include"
       });
 
       const data = await res.json();
-      console.log("Server response:", data); // <-- ADD THIS
+      console.log("Server response:", data);
 
       if (res.ok) {
-        console.log("Redirecting to /"); // <-- ADD THIS
-        window.location.href = "/"; // <- actual redirect
+        console.log("Redirecting to /");
+        window.location.href = "/";
       } else {
-        console.log("Login failed"); // <-- ADD THIS
+        console.log("Login failed");
         setMessage(data.message || "Login failed");
       }
     };
