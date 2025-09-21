@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    render json: { message: "Logged out successfully" }
+    redirect_to root_path, notice: "Logged out successfully"
   end
 
   def register
