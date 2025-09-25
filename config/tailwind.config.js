@@ -1,4 +1,3 @@
-// config/tailwind.config.js
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -11,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ...defaultTheme.colors, // include all default Tailwind colors
+        ...defaultTheme.colors,
       },
     },
   },
