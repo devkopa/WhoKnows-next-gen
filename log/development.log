@@ -8170,3 +8170,6 @@ Completed 200 OK in 2241ms (Views: 8.2ms | ActiveRecord: 0.0ms (0 queries, 0 cac
 
 
 Started GET "/assets/tailwindcss" for ::1 at 2025-09-21 15:03:12 +0200
+  [1m[35m (38.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='Openapi'*/[0m
+  [1m[35m (33.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (705.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
