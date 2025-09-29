@@ -9396,3 +9396,9 @@ Completed 200 OK in 706ms (Views: 3.9ms | ActiveRecord: 0.0ms (0 queries, 0 cach
 
 
 Started GET "/assets/tailwindcss" for ::1 at 2025-09-29 19:28:19 +0200
+Started GET "/api-docs/index.html" for ::1 at 2025-09-29 21:10:37 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-09-29 21:10:39 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-09-29 21:10:39 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-09-29 21:10:39 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-09-29 21:10:40 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-09-29 21:10:40 +0200
