@@ -9,7 +9,7 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_DB") { "postgre" } %>
+  database: <%= ENV.fetch("POSTGRES_DB") { "postgres" } %>
 
 test:
   <<: *default
