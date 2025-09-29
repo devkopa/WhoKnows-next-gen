@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  # Health check
-  get "up" => "rails/health#show", as: :rails_health_check
+  # Swagger / OpenAPI
+  mount Rswag::Ui::Engine => "/api-docs"
+  mount Rswag::Api::Engine => "/api-docs"
 
-  # Root
+  get "up" => "rails/health#show", as: :rails_health_check
   root "home#index"
 
   # Authentication
@@ -10,7 +11,10 @@ Rails.application.routes.draw do
   post "api/login", to: "users#login"
   get "/register", to: "sessions#register"
   post "api/register", to: "users#register"
-  get  "/logout", to: "users#logout"
+  get "/logout", to: "users#logout"
+
+  # RESTful Users for Rswag
+  resources :users, only: [ :index, :show, :create ]
 
   # Search
   get "api/search", to: "search#index"

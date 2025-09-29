@@ -2,21 +2,21 @@ default: &default
   adapter: postgresql
   encoding: unicode
   username: <%= ENV.fetch("POSTGRES_USER") { "devkopa" } %>
-  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "Mysecretpassword!" } %>
-  host: devopsserver.postgres.database.azure.com
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "mysecretpassword" } %>
+  host: localhost
   port: 5432
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_DB") { "postgres" } %>
+  database: <%= ENV.fetch("POSTGRES_DB") { "db" } %>
 
 test:
   <<: *default
-  database: postgres
+  database: db
 
 production:
   <<: *default
-  database: postgres
+  database: db
   username: <%= ENV["POSTGRES_USER"] %>
   password: <%= ENV["POSTGRES_PASSWORD"] %>

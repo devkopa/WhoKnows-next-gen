@@ -9,8 +9,8 @@
         <% if session[:user_id].present? %>
           <%= link_to 'Logout', logout_path, class: "py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition" %>
         <% else %>
-          <%= link_to 'Login', api_login_path, class: "py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" %>
-          <%= link_to 'Register', api_register_path, class: "py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition" %>
+          <%= link_to 'Login', login_path, class: "py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" %>
+          <%= link_to 'Register', register_path, class: "py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition" %>
         <% end %>
       </div>
 
