@@ -36,7 +36,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_19_081752) do
     t.text "username"
     t.text "email"
     t.text "password"
-    t.string "password_salt", limit: 255
     t.string "password_digest"
     t.index ["email"], name: "idx_16416_sqlite_autoindex_users_2", unique: true
     t.index ["username"], name: "idx_16416_sqlite_autoindex_users_1", unique: true

@@ -1,0 +1,29 @@
+<div class="min-h-screen bg-blue-50 flex items-center justify-center p-6">
+  <div class="bg-white rounded-xl shadow-lg p-8 max-w-md w-full">
+    <h1 class="text-3xl font-bold text-center text-blue-800 mb-6">Weather Forecast</h1>
+
+    <% if @error.present? %>
+      <p class="text-red-600 text-center font-semibold mb-4"><%= @error %></p>
+    <% else %>
+      <div class="text-center space-y-2 mb-6">
+        <p class="text-lg"><span class="font-semibold">City/State:</span> <%= @city %></p>
+        <p class="text-lg"><span class="font-semibold">Temperature:</span> <%= @temperature %> °C</p>
+        <p class="text-lg"><span class="font-semibold">Condition:</span> <%= @condition.capitalize %></p>
+        <p class="text-lg"><span class="font-semibold">Coordinates: <%= @coord["lat"] %>, <%= @coord["lon"] %></p>
+      </div>
+    <% end %>
+
+    <form method="get" action="/weather" class="flex gap-2 justify-center">
+      <input 
+        type="text" 
+        name="city" 
+        id="city" 
+        placeholder="Enter city" 
+        class="border border-gray-300 rounded-md p-2 flex-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      >
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+        Search
+      </button>
+    </form>
+  </div>
+</div>

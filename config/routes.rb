@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "weather/index"
   # Swagger / OpenAPI
   mount Rswag::Ui::Engine => "/api-docs"
   mount Rswag::Api::Engine => "/api-docs"
@@ -18,4 +19,7 @@ Rails.application.routes.draw do
 
   # Search
   get "api/search", to: "search#index"
+
+  # Weather
+  get "/weather", to: "weather#index"
 end

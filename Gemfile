@@ -76,4 +76,6 @@ gem "rswag-specs"
 
 group :development, :test do
   gem "rspec-rails"
+
+gem "httparty"
 end
