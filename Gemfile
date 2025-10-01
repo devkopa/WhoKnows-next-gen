@@ -78,4 +78,6 @@ group :development, :test do
   gem "rspec-rails"
 
 gem "httparty"
+
+gem 'dotenv-rails'
 end

@@ -10472,3 +10472,47 @@ Completed 200 OK in 1181ms (Views: 32.0ms | ActiveRecord: 0.0ms (0 queries, 0 ca
 
 
 Started GET "/assets/tailwindcss" for ::1 at 2025-09-30 19:55:06 +0200
+Started GET "/" for ::1 at 2025-10-01 20:41:12 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (37.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 25.6ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 13.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 202.6ms | GC: 0.0ms)
+Completed 200 OK in 1436ms (Views: 346.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-10-01 20:41:15 +0200
+Started GET "/icon.svg" for ::1 at 2025-10-01 20:41:18 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/icon.svg"):
+  
+Started GET "/weather" for ::1 at 2025-10-01 20:41:20 +0200
+Started GET "/icon.png" for ::1 at 2025-10-01 20:41:20 +0200
+Processing by WeatherController#index as HTML
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+  Rendering layout layouts/application.html.erb
+  Rendering weather/index.html.erb within layouts/application
+  Rendered weather/index.html.erb within layouts/application (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | GC: 0.0ms)
+Completed 200 OK in 3125ms (Views: 31.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-10-01 20:41:23 +0200
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/weather" for ::1 at 2025-10-01 20:47:32 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (39.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by WeatherController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/index.html.erb within layouts/application
+  Rendered weather/index.html.erb within layouts/application (Duration: 60.7ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 10.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 296.6ms | GC: 0.0ms)
+Completed 200 OK in 7416ms (Views: 378.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
