@@ -10517,3 +10517,5 @@ Completed 200 OK in 7416ms (Views: 378.9ms | ActiveRecord: 0.0ms (0 queries, 0 c
 
 
 Started GET "/assets/tailwindcss" for ::1 at 2025-10-01 20:47:42 +0200
+Started GET "/weather" for ::1 at 2025-10-01 20:53:49 +0200
+Processing by WeatherController#index as HTML
