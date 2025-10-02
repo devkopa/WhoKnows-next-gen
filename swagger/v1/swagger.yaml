@@ -78,30 +78,30 @@ paths:
                 $ref: '#/components/schemas/RequestValidationError'
 
   /api/weather:
-  get:
-    summary: Get current weather for a city/centrum of a state
-    operationId: weather_api_weather_get
-    parameters:
-      - name: city
-        in: query
-        required: true
-        description: Name of the city to fetch weather for
-        schema:
-          type: string
-          example: Copenhagen
-    responses:
-      '200':
-        description: Successful fetch
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/StandardResponse'
-      '422':
-        description: Validation Error
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RequestValidationError'
+    get:
+      summary: Get current weather for a city/centrum of a state
+      operationId: weather_api_weather_get
+      parameters:
+        - name: city
+          in: query
+          required: true
+          description: Name of the city to fetch weather for
+          schema:
+            type: string
+            example: Copenhagen
+      responses:
+        '200':
+          description: Successful fetch
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestValidationError'
 
   /api/register:
     post:

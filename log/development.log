@@ -11538,3 +11538,57 @@ Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-10-02 10:59:26 +0200
 Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-10-02 10:59:26 +0200
 Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-10-02 10:59:26 +0200
 Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-10-02 10:59:26 +0200
+Started GET "/api-docs/index.html" for ::1 at 2025-10-02 11:07:53 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-10-02 11:07:53 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-10-02 11:07:53 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-10-02 11:07:53 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-10-02 11:07:53 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-10-02 11:07:53 +0200
+Started GET "/api-docs/index.html" for ::1 at 2025-10-02 11:09:41 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-10-02 11:09:41 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-10-02 11:09:41 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-10-02 11:09:41 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-10-02 11:09:41 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-10-02 11:09:41 +0200
+Started GET "/api-docs/index.html" for ::1 at 2025-10-02 11:17:36 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-10-02 11:17:37 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-10-02 11:17:37 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-10-02 11:17:37 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-10-02 11:17:37 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-10-02 11:17:37 +0200
+Started GET "/api-docs/index.html" for ::1 at 2025-10-02 11:17:37 +0200
+Started GET "/api-docs/favicon-16x16.png" for ::1 at 2025-10-02 11:17:38 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-10-02 11:17:38 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-10-02 11:17:38 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-10-02 11:17:38 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-10-02 11:17:38 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-10-02 11:17:38 +0200
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/api-docs/index.html" for ::1 at 2025-10-02 11:18:19 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (12.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-10-02 11:18:19 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-10-02 11:18:19 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-10-02 11:18:19 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-10-02 11:18:19 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-10-02 11:18:19 +0200
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/api-docs/index.html" for ::1 at 2025-10-02 11:19:16 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (29.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-10-02 11:19:17 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-10-02 11:19:17 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-10-02 11:19:17 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-10-02 11:19:17 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-10-02 11:19:17 +0200
+Started GET "/api/weather" for ::1 at 2025-10-02 11:19:30 +0200
+Processing by WeatherController#weather as HTML
+Completed 200 OK in 2100ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2025-10-02 11:19:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
