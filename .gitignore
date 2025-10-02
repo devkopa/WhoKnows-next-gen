@@ -36,10 +36,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+<<<<<<< HEAD
+=======
 log/*.log
 
 /log/development.log
 
+>>>>>>> 83ebb3d21b2666e0009f3bcdc42c7d6d92d95ca9
 # typescript
 *.tsbuildinfo
 next-env.d.ts
@@ -48,8 +51,12 @@ next-env.d.ts
 
 
 # dump files
+<<<<<<< HEAD
+.sql
+=======
 .sql
 /app/assets/builds/*
 !/app/assets/builds/.keep
 /app/assets/builds/*
 !/app/assets/builds/.keep
+>>>>>>> 83ebb3d21b2666e0009f3bcdc42c7d6d92d95ca9
