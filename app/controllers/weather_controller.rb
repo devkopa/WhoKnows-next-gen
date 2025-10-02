@@ -2,12 +2,12 @@ class WeatherController < ApplicationController
   include HTTParty
   base_uri "https://api.openweathermap.org/data/2.5"
 
-  def index
+  def weather
     city = params[:city] || "Copenhagen"
     api_key = ENV["OPENWEATHER_API_KEY"]
 
     if api_key.blank?
-      @error = "API key not set"
+      render json: { error: "API key not set" }, status: :unprocessable_entity
       return
     end
 
@@ -15,12 +15,14 @@ class WeatherController < ApplicationController
 
     if response.success?
       data = response.parsed_response
-      @city = data["name"]
-      @temperature = data["main"]["temp"]
-      @condition = data["weather"][0]["description"]
-      @coord = data["coord"]
+      render json: {
+        city: data["name"],
+        temperature: data["main"]["temp"],
+        condition: data["weather"][0]["description"],
+        coordinates: data["coord"]
+      }
     else
-      @error = "Unable to fetch weather for #{city}"
+      render json: { error: "Unable to fetch weather for #{city}" }, status: :bad_request
     end
   end
 end

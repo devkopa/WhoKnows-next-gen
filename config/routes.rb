@@ -22,4 +22,6 @@ Rails.application.routes.draw do
 
   # Weather
   get "/weather", to: "weather#index"
+
+  get "api/weather", to: "weather#weather"
 end

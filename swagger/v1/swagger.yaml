@@ -16,6 +16,30 @@ paths:
               schema:
                 type: string
 
+  /register:
+    get:
+      summary: Serve Register Page
+      operationId: serve_register_page_register_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /login:
+    get:
+      summary: Serve Login Page
+      operationId: serve_login_page_login_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            text/html:
+              schema:
+                type: string
+
   /weather:
     get:
       summary: Serve Weather Page
@@ -27,6 +51,81 @@ paths:
             text/html:
               schema:
                 type: string
+
+  /api/search:
+    get:
+      summary: Search
+      operationId: search_api_search_get
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+            title: Q
+      responses:
+        '200':
+          description: Successful search
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestValidationError'
+
+  /api/weather:
+  get:
+    summary: Get current weather for a city/centrum of a state
+    operationId: weather_api_weather_get
+    parameters:
+      - name: city
+        in: query
+        required: true
+        description: Name of the city to fetch weather for
+        schema:
+          type: string
+          example: Copenhagen
+    responses:
+      '200':
+        description: Successful fetch
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StandardResponse'
+      '422':
+        description: Validation Error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestValidationError'
+
+  /api/register:
+    post:
+      summary: Register
+      operationId: register_api_register_post
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Body_register_api_register_post'
+      responses:
+        '200':
+          description: Successful registration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
 
   /api/login:
     post:
@@ -69,55 +168,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuthResponse'
-
-  /api/register:
-    post:
-      summary: Register
-      operationId: register_api_register_post
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Body_register_api_register_post'
-      responses:
-        '200':
-          description: Successful registration
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AuthResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-
-  /api/search:
-    get:
-      summary: Search
-      operationId: search_api_search_get
-      parameters:
-        - name: q
-          in: query
-          required: true
-          schema:
-            type: string
-            title: Q
-      responses:
-        '200':
-          description: Successful search
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SearchResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RequestValidationError'
 
 components:
   schemas:
