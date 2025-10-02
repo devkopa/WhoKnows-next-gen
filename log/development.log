@@ -11509,3 +11509,32 @@ puma (7.0.3) lib/puma/server.rb:266:in 'block in Puma::Server#run'
 puma (7.0.3) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
 [dotenv] Set [36mOPENWEATHER_API_KEY[0m
 [dotenv] Loaded [33m.env[0m
+Started GET "/" for ::1 at 2025-10-02 10:59:20 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (11.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | GC: 0.0ms)
+Completed 200 OK in 857ms (Views: 25.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwind-7a159ba0.css" for ::1 at 2025-10-02 10:59:21 +0200
+Started GET "/assets/application.tailwind-27bfd27e.css" for ::1 at 2025-10-02 10:59:21 +0200
+Unable to resolve '/font/android_7.ttf' for missing asset 'font/android_7.ttf' in application.tailwind.css
+Started GET "/assets/tailwindcss" for ::1 at 2025-10-02 10:59:22 +0200
+Started GET "/icon.svg" for ::1 at 2025-10-02 10:59:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/icon.svg"):
+  
+Started GET "/icon.png" for ::1 at 2025-10-02 10:59:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+Started GET "/api-docs/index.html" for ::1 at 2025-10-02 10:59:26 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-10-02 10:59:26 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-10-02 10:59:26 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-10-02 10:59:26 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-10-02 10:59:26 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-10-02 10:59:26 +0200
