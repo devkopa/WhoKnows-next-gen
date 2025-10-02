@@ -14357,3 +14357,4 @@ Processing by Api::SearchController#index as HTML
 Completed 200 OK in 587ms (Views: 128.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/assets/tailwindcss" for ::1 at 2025-10-02 13:44:59 +0200
