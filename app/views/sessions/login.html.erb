@@ -1,0 +1,47 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+  <div id="login-form" class="w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8"></div>
+</div>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script>
+  const e = React.createElement;
+
+  function LoginForm() {
+    const [username, setUsername] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [message, setMessage] = React.useState("");
+
+    const handleLogin = async (event) => {
+      event.preventDefault();
+      console.log("Login button clicked");
+
+      const res = await fetch("api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+        credentials: "include"
+      });
+
+      const data = await res.json();
+      console.log("Server response:", data);
+
+      if (res.ok) {
+        console.log("Redirecting to /");
+        window.location.href = "/";
+      } else {
+        console.log("Login failed");
+        setMessage(data.message || "Login failed");
+      }
+    };
+
+    return e("form", { onSubmit: handleLogin, className: "flex flex-col gap-4" },
+      e("input", { type: "text", placeholder: "Username", value: username, onChange: (ev) => setUsername(ev.target.value), className: "px-4 py-2 rounded border" }),
+      e("input", { type: "password", placeholder: "Password", value: password, onChange: (ev) => setPassword(ev.target.value), className: "px-4 py-2 rounded border" }),
+      e("button", { type: "submit", className: "bg-blue-600 text-white py-2 rounded" }, "Login"),
+      message && e("p", { className: "text-red-600 mt-2" }, message)
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById("login-form")).render(e(LoginForm));
+</script>
