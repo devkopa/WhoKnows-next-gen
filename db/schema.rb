@@ -14,16 +14,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_19_081752) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
-  create_table "_prisma_migrations", id: { type: :string, limit: 36 }, force: :cascade do |t|
-    t.string "checksum", limit: 64, null: false
-    t.timestamptz "finished_at"
-    t.string "migration_name", limit: 255, null: false
-    t.text "logs"
-    t.timestamptz "rolled_back_at"
-    t.timestamptz "started_at", default: -> { "now()" }, null: false
-    t.integer "applied_steps_count", default: 0, null: false
-  end
-
   create_table "pages", primary_key: "title", id: :text, force: :cascade do |t|
     t.text "url"
     t.text "language", default: "en"
