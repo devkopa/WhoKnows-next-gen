@@ -11592,3 +11592,15 @@ ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   
 [dotenv] Set [36mOPENWEATHER_API_KEY[0m
 [dotenv] Loaded [33m.env[0m
+Started GET "/api/weather" for ::1 at 2025-10-02 11:20:56 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (14.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by WeatherController#weather as HTML
+Completed 200 OK in 914ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2025-10-02 11:20:58 +0200
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2025-10-02 11:20:58 +0200
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2025-10-02 11:20:58 +0200
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2025-10-02 11:20:58 +0200
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2025-10-02 11:20:58 +0200
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2025-10-02 11:20:58 +0200
