@@ -79,7 +79,7 @@ paths:
 
   /api/weather:
     get:
-      summary: Get current weather for a city/centrum of a state
+      summary: Get current weather JSON data
       operationId: weather_api_weather_get
       parameters:
         - name: city
