@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "weather/index"
   # Swagger / OpenAPI
   mount Rswag::Ui::Engine => "/api-docs"
   mount Rswag::Api::Engine => "/api-docs"
@@ -9,19 +8,19 @@ Rails.application.routes.draw do
 
   # Authentication
   get "/login", to: "sessions#login"
-  post "api/login", to: "users#login"
   get "/register", to: "sessions#register"
-  post "api/register", to: "users#register"
   get "/logout", to: "users#logout"
 
   # RESTful Users for Rswag
   resources :users, only: [ :index, :show, :create ]
 
-  # Search
-  get "api/search", to: "search#index"
-
   # Weather
   get "/weather", to: "weather#index"
 
-  get "api/weather", to: "weather#weather"
+  namespace :api do
+    get '/weather', to: 'weather#show'
+    post "/register", to: "users#register"
+    post "/login", to: "users#login"
+    get "/search", to: "search#index"
+  end
 end
