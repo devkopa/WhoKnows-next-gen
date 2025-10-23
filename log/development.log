@@ -14545,3 +14545,153 @@ Completed 200 OK in 1122ms (Views: 23.3ms | ActiveRecord: 0.0ms (0 queries, 0 ca
 
 
 Started GET "/assets/tailwindcss" for ::1 at 2025-10-02 19:43:40 +0200
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for ::1 at 2025-10-23 13:05:03 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (6.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  
+SyntaxError (C:/Users/omara/OneDrive/Skrivebord/DevOps/openapi/config/routes.rb:17: syntax errors found
+  [2m15 | [m  resources :users, only: [ :index, :show, :create ]
+  [2m16 | [m
+[1;31m> [m[2m17 | [m  C:\Users\omara\OneDrive\Skrivebord\DevOps\openapi\config\deploy.yml
+  [2m   | [m    [1;31m^[m unexpected backslash, ignoring it
+  [2m   | [m          [1;31m^[m unexpected backslash, ignoring it
+  [2m   | [m           [1;31m^~~~~[m unexpected local variable or method, expecting end-of-input
+  [2m   | [m                [1;31m^[m unexpected backslash, ignoring it
+  [2m   | [m                         [1;31m^[m unexpected backslash, ignoring it
+  [2m   | [m                                    [1;31m^[m unexpected backslash, ignoring it
+  [2m   | [m                                           [1;31m^[m unexpected backslash, ignoring it
+  [2m   | [m                                                   [1;31m^[m unexpected backslash, ignoring it
+  [2m   | [m                                                          [1;31m^[m unexpected backslash, ignoring it
+  [2m18 | [m  # Weather
+  [2m19 | [m  get "/weather", to: "weather#index"
+):
+  
+config/routes.rb:17: syntax errors found
+Started GET "/favicon.ico" for ::1 at 2025-10-23 13:05:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/weather" for ::1 at 2025-10-23 13:05:57 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/weather"):
+  
+Started GET "/" for ::1 at 2025-10-23 13:06:22 +0200
+Processing by HomeController#index as HTML
+Started GET "/" for ::1 at 2025-10-23 13:06:22 +0200
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 30.2ms | GC: 0.0ms)
+Completed 200 OK in 2185ms (Views: 39.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-10-23 13:06:25 +0200
+Started GET "/" for ::1 at 2025-10-23 13:06:25 +0200
+Processing by HomeController#index as HTML
+Processing by HomeController#index as HTML
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 14.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 13.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 82.8ms | GC: 0.0ms)
+Completed 200 OK in 3543ms (Views: 129.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-10-23 13:06:28 +0200
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | GC: 0.0ms)
+Completed 200 OK in 4064ms (Views: 16.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | GC: 0.0ms)
+Completed 200 OK in 4084ms (Views: 23.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-10-23 13:06:29 +0200
+Started GET "/" for ::1 at 2025-10-23 13:06:29 +0200
+Processing by HomeController#index as HTML
+Processing by HomeController#index as HTML
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | GC: 0.0ms)
+Completed 200 OK in 2962ms (Views: 19.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | GC: 0.0ms)
+Completed 200 OK in 2768ms (Views: 27.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 2742ms (Views: 3.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/application.tailwind-4613a692.css" for ::1 at 2025-10-23 13:06:32 +0200
+Unable to resolve '/font/android_7.ttf' for missing asset 'font/android_7.ttf' in application.tailwind.css
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for ::1 at 2025-10-23 13:06:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+Started GET "/" for ::1 at 2025-10-23 13:06:53 +0200
+Processing by HomeController#index as HTML
+Started GET "/" for ::1 at 2025-10-23 13:06:54 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 13.0ms | GC: 0.0ms)
+  Rendered home/index.html.erb within layouts/application (Duration: 9.1ms | GC: 0.0ms)
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 4.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 158.0ms | GC: 0.0ms)
+Completed 200 OK in 4030ms (Views: 258.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendered layouts/_navigation.html.erb (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 97.4ms | GC: 0.0ms)
+Completed 200 OK in 5647ms (Views: 98.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendered layouts/_navigation.html.erb (Duration: 5.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 177.3ms | GC: 0.0ms)
+Completed 200 OK in 6083ms (Views: 265.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwind-6bc3209e.css" for ::1 at 2025-10-23 13:06:59 +0200
+Started GET "/assets/tailwindcss" for ::1 at 2025-10-23 13:06:59 +0200
+Started GET "/icon.svg" for ::1 at 2025-10-23 13:07:02 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/icon.svg"):
+  
+Started GET "/icon.png" for ::1 at 2025-10-23 13:07:02 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
