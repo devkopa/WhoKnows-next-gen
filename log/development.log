@@ -15537,3 +15537,5 @@ Completed 200 OK in 1012ms (Views: 6.0ms | ActiveRecord: 12.4ms (1 query, 0 cach
 
 
 Started GET "/assets/tailwindcss" for ::1 at 2025-11-16 15:28:09 +0100
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
