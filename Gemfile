@@ -74,10 +74,10 @@ gem "rswag-api"
 gem "rswag-ui"
 gem "rswag-specs"
 
-group :development, :test do
-  gem "rspec-rails"
-
 gem "httparty"
+
+group :development, :test do
+gem "rspec-rails"
 
 gem 'dotenv-rails'
 end
