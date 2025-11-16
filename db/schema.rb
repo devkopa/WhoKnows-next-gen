@@ -14,6 +14,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_19_081752) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
+  create_table "_prisma_migrations", id: { type: :string, limit: 36 }, force: :cascade do |t|
+    t.string "checksum", limit: 64, null: false
+    t.timestamptz "finished_at"
+    t.string "migration_name", limit: 255, null: false
+    t.text "logs"
+    t.timestamptz "rolled_back_at"
+    t.timestamptz "started_at", default: -> { "now()" }, null: false
+    t.integer "applied_steps_count", default: 0, null: false
+  end
+
   create_table "pages", primary_key: "title", id: :text, force: :cascade do |t|
     t.text "url"
     t.text "language", default: "en"
@@ -25,8 +35,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_19_081752) do
   create_table "users", force: :cascade do |t|
     t.text "username"
     t.text "email"
-    t.text "password"
     t.string "password_digest"
+    t.string "password", limit: 255
     t.index ["email"], name: "idx_16416_sqlite_autoindex_users_2", unique: true
     t.index ["username"], name: "idx_16416_sqlite_autoindex_users_1", unique: true
   end

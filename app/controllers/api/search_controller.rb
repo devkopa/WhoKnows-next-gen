@@ -1,24 +1,38 @@
 module Api
   class SearchController < ApplicationController
+    # Brug simpel URL, da route helpers ikke altid virker i API namespace
+    BASE_PAGE_URL = "/pages/"
+
     def index
-      query = params[:q].to_s.downcase
+      query = params[:q].to_s.strip
 
-      routes = Rails.application.routes.routes.map do |route|
-        next unless route.verb.match?(/^GET$/)
-        path = route.path.spec.to_s.gsub("(.:format)", "")
-        { path: path, name: route.name.to_s }
-      end.compact
+      @results = if query.present?
+        # Split query på mellemrum for at understøtte flere søgeord
+        terms = query.split
 
-      results = routes.select do |r|
-        r[:path].downcase.include?(query) || r[:name].to_s.downcase.include?(query)
-      end
+        # Byg en SQL-condition for hvert ord, både title og content
+        conditions = terms.map do |term|
+          "(title ILIKE :t OR content ILIKE :t)"
+        end.join(" AND ")
 
-      @results = results.map do |r|
-        { title: r[:name].presence || r[:path], url: r[:path], content: "Page: #{r[:path]}" }
+        # Parametre til query
+        values = { t: "%#{terms.join('%')}%" }
+
+        # Søg i pages-tabellen
+        Page.where(conditions, values)
+            .map do |page|
+          {
+            title: page.title,
+            url: "#{BASE_PAGE_URL}#{page.id}",
+            content: page.content.truncate(150)
+          }
+        end
+      else
+        []
       end
 
       respond_to do |format|
-        format.html { render template: "search/index" }   # 👈 peger på app/views/search/index.html.erb
+        format.html { render template: "search/index" }
         format.json { render json: @results }
       end
     end
