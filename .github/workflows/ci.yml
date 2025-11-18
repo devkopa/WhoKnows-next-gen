@@ -65,22 +65,19 @@ jobs:
     services:
       postgres:
         image: postgres:15
-        ports:
-          - 5432:5432
         env:
           POSTGRES_USER: devkopa
           POSTGRES_PASSWORD: mysecretpassword
           POSTGRES_DB: db
+        ports:
+          - 5432:5432
         options: >-
-          --health-cmd "pg_isready -U devkopa"
-          --health-interval 10s
-          --health-timeout 5s
+          --health-cmd "pg_isready -U devkopa" 
+          --health-interval 10s 
+          --health-timeout 5s 
           --health-retries 5
 
     steps:
-      - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config google-chrome-stable
-
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -93,7 +90,18 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Setup and migrate test DB
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install JS dependencies
+        run: npm install
+
+      - name: Install system packages
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config google-chrome-stable
+
+      - name: Prepare test database
         env:
           POSTGRES_USER: devkopa
           POSTGRES_PASSWORD: mysecretpassword
