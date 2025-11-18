@@ -19485,3 +19485,6 @@ Started GET "/icon.svg" for ::1 at 2025-11-18 19:13:48 +0100
 ActionController::RoutingError (No route matches [GET] "/icon.svg"):
   
 Started GET "/icon.png" for ::1 at 2025-11-18 19:13:48 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
