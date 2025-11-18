@@ -19488,3 +19488,5 @@ Started GET "/icon.png" for ::1 at 2025-11-18 19:13:48 +0100
   
 ActionController::RoutingError (No route matches [GET] "/icon.png"):
   
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
