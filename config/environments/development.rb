@@ -12,6 +12,8 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  config.hosts << "devkopa.dk"
+
   # Allow web console from any IP
   config.web_console.permissions = "0.0.0.0/0"
 

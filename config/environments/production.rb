@@ -60,6 +60,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "example.com" }
 
   config.hosts << "20.251.217.144"
+  config.hosts << "devkopa.dk"
+  config.hosts << "www.devkopa.dk"
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {
