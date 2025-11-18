@@ -70,7 +70,7 @@ gem "cssbundling-rails"
 
 gem "rubocop"
 
-gem 'importmap-rails'
+gem "importmap-rails"
 
 gem "rswag-api"
 gem "rswag-ui"
@@ -81,5 +81,5 @@ gem "rspec-rails"
 
 gem "httparty"
 
-gem 'dotenv-rails'
+gem "dotenv-rails"
 end

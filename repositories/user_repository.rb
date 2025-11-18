@@ -1,6 +1,5 @@
 class UserRepository
   class << self
-
     def get_user_id(username)
       user = User.find_by(username: username)
       user&.id
@@ -9,7 +8,7 @@ class UserRepository
     def add_user(attributes)
       user = User.new(attributes)
       if user.save
-        { id: user.id, username: user.username}
+        { id: user.id, username: user.username }
       else
         raise StandardError.new(user.errors.full_messages.join(", "))
       end

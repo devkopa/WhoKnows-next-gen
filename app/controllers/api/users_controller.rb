@@ -1,6 +1,6 @@
 module Api
   class UsersController < ApplicationController
-    skip_before_action :verify_authenticity_token, only: [:login, :register]
+    skip_before_action :verify_authenticity_token, only: [ :login, :register ]
 
     # POST /api/login
     def login

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "/weather", to: "weather#index"
 
   namespace :api do
-    get '/weather', to: 'weather#show'
+    get "/weather", to: "weather#show"
     post "/register", to: "users#register"
     post "/login", to: "users#login"
     get "/search", to: "search#index"

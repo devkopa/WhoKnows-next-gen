@@ -11,7 +11,7 @@ class UserService
         if get_user_id(params[:username])
             raise "Username already exists"
         end
-    
+
         user = User.new(
             username: params[:username],
             password: params[:password]
