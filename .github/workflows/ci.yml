@@ -27,6 +27,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Install gems
+        run: bundle install --jobs 4 --retry 3
+
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: bin/brakeman --no-pager
 
@@ -51,7 +54,10 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Scan for security vulnerabilities in JavaScript dependencies
+      - name: Install gems
+        run: bundle install --jobs 4 --retry 3
+
+      - name: Scan for JS vulnerabilities
         run: |
           if [ -f bin/importmap ]; then
             bin/importmap audit
@@ -80,11 +86,29 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Install gems
+        run: bundle install --jobs 4 --retry 3
+
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
   test:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: devkopa
+          POSTGRES_PASSWORD: mysecretpassword
+          POSTGRES_DB: db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - name: Install packages
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config google-chrome-stable dos2unix
@@ -106,9 +130,16 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Install gems
+        run: bundle install --jobs 4 --retry 3
+
       - name: Run tests
         env:
           RAILS_ENV: test
+          POSTGRES_USER: devkopa
+          POSTGRES_PASSWORD: mysecretpassword
+          POSTGRES_HOST: localhost
+          POSTGRES_DB: db
         run: bin/rails db:test:prepare test test:system
 
       - name: Keep screenshots from failed system tests
