@@ -12,7 +12,9 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  config.hosts << "20.251.217.144"
   config.hosts << "devkopa.dk"
+  config.hosts << "www.devkopa.dk"
 
   # Allow web console from any IP
   config.web_console.permissions = "0.0.0.0/0"
