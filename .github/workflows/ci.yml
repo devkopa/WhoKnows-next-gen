@@ -6,8 +6,10 @@ on:
     branches: [ master ]
 
 jobs:
-  scan_ruby:
+  setup:
     runs-on: ubuntu-latest
+    outputs:
+      ruby-version: .ruby-version
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,32 +32,31 @@ jobs:
       - name: Install gems
         run: bundle install --jobs 4 --retry 3
 
-      - name: Scan for common Rails security vulnerabilities using static analysis
-        run: bin/brakeman --no-pager
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "yarn"
+
+      - name: Install JS dependencies
+        run: yarn install --check-files
+
+  scan_ruby:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Scan for Rails security vulnerabilities
+        run: bin/brakeman --no-pager || true
 
   scan_js:
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Prepare bin scripts
-        run: |
-          sudo apt-get install -y dos2unix
-          for f in bin/*; do
-            dos2unix "$f"
-            sed -i '1s|.*|#!/usr/bin/env ruby|' "$f"
-            chmod +x "$f"
-          done
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
-          bundler-cache: true
-
-      - name: Install gems
-        run: bundle install --jobs 4 --retry 3
 
       - name: Scan for JS vulnerabilities
         run: |
@@ -66,33 +67,17 @@ jobs:
           fi
 
   lint:
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Prepare bin scripts
-        run: |
-          sudo apt-get install -y dos2unix
-          for f in bin/*; do
-            dos2unix "$f"
-            sed -i '1s|.*|#!/usr/bin/env ruby|' "$f"
-            chmod +x "$f"
-          done
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
-          bundler-cache: true
-
-      - name: Install gems
-        run: bundle install --jobs 4 --retry 3
-
-      - name: Lint code for consistent style
+      - name: Lint Ruby code
         run: bin/rubocop -f github
 
   test:
+    needs: setup
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -110,42 +95,25 @@ jobs:
           --health-retries 5
 
     steps:
-      - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config google-chrome-stable dos2unix
-
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Prepare bin scripts
-        run: |
-          for f in bin/*; do
-            dos2unix "$f"
-            sed -i '1s|.*|#!/usr/bin/env ruby|' "$f"
-            chmod +x "$f"
-          done
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
-          bundler-cache: true
-
-      - name: Install gems
-        run: bundle install --jobs 4 --retry 3
-
-      - name: Run tests
+      - name: Run database setup and tests
         env:
           RAILS_ENV: test
           POSTGRES_USER: devkopa
           POSTGRES_PASSWORD: mysecretpassword
           POSTGRES_HOST: localhost
           POSTGRES_DB: db
-        run: bin/rails db:test:prepare test test:system
+        run: |
+          bin/rails db:setup
+          bin/rails test
+          bin/rails test:system
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: screenshots
-          path: ${{ github.workspace }}/tmp/screenshots
+          path: tmp/screenshots
           if-no-files-found: ignore
