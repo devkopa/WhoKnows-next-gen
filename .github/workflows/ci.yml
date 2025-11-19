@@ -78,6 +78,20 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: devkopa
+          POSTGRES_PASSWORD: mysecretpassword
+          POSTGRES_DB: db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U devkopa"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Install packages
@@ -98,9 +112,18 @@ jobs:
       - name: Fix Windows shebangs in binstubs
         run: sed -i '1 s/ruby.exe/ruby/' bin/*
 
+      - name: Wait for Postgres
+        run: |
+          until pg_isready -h localhost -p 5432 -U devkopa; do sleep 1; done
+
       - name: Run tests
         env:
           RAILS_ENV: test
+          POSTGRES_USER: devkopa
+          POSTGRES_PASSWORD: mysecretpassword
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
+          POSTGRES_DB: db
         run: bin/rails db:test:prepare test test:system
 
       - name: Keep screenshots from failed system tests
