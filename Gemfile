@@ -68,8 +68,6 @@ end
 
 gem "rubocop"
 
-gem "importmap-rails"
-
 gem "rswag-api"
 gem "rswag-ui"
 gem "rswag-specs"

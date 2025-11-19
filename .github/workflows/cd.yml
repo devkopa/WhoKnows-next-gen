@@ -27,15 +27,34 @@ jobs:
 
       - name: Deploy to Azure VM
         run: |
-            ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
+          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
+            set -e
+
+            # Skift til app-mappen
             cd ${{ secrets.AZURE_VM_APP_PATH }}
+
+            # Nulstil til master branch
             git fetch origin master
             git reset --hard origin/master
             git clean -fd
-            bundle config set --local deployment 'true'
-            bundle config set --local without 'development test'
-            bundle install
+
+            # Bundler version match
+            gem install bundler -v 2.7.2
+            bundle _2.7.2_ config set --local deployment 'true'
+            bundle _2.7.2_ config set --local without 'development test'
+
+            # Installér gems
+            bundle _2.7.2_ install
+
+            # Fix Windows shebangs
+            sed -i '1 s/ruby.exe/ruby/' bin/*
+
+            # Sørg for execute permissions
             chmod +x bin/rails
+
+            # Kør database migrations
             bin/rails db:migrate RAILS_ENV=production
-            sudo systemctl restart myapp.service
-            EOF
+
+            # Genstart app-service (ingen sudo password)
+            sudo systemctl restart whoknows-next-gen.service
+          EOF
