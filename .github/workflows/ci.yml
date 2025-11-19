@@ -26,6 +26,9 @@ jobs:
       - name: Fix bin permissions
         run: chmod +x bin/*
 
+      - name: Fix Windows shebangs in binstubs
+        run: sed -i '1 s/ruby.exe/ruby/' bin/*
+
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: bin/brakeman --no-pager
 
@@ -45,6 +48,9 @@ jobs:
       - name: Fix bin permissions
         run: chmod +x bin/*
 
+      - name: Fix Windows shebangs in binstubs
+        run: sed -i '1 s/ruby.exe/ruby/' bin/*
+
       - name: Scan for security vulnerabilities in JavaScript dependencies
         run: bin/importmap audit
 
@@ -63,6 +69,9 @@ jobs:
 
       - name: Fix bin permissions
         run: chmod +x bin/*
+
+      - name: Fix Windows shebangs in binstubs
+        run: sed -i '1 s/ruby.exe/ruby/' bin/*
 
       - name: Lint code for consistent style
         run: bin/rubocop -f github
@@ -85,6 +94,9 @@ jobs:
 
       - name: Fix bin permissions
         run: chmod +x bin/*
+
+      - name: Fix Windows shebangs in binstubs
+        run: sed -i '1 s/ruby.exe/ruby/' bin/*
 
       - name: Run tests
         env:
