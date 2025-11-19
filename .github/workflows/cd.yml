@@ -30,17 +30,27 @@ jobs:
           ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             set -e
 
+            # Load rbenv so we use Ruby 3.4.5
+            export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+            eval "$(rbenv init -)"
+
             # Skift til app-mappen
             cd ${{ secrets.AZURE_VM_APP_PATH }}
 
-            # Opdater repo
+            # Nulstil til master branch
             git fetch origin master
             git reset --hard origin/master
             git clean -fd
 
+            # Fix Windows shebangs
+            sed -i '1 s|ruby.exe|'"$HOME/.rbenv/shims/ruby"'|' bin/*
+
+            # Sørg for execute permissions
+            chmod +x bin/rails
+
             # Kør database migrations
             bin/rails db:migrate RAILS_ENV=production
 
-            # Genstart app-service
+            # Genstart app-service (ingen sudo password)
             sudo systemctl restart whoknows-next-gen.service
           EOF
