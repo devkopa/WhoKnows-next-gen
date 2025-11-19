@@ -37,7 +37,7 @@ jobs:
             # Skift til app-mappen
             cd ${{ secrets.AZURE_VM_APP_PATH }}
 
-            # Nulstil til master branch
+            # Opdater repo
             git fetch origin master
             git reset --hard origin/master
             git clean -fd
@@ -47,9 +47,6 @@ jobs:
 
             # Sørg for execute permissions
             chmod +x bin/rails
-
-            # Kør database migrations
-            bin/rails db:migrate RAILS_ENV=production
 
             # Genstart app-service (ingen sudo password)
             sudo systemctl restart whoknows-next-gen.service
