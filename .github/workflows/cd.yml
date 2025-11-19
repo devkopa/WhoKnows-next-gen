@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up SSH key
-        uses: webfactory/ssh-agent@v0.8.1
+        uses: webfactory/ssh-agent@v0.8.0
         with:
           ssh-private-key: ${{ secrets.AZURE_VM_SSH_KEY }}
 
@@ -25,6 +25,8 @@ jobs:
           ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             cd ${{ secrets.AZURE_VM_APP_PATH }}
             git pull origin master
+            bundle config set --local deployment 'true'
+            bundle config set --local without 'development test'
             bundle install
             bin/rails db:migrate RAILS_ENV=production
             systemctl restart myapp.service
