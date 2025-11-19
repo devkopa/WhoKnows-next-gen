@@ -14,81 +14,60 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
-
-      - name: Fix bin permissions
-        run: chmod +x bin/*
-
-      - name: Fix Windows shebangs in binstubs
-        run: sed -i '1 s/ruby.exe/ruby/' bin/*
-
-      - name: Scan for common Rails security vulnerabilities using static analysis
-        run: bin/brakeman --no-pager
+      - run: chmod +x bin/*
+      - run: sed -i '1 s/ruby.exe/ruby/' bin/*
+      - run: bin/brakeman --no-pager
 
   scan_js:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
-
-      - name: Fix bin permissions
-        run: chmod +x bin/*
-
-      - name: Fix Windows shebangs in binstubs
-        run: sed -i '1 s/ruby.exe/ruby/' bin/*
-
-      - name: Scan for security vulnerabilities in JavaScript dependencies
-        run: bin/importmap audit
+      - run: chmod +x bin/*
+      - run: sed -i '1 s/ruby.exe/ruby/' bin/*
+      - run: bin/importmap audit
 
   lint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
-
-      - name: Fix bin permissions
-        run: chmod +x bin/*
-
-      - name: Fix Windows shebangs in binstubs
-        run: sed -i '1 s/ruby.exe/ruby/' bin/*
-
-      - name: Lint code for consistent style
-        run: bin/rubocop -f github
+      - run: chmod +x bin/*
+      - run: sed -i '1 s/ruby.exe/ruby/' bin/*
+      - run: bin/rubocop -f github
 
   test:
     runs-on: ubuntu-latest
+    env:
+      POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+      POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
     services:
       postgres:
         image: postgres:18
         env:
-          POSTGRES_USER: devkopa
-          POSTGRES_PASSWORD: mysecretpassword
-          POSTGRES_DB: db
+          POSTGRES_USER: testuser
+          POSTGRES_PASSWORD: testpass
+          POSTGRES_DB: testdb
         ports:
           - 5432:5432
         options: >-
-          --health-cmd "pg_isready -U devkopa"
+          --health-cmd "pg_isready -U testuser"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -97,37 +76,22 @@ jobs:
       - name: Install packages
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config google-chrome-stable
 
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
-
-      - name: Fix bin permissions
-        run: chmod +x bin/*
-
-      - name: Fix Windows shebangs in binstubs
-        run: sed -i '1 s/ruby.exe/ruby/' bin/*
+      - run: chmod +x bin/*
+      - run: sed -i '1 s/ruby.exe/ruby/' bin/*
 
       - name: Wait for Postgres
         run: |
-          until pg_isready -h localhost -p 5432 -U devkopa; do sleep 1; done
+          until pg_isready -h $POSTGRES_HOST -p $POSTGRES_PORT -U $POSTGRES_USER; do sleep 1; done
 
       - name: Run tests
-        env:
-          RAILS_ENV: test
-          POSTGRES_USER: devkopa
-          POSTGRES_PASSWORD: mysecretpassword
-          POSTGRES_HOST: localhost
-          POSTGRES_PORT: 5432
-          POSTGRES_DB: db
         run: bin/rails db:test:prepare test test:system
 
-      - name: Keep screenshots from failed system tests
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: screenshots
