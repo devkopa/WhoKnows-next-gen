@@ -27,12 +27,15 @@ jobs:
 
       - name: Deploy to Azure VM
         run: |
-          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
+            ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             cd ${{ secrets.AZURE_VM_APP_PATH }}
-            git pull origin master
+            git fetch origin master
+            git reset --hard origin/master
+            git clean -fd
             bundle config set --local deployment 'true'
             bundle config set --local without 'development test'
             bundle install
+            chmod +x bin/rails
             bin/rails db:migrate RAILS_ENV=production
-            systemctl restart myapp.service
-          EOF
+            sudo systemctl restart myapp.service
+            EOF
