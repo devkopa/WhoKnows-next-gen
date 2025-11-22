@@ -19650,3 +19650,192 @@ Migrating to RemoveDeviseColumnsFromUsers (20251122124653)
   [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
   [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(7853400853573209480) /*application='Openapi'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/login" for ::1 at 2025-11-22 13:52:08 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 40.4ms | GC: 0.0ms)
+Completed 200 OK in 2969ms (Views: 99.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-22 13:52:11 +0100
+Started GET "/register" for ::1 at 2025-11-22 13:52:14 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | GC: 0.0ms)
+Completed 200 OK in 1247ms (Views: 11.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-22 13:52:16 +0100
+Started POST "/api/register" for ::1 at 2025-11-22 13:52:29 +0100
+Processing by Api::UsersController#register as */*
+  Parameters: {"username" => "Oma", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "user" => {"username" => "Oma", "email" => "[FILTERED]", "password" => "[FILTERED]"}}
+Completed 500 Internal Server Error in 1594ms (ActiveRecord: 121.6ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method 'password_digest=' for an instance of User):
+  
+app/controllers/api/users_controller.rb:21:in 'Api::UsersController#register'
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for ::1 at 2025-11-22 13:54:01 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 3.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 37.4ms | GC: 0.0ms)
+Completed 200 OK in 1837ms (Views: 51.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-22 13:54:03 +0100
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mSET search_path TO public /*application='Openapi'*/[0m
+  [1m[35m (5105.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "db" /*application='Openapi'*/[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/login" for ::1 at 2025-11-22 14:08:00 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | GC: 0.0ms)
+Completed 200 OK in 2982ms (Views: 67.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-22 14:08:04 +0100
+Started GET "/weather" for ::1 at 2025-11-22 14:08:06 +0100
+Processing by WeatherController#index as HTML
+Started GET "/register" for ::1 at 2025-11-22 14:08:07 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/index.html.erb within layouts/application
+  Rendered weather/index.html.erb within layouts/application (Duration: 4.3ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | GC: 0.0ms)
+Completed 200 OK in 1593ms (Views: 24.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 16.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 53.2ms | GC: 0.0ms)
+Completed 200 OK in 1504ms (Views: 66.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-22 14:08:09 +0100
+Started POST "/api/register" for ::1 at 2025-11-22 14:08:19 +0100
+Processing by Api::UsersController#register as */*
+  Parameters: {"username" => "Omar", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "user" => {"username" => "Omar", "email" => "[FILTERED]", "password" => "[FILTERED]"}}
+Completed 500 Internal Server Error in 1554ms (ActiveRecord: 116.3ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method 'password_digest=' for an instance of User):
+  
+app/controllers/api/users_controller.rb:21:in 'Api::UsersController#register'
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mSET search_path TO public /*application='Openapi'*/[0m
+  [1m[35m (100.4ms)[0m  [1m[35mCREATE DATABASE "db" ENCODING = 'unicode' /*application='Openapi'*/[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mSET search_path TO public /*application='Openapi'*/[0m
+  [1m[35m (89.9ms)[0m  [1m[35mCREATE DATABASE "db" ENCODING = 'unicode' /*application='Openapi'*/[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mUser Count (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*application='Openapi'*/[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*application='Openapi'*/[0m
+  [1m[35m (6.6ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying /*application='Openapi'*/[0m
+  [1m[35m (4.6ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "encrypted_password" /*application='Openapi'*/[0m
+  [1m[35m (5.2ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "reset_password_token" /*application='Openapi'*/[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "reset_password_sent_at" /*application='Openapi'*/[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "remember_created_at" /*application='Openapi'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "force_password_reset" /*application='Openapi'*/[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started POST "/api/register" for ::1 at 2025-11-22 14:17:39 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by Api::UsersController#register as */*
+  Parameters: {"username" => "Omar", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "user" => {"username" => "Omar", "email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:28:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (4.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Omar' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:28:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:28:in 'Api::UsersController#register'
+Completed 422 Unprocessable Content in 1553ms (Views: 0.7ms | ActiveRecord: 108.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/register" for ::1 at 2025-11-22 14:18:16 +0100
+Processing by Api::UsersController#register as */*
+  Parameters: {"username" => "Omarra", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "user" => {"username" => "Omarra", "email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:28:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (8.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Omarra' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:28:in 'Api::UsersController#register'
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest") VALUES ('Omarra', 'oalali5@gmail.com', NULL, '$2a$12$oicyYjBgmWqS6orTgJvWk.JPXgbd4LZua5bnqMDvha5ppLAZOkLPy') RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:28:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:28:in 'Api::UsersController#register'
