@@ -19839,3 +19839,6 @@ Processing by Api::UsersController#register as */*
   ↳ app/controllers/api/users_controller.rb:28:in 'Api::UsersController#register'
   [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
   ↳ app/controllers/api/users_controller.rb:28:in 'Api::UsersController#register'
+Completed 200 OK in 1473ms (Views: 0.2ms | ActiveRecord: 13.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
