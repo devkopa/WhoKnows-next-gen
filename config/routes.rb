@@ -6,13 +6,20 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   root "home#index"
 
-  # Authentication
-  get "/login", to: "sessions#login"
+  # Custom Authentication (before Devise)
+  get "/login",    to: "sessions#login"
   get "/register", to: "sessions#register"
-  get "/logout", to: "users#logout"
+  get "/logout",   to: "users#logout"
 
-  # RESTful Users for Rswag
+  # RESTful Users for Swagger
   resources :users, only: [ :index, :show, :create ]
+
+  # Devise
+  devise_for :users
+
+  # Forced password change
+  get "/change_password",  to: "passwords#edit",   as: :change_password
+  patch "/change_password", to: "passwords#update", as: :update_password
 
   # Weather
   get "/weather", to: "weather#index"
@@ -20,7 +27,7 @@ Rails.application.routes.draw do
   namespace :api do
     get "/weather", to: "weather#show"
     post "/register", to: "users#register"
-    post "/login", to: "users#login"
-    get "/search", to: "search#index"
+    post "/login",    to: "users#login"
+    get "/search",    to: "search#index"
   end
 end
