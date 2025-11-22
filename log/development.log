@@ -20059,3 +20059,119 @@ Migrating to AddDeviseToUsers (20251122110202)
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
 [dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
 [dotenv] Loaded [33m.env[0m
+Started POST "/rails/actions" for ::1 at 2025-11-22 12:07:04 +0100
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2025-11-22 12:07:05 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.9ms | GC: 0.0ms)
+Completed 200 OK in 2269ms (Views: 55.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwind-b3517192.css" for ::1 at 2025-11-22 12:07:08 +0100
+Started GET "/assets/application.tailwind-4613a692.css" for ::1 at 2025-11-22 12:07:08 +0100
+Started GET "/assets/application-d8a8613a.js" for ::1 at 2025-11-22 12:07:08 +0100
+Unable to resolve '/font/android_7.ttf' for missing asset 'font/android_7.ttf' in application.tailwind.css
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-22 12:07:12 +0100
+Started GET "/icon.svg" for ::1 at 2025-11-22 12:07:14 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/icon.svg"):
+  
+Started GET "/icon.png" for ::1 at 2025-11-22 12:07:14 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+Started GET "/login" for ::1 at 2025-11-22 12:07:15 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 1058ms (Views: 11.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-22 12:07:16 +0100
+Started POST "/api/login" for ::1 at 2025-11-22 12:07:23 +0100
+Processing by Api::UsersController#login as */*
+  Parameters: {"username" => "Omar", "password" => "[FILTERED]", "user" => {"username" => "Omar", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'Omar' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:8:in 'Api::UsersController#login'
+Completed 500 Internal Server Error in 1386ms (ActiveRecord: 8.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (protected method 'password_digest' called for an instance of User):
+  
+app/controllers/api/users_controller.rb:10:in 'Api::UsersController#login'
+Started POST "/api/login" for ::1 at 2025-11-22 12:07:26 +0100
+Processing by Api::UsersController#login as */*
+  Parameters: {"username" => "Testing", "password" => "[FILTERED]", "user" => {"username" => "Testing", "password" => "[FILTERED]"}}
+Started POST "/api/login" for ::1 at 2025-11-22 12:07:27 +0100
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'Testing' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:8:in 'Api::UsersController#login'
+Completed 401 Unauthorized in 1248ms (Views: 0.3ms | ActiveRecord: 2.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Processing by Api::UsersController#login as */*
+  Parameters: {"username" => "Testing", "password" => "[FILTERED]", "user" => {"username" => "Testing", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'Testing' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:8:in 'Api::UsersController#login'
+Completed 401 Unauthorized in 1101ms (Views: 0.5ms | ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/login" for ::1 at 2025-11-22 12:07:31 +0100
+Processing by Api::UsersController#login as */*
+  Parameters: {"username" => "test", "password" => "[FILTERED]", "user" => {"username" => "test", "password" => "[FILTERED]"}}
+Started POST "/api/login" for ::1 at 2025-11-22 12:07:33 +0100
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'test' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:8:in 'Api::UsersController#login'
+Completed 500 Internal Server Error in 1848ms (ActiveRecord: 2.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (protected method 'password_digest' called for an instance of User):
+  
+app/controllers/api/users_controller.rb:10:in 'Api::UsersController#login'
+Processing by Api::UsersController#login as */*
+  Parameters: {"username" => "test", "password" => "[FILTERED]", "user" => {"username" => "test", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'test' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:8:in 'Api::UsersController#login'
+Completed 500 Internal Server Error in 1539ms (ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+  
+NoMethodError (protected method 'password_digest' called for an instance of User):
+  
+app/controllers/api/users_controller.rb:10:in 'Api::UsersController#login'
+Started POST "/api/login" for ::1 at 2025-11-22 12:07:36 +0100
+Processing by Api::UsersController#login as */*
+  Parameters: {"username" => "Omar", "password" => "[FILTERED]", "user" => {"username" => "Omar", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'Omar' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:8:in 'Api::UsersController#login'
+Completed 500 Internal Server Error in 1297ms (ActiveRecord: 3.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (protected method 'password_digest' called for an instance of User):
+  
+app/controllers/api/users_controller.rb:10:in 'Api::UsersController#login'
+Started GET "/register" for ::1 at 2025-11-22 12:07:43 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | GC: 0.0ms)
+Completed 200 OK in 1137ms (Views: 7.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-22 12:07:45 +0100

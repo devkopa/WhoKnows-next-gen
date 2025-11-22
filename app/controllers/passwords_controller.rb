@@ -10,9 +10,9 @@ class PasswordsController < ApplicationController
 
       bypass_sign_in(current_user)
 
-      redirect_to root_path, notice: "Dit password er blevet ændret."
+      redirect_to root_path, notice: "Your password has been changed"
     else
-      flash.now[:alert] = "Der opstod en fejl. Prøv igen."
+      flash.now[:alert] = "An error occurred. Try again."
       render :edit, status: :unprocessable_entity
     end
   end

@@ -5,7 +5,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[8.0]
     change_table :users do |t|
       ## Database authenticatable
       t.string :encrypted_password, null: false, default: "" unless column_exists?(:users, :encrypted_password)
-      
+
       ## Recoverable
       t.string   :reset_password_token unless column_exists?(:users, :reset_password_token)
       t.datetime :reset_password_sent_at unless column_exists?(:users, :reset_password_sent_at)
