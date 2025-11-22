@@ -7,7 +7,9 @@ class PasswordsController < ApplicationController
   def update
     if current_user.update(password_params)
       current_user.update(force_password_reset: false)
-      bypass_sign_in(current_user)  # Devise: forbliv logget ind efter password-skift
+
+      bypass_sign_in(current_user)
+
       redirect_to root_path, notice: "Dit password er blevet ændret."
     else
       flash.now[:alert] = "Der opstod en fejl. Prøv igen."
