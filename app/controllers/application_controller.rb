@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
 
     return if allowed_paths.include?(request.path)
 
-    redirect_to change_password_path, alert: "Du skal ændre din adgangskode pga. et sikkerhedsbrud."
+    redirect_to change_password_path, alert: "You need to change your password because of a security breach."
   end
 end

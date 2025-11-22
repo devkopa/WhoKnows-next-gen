@@ -12,14 +12,14 @@ Rails.application.routes.draw do
   get "/logout",   to: "users#logout"
 
   # RESTful Users for Swagger
-  resources :users, only: [:index, :show, :create]
+  resources :users, only: [ :index, :show, :create ]
 
   # Devise
   devise_for :users
 
   # Forced password change
-  get  '/change_password',  to: 'passwords#edit',   as: :change_password
-  patch '/change_password', to: 'passwords#update', as: :update_password
+  get "/change_password",  to: "passwords#edit",   as: :change_password
+  patch "/change_password", to: "passwords#update", as: :update_password
 
   # Weather
   get "/weather", to: "weather#index"
