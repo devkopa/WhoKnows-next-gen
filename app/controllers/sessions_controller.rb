@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
   end
 
   def register
+    flash.clear
     if session[:user_id]
       redirect_to root_path
     else

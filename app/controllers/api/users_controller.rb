@@ -4,31 +4,40 @@ module Api
 
     # POST /api/login
     def login
-      data = JSON.parse(request.body.read) rescue {}
-      user = User.find_by(username: data["username"])
+      username = params[:username]
+      password = params[:password]
 
-      if user&.authenticate(data["password"])
+      user = User.find_by(username: username)
+
+      if user&.authenticate(password)
         session[:user_id] = user.id
-        render json: { id: user.id, username: user.username, message: "Login successful" }
+
+        if user.force_password_reset
+          redirect_to "/change_password"
+        else
+          redirect_to root_path
+        end
       else
-        render json: { message: "Invalid username or password" }, status: :unauthorized
+        flash[:alert] = "Wrong username or password"
+        redirect_to login_path
       end
     end
 
     # POST /api/register
     def register
-      data = JSON.parse(request.body.read) rescue {}
       user = User.new(
-        username: data["username"],
-        email: data["email"],
-        password: data["password"],
-        password_confirmation: data["password_confirmation"]
+        username: params[:username],
+        email: params[:email],
+        password: params[:password],
+        password_confirmation: params[:password_confirmation]
       )
 
       if user.save
-        render json: { id: user.id, username: user.username, message: "Registration successful" }
+        flash[:notice] = "Registration successful. Please log in."
+        redirect_to login_path
       else
-        render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+        flash[:alert] = user.errors.full_messages.join(", ")
+        redirect_to register_path
       end
     end
 

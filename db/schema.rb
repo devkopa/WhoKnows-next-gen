@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_22_124015) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_22_194420) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -36,13 +36,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_22_124015) do
     t.text "username"
     t.text "email"
     t.string "password", limit: 255
-    t.boolean "force_password_reset", default: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.string "password_digest"
+    t.boolean "force_password_reset"
     t.index ["email"], name: "idx_16416_sqlite_autoindex_users_2", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "idx_16416_sqlite_autoindex_users_1", unique: true
   end
 end

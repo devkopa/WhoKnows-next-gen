@@ -62,6 +62,8 @@ Rails.application.configure do
   config.hosts << "20.251.217.144"
   config.hosts << "devkopa.dk"
   config.hosts << "www.devkopa.dk"
+  config.hosts << "localhost"
+  config.hosts << "127.0.0.1"
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {
