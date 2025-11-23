@@ -21915,3 +21915,53 @@ Completed 200 OK in 9305ms (Views: 4.3ms | ActiveRecord: 0.0ms (0 queries, 0 cac
 
 
 Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 10:12:31 +0100
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for ::1 at 2025-11-23 12:27:26 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 60.9ms | GC: 0.0ms)
+Completed 200 OK in 3001ms (Views: 84.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 12:27:29 +0100
+Started GET "/logout" for ::1 at 2025-11-23 12:27:32 +0100
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1054ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-11-23 12:27:33 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | GC: 0.0ms)
+Completed 200 OK in 970ms (Views: 9.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 12:27:35 +0100
+Started GET "/api/search?q=" for ::1 at 2025-11-23 12:27:37 +0100
+  
+SyntaxError (C:/Users/omara/OneDrive/Skrivebord/DevOps/openapi/app/controllers/api/search_controller.rb:24: syntax errors found
+  [2m22 | [m          }
+  [2m23 | [m        end
+[1;31m> [m[2m24 | [m      else
+  [2m   | [m      [1;31m^~~~[m unexpected 'else', ignoring it
+  [2m25 | [m        []
+  [2m26 | [m      end
+[2m  ~~~~~~[m
+  [2m32 | [m    end
+  [2m33 | [m  end
+[1;31m> [m[2m34 | [mend
+  [2m   | [m[1;31m^~~[m unexpected 'end', ignoring it
+):
+  
+app/controllers/api/search_controller.rb:24: syntax errors found
