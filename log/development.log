@@ -23451,3 +23451,21 @@ Completed 200 OK in 1983ms (Views: 52.0ms | ActiveRecord: 104.7ms (2 queries, 0 
 
 
 Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 19:26:46 +0100
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+Migrating to AddTrigramIndexesToPages (20251123185123)
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN /*application='Openapi'*/[0m
+  [1m[35mSQL (157.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pg_trgm" /*application='Openapi'*/[0m
+  [1m[35m (20.0ms)[0m  [1m[35mCREATE INDEX "index_pages_on_title" ON "pages" USING gin ("title" gin_trgm_ops) /*application='Openapi'*/[0m
+  [1m[35m (256.1ms)[0m  [1m[35mCREATE INDEX "index_pages_on_content" ON "pages" USING gin ("content" gin_trgm_ops) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251123185123') RETURNING "version" /*application='Openapi'*/[0m
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[35mCOMMIT /*application='Openapi'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m

@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_23_181624) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_23_185123) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+  enable_extension "pg_trgm"
 
   create_table "_prisma_migrations", id: { type: :string, limit: 36 }, force: :cascade do |t|
     t.string "checksum", limit: 64, null: false
@@ -29,6 +30,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_23_181624) do
     t.text "language", default: "en"
     t.datetime "last_updated", precision: nil
     t.text "content"
+    t.index ["content"], name: "index_pages_on_content", opclass: :gin_trgm_ops, using: :gin
+    t.index ["title"], name: "index_pages_on_title", opclass: :gin_trgm_ops, using: :gin
     t.index ["url"], name: "idx_16409_sqlite_autoindex_pages_2", unique: true
   end
 
