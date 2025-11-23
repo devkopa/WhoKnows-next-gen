@@ -23302,3 +23302,152 @@ Completed 200 OK in 5181ms (Views: 185.6ms | ActiveRecord: 195.2ms (1 query, 0 c
 
 
 Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:28:53 +0100
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Openapi'*/[0m
+Migrating to CreateSearchLogs (20251123181624)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN /*application='Openapi'*/[0m
+  [1m[35m (25.2ms)[0m  [1m[35mCREATE TABLE "search_logs" ("id" bigserial primary key, "query" character varying, "user_ip" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251123181624') RETURNING "version" /*application='Openapi'*/[0m
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[35mCOMMIT /*application='Openapi'*/[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(7853400853573209480) /*application='Openapi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mSearchLog Count (16.2ms)[0m  [1m[34mSELECT COUNT("search_logs"."id") AS "count_id", "search_logs"."query" AS "search_logs_query" FROM "search_logs" GROUP BY "search_logs"."query" ORDER BY count_id DESC /*application='Openapi'*/[0m
+  ↳ lib/tasks/scrape_pages.rake:5:in 'block (2 levels) in <main>'
+Started GET "/api/search?q=Java" for ::1 at 2025-11-23 19:20:27 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Started GET "/api/search?q=Java" for ::1 at 2025-11-23 19:20:28 +0100
+Processing by Api::SearchController#index as HTML
+  Parameters: {"q" => "Java"}
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+  [1m[36mSearchLog Create (43.0ms)[0m  [1m[32mINSERT INTO "search_logs" ("query", "user_ip", "created_at", "updated_at") VALUES ('Java', '::1', '2025-11-23 18:20:31.829441', '2025-11-23 18:20:31.829441') RETURNING "id" /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+  [1m[36mTRANSACTION (10.1ms)[0m  [1m[35mCOMMIT /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+Search logged: Java
+  [1m[36mPage Load (44.0ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE ((title ILIKE '%Java%' OR content ILIKE '%Java%')) /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:19:in 'Enumerable#map'
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 15.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 4.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 4.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 67.0ms | GC: 0.0ms)
+Completed 200 OK in 2557ms (Views: 108.8ms | ActiveRecord: 133.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Processing by Api::SearchController#index as HTML
+  Parameters: {"q" => "Java"}
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+  [1m[36mSearchLog Create (17.6ms)[0m  [1m[32mINSERT INTO "search_logs" ("query", "user_ip", "created_at", "updated_at") VALUES ('Java', '::1', '2025-11-23 18:20:34.586115', '2025-11-23 18:20:34.586115') RETURNING "id" /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[35mCOMMIT /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+Search logged: Java
+  [1m[36mPage Load (33.1ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE ((title ILIKE '%Java%' OR content ILIKE '%Java%')) /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:19:in 'Enumerable#map'
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 8.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 13.9ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 252.1ms | GC: 0.5ms)
+Completed 200 OK in 2488ms (Views: 380.8ms | ActiveRecord: 94.7ms (2 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 19:20:35 +0100
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mSearchLog Count (2.1ms)[0m  [1m[34mSELECT COUNT("search_logs"."id") AS "count_id", "search_logs"."query" AS "search_logs_query" FROM "search_logs" GROUP BY "search_logs"."query" ORDER BY count_id DESC /*application='Openapi'*/[0m
+  ↳ lib/tasks/scrape_pages.rake:5:in 'block (2 levels) in <main>'
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/api/search?q=React" for ::1 at 2025-11-23 19:22:05 +0100
+  [1m[36mSearchLog Count (2.9ms)[0m  [1m[34mSELECT COUNT("search_logs"."id") AS "count_id", "search_logs"."query" AS "search_logs_query" FROM "search_logs" GROUP BY "search_logs"."query" ORDER BY count_id DESC /*application='Openapi'*/[0m
+  ↳ lib/tasks/scrape_pages.rake:5:in 'block (2 levels) in <main>'
+Processing by Api::SearchController#index as HTML
+  Parameters: {"q" => "React"}
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+  [1m[36mSearchLog Create (6.6ms)[0m  [1m[32mINSERT INTO "search_logs" ("query", "user_ip", "created_at", "updated_at") VALUES ('React', '::1', '2025-11-23 18:22:09.347541', '2025-11-23 18:22:09.347541') RETURNING "id" /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+  [1m[36mTRANSACTION (21.1ms)[0m  [1m[35mCOMMIT /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+Search logged: React
+  [1m[36mPage Load (17.1ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE ((title ILIKE '%React%' OR content ILIKE '%React%')) /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:19:in 'Enumerable#map'
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 5.2ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | GC: 0.0ms)
+Completed 200 OK in 3347ms (Views: 11.0ms | ActiveRecord: 46.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 19:22:10 +0100
+Started GET "/api/search?q=Rails" for ::1 at 2025-11-23 19:25:55 +0100
+Processing by Api::SearchController#index as HTML
+  Parameters: {"q" => "Rails"}
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mBEGIN /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+  [1m[36mSearchLog Create (47.2ms)[0m  [1m[32mINSERT INTO "search_logs" ("query", "user_ip", "created_at", "updated_at") VALUES ('Rails', '::1', '2025-11-23 18:25:58.059917', '2025-11-23 18:25:58.059917') RETURNING "id" /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+  [1m[36mTRANSACTION (36.5ms)[0m  [1m[35mCOMMIT /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+Search logged: Rails
+  [1m[36mPage Load (39.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE ((title ILIKE '%Rails%' OR content ILIKE '%Rails%')) /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:19:in 'Enumerable#map'
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 2.9ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | GC: 0.0ms)
+Completed 200 OK in 2634ms (Views: 28.2ms | ActiveRecord: 125.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 19:25:58 +0100
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mSearchLog Count (1.7ms)[0m  [1m[34mSELECT COUNT("search_logs"."id") AS "count_id", "search_logs"."query" AS "search_logs_query" FROM "search_logs" GROUP BY "search_logs"."query" ORDER BY count_id DESC /*application='Openapi'*/[0m
+  ↳ lib/tasks/scrape_pages.rake:5:in 'block (2 levels) in <main>'
+  [1m[36mPage Load (1.6ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE "pages"."url" = 'https://guides.rubyonrails.org/' LIMIT 1 /*application='Openapi'*/[0m
+  ↳ lib/tasks/scrape_pages.rake:20:in 'block (4 levels) in <main>'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN /*application='Openapi'*/[0m
+  ↳ lib/tasks/scrape_pages.rake:20:in 'block (4 levels) in <main>'
+  [1m[36mPage Create (4.5ms)[0m  [1m[32mINSERT INTO "pages" ("title", "url", "language", "last_updated", "content") VALUES ('Ruby on Rails Guides', 'https://guides.rubyonrails.org/', 'en', NULL, 'document.body.classList.remove(''no-js'') Skip to main content More at rubyonrails.org: More Ruby on Rails Blog Guides API Forum Contribute on GitHub Guides Version: pick from the list to go to that Rails version''s guides Edge 8.0 7.2 7.1 7.0 6.1 6.0 5.2 5.1 5.0 4.2 4.1 4.0 3.2 3.1 3.0 2.3 Home Guides Index Start Here Getting Started with Rails Install Ruby on Rails Models Active Record Basics Active Record Migrations Active Record Validations Active Record Callbacks Active Record Associations Active Record Query Interface Active Model Basics Views Action View Overview Layouts and Rendering in Rails Action View Helpers Action View Form Helpers Controllers Action Controller Overview Action Controller Advanced Topics Rails Routing from the Outside In Other Components Active Support Core Extensions Action Mailer Basics Action Mailbox Basics Action Text Overview Active Job Basics Active Storage Overview Action Cable Overview Digging Deeper Rails Internationalization (I18n) API Testing Rails Applications Debugging Rails Applications Configuring Rails Applications The Rails Command Line The Asset Pipeline Working with JavaScript in Rails Autoloading and Reloading Using Rails for API-only Applications Going to Production Tuning Performance for Deployment Caching with Rails: An Overview Securing Rails Applications Error Reporting in Rails Applications Advanced Active Record Multiple Databases Composite Primary Keys Extending Rails The Basics of Creating Rails Plugins Rails on Rack Creating and Customizing Rails Generators & Templates Contributing Contributing to Ruby on Rails API Documentation Guidelines Guides Guidelines Installing Rails Core Development Dependencies Policies Maintenance Policy Release Notes Upgrading Ruby on Rails Version 8.1 - October 2025 Version 8.0 - November 2024 Version 7.2 - August 2024 Version 7.1 - October 2023 Version 7.0 - December 2021 Version 6.1 - December 2020 Version 6.0 - August 2019 Version 5.2 - April 2018 Version 5.1 - April 2017 Version 5.0 - June 2016 Version 4.2 - December 2014 Version 4.1 - April 2014 Version 4.0 - June 2013 Version 3.2 - January 2012 Version 3.1 - August 2011 Version 3.0 - August 2010 Version 2.3 - March 2009 Version 2.2 - November 2008 Contribute Navigate to a guide: Guides Index Getting Started with Rails Install Ruby on Rails Active Record Basics Active Record Migrations Active Record Validations Active Record Callbacks Active Record Associations Active Record Query Interface Active Model Basics Action View Overview Layouts and Rendering in Rails Action View Helpers Action View Form Helpers Action Controller Overview Action Controller Advanced Topics Rails Routing from the Outside In Active Support Core Extensions Action Mailer Basics Action Mailbox Basics Action Text Overview Active Job Basics Active Storage Overview Action Cable Overview Rails Internationalization (I18n) API Testing Rails Applications Debugging Rails Applications Configuring Rails Applications The Rails Command Line The Asset Pipeline Working with JavaScript in Rails Autoloading and Reloading Using Rails for API-only Applications Tuning Performance for Deployment Caching with Rails: An Overview Securing Rails Applications Error Reporting in Rails Applications Multiple Databases Composite Primary Keys The Basics of Creating Rails Plugins Rails on Rack Creating and Customizing Rails Generators & Templates Contributing to Ruby on Rails API Documentation Guidelines Guides Guidelines Installing Rails Core Development Dependencies Maintenance Policy Upgrading Ruby on Rails Version 8.1 - October 2025 Version 8.0 - November 2024 Version 7.2 - August 2024 Version 7.1 - October 2023 Version 7.0 - December 2021 Version 6.1 - December 2020 Version 6.0 - August 2019 Version 5.2 - April 2018 Version 5.1 - April 2017 Version 5.0 - June 2016 Version 4.2 - December 2014 Version 4.1 - April 2014 Version 4.0 - June 2013 Version 3.2 - January 2012 Version 3.1 - August 2011 Version 3.0 - August 2010 Version 2.3 - March 2009 Version 2.2 - November 2008 Ruby on Rails Guides (v8.1.1) These are the new guides for Rails 8.1 based on v8.1.1. These guides are designed to make you immediately productive with Rails, and to help you understand how all of the pieces fit together. Rails Guides are also available for Kindle. Guides marked with this icon are currently being worked on and will not be available in the Guides Index menu. While still useful, they may contain incomplete information and even errors. You can help by reviewing them and posting your comments and corrections. Start Here Getting Started with Rails Everything you need to know to install Rails and create your first application. Install Ruby on Rails Learn how to install the Ruby programming language and Ruby on Rails. Models Active Record Basics Active Record allows your models to interact with the application''s database. This guide will get you started with Active Record models and persistence to the database. Active Record Migrations Migrations are a feature of Active Record that allows you to evolve your database schema over time. Rather than write schema modifications in pure SQL, migrations allow you to use a Ruby DSL to describe changes to your tables. Active Record Validations Validations are used to ensure that only valid data is saved into your database. This guide teaches you how to validate the state of objects before they go into the database, using Active Record''s validations feature. Active Record Callbacks Callbacks make it possible to write code that will run whenever an object is created, updated, destroyed, etc. This guide teaches you how to hook into this object life cycle of Active Record objects. Active Record Associations In Active Record, an association is a connection between two Active Record models. This guide covers all the associations provided by Active Record. Active Record Query Interface Instead of using raw SQL to find database records, Active Record provides better ways to carry out the same operations. This guide covers different ways to retrieve data from the database using Active Record. Active Model Basics Active Model allows you to create plain Ruby objects that integrate with Action Pack, but don''t need Active Record for database persistence. Active Model also helps build custom ORMs for use outside of the Rails framework. This guide provides you with all you need to get started using Active Model classes. Views Action View Overview Action View is responsible for generating the HTML for web responses. This guide provides an introduction to Action View. Layouts and Rendering in Rails This guide covers the basic layout features of Action Controller and Action View, including rendering and redirecting, using content_for blocks, and working with partials. Action View Helpers Action View has helpers for handling everything from formatting dates and linking to images, to sanitizing and localizing content. This guide introduces a few of the more common Action View helpers. Action View Form Helpers HTML forms can quickly become tedious to write and maintain because of the need to handle form control naming and its numerous attributes. Rails does away with this complexity by providing view helpers for generating form markup. Controllers Action Controller Overview Action Controllers are the core of a web request in Rails. This guide covers how controllers work and how they fit into the request cycle of your application. Topics include accessing parameters in controller actions, using sessions and cookies, controller callbacks. Action Controller Advanced Topics This guide covers a number of advanced topics related to controllers in a Rails application such as protecting against cross-site request forgery, HTTP authentication, data streaming, and dealing with exceptions, log filtering, and more. Rails Routing from the Outside In The Rails router recognizes URLs and dispatches them to a controller''s action. This guide covers the user-facing features of Rails routing. If you want to understand how to use routing in your own Rails applications, start here. Other Components Active Support Core Extensions Active Support provides Ruby language extensions and utilities. It enriches the Ruby language for the development of Rails applications, and for the development of Ruby on Rails itself. Action Mailer Basics This guide provides you with all you need to get started in sending emails from your application, and many internals of Action Mailer. Action Mailbox Basics This guide describes how to use Action Mailbox to receive emails. Action Text Overview This guide describes how to use Action Text to handle rich text content. Active Job Basics Active Job is a framework for declaring background jobs and making them run on a variety of queuing backends. This guide provides you with all you need to get started creating, enqueuing, and executing background jobs. Active Storage Overview Active Storage facilitates uploading files to a cloud storage service, transforming uploads and extracting metadata. This guide covers how to attach files to your Active Record models. Action Cable Overview Action Cable integrates WebSockets with the rest of your Rails application. It allows for real-time features to be written in Ruby in the same style and form as the rest of your Rails application. This guide explains how Action Cable works, and how to use WebSockets to create real-time features. Digging Deeper Rails Internationalization (I18n) API This guide covers how to add internationalization to your applications. Your application will be able to translate content to different languages, change pluralization rules, use correct date formats for each country, and so on. Testing Rails Applications This guide explores how to write tests in Rails. It also covers test configuration and compares approaches to testing an application. Debugging Rails Applications This guide describes how to debug Rails applications. It covers the different ways of achieving this and how to understand what is happening "behind the scenes" of your code. Configuring Rails Applications This guide covers the basic configuration settings for a Rails application. The Rails Command Line There are a few commands that are absolutely critical to your everyday usage of Rails. This guide covers the command line tools provided by Rails. The Asset Pipeline The asset pipeline guide explains how to use Propshaft, a framework that handles essential asset management tasks. Working with JavaScript in Rails This guide explains how to use import maps or jsbundling-rails to include JavaScript in Rails applications, and covers the basics of working with Turbo in Rails. The Rails Initialization ProcessWork in progress This guide explains the internals of the initialization process in Rails. It is an extremely in-depth guide and recommended for advanced Rails developers. Autoloading and Reloading This guide documents how autoloading and reloading constants work. Active Support InstrumentationWork in progress This guide explains how to use the instrumentation API inside of Active Support to measure events inside of Rails and other Ruby code. Using Rails for API-only Applications This guide explains how to effectively use Rails to develop a JSON API application. Going to Production Tuning Performance for Deployment This guide covers performance and concurrency configuration for deploying your production Ruby on Rails application. Caching with Rails: An Overview This guide is an introduction to speeding up your Rails application with caching. Securing Rails Applications This guide describes common security problems in web applications and how to avoid them with Rails. Error Reporting in Rails Applications This guide introduces ways to manage errors that occur in Ruby on Rails applications. Advanced Active Record Active Record and PostgreSQLWork in progress This guide covers PostgreSQL specific usage of Active Record. Multiple Databases This guide covers using multiple databases in your application. Active Record EncryptionWork in progress This guide covers encrypting your database information using Active Record. Composite Primary Keys This guide is an introduction to composite primary keys for database tables. Extending Rails The Basics of Creating Rails Plugins This guide covers how to build a plugin to extend the functionality of Rails. Rails on Rack This guide covers Rails integration with Rack and interfacing with other Rack components. Creating and Customizing Rails Generators & Templates This guide covers the process of adding a brand new generator to your extension or providing an alternative to an element of a built-in Rails generator (such as providing alternative test stubs for the scaffold generator). Getting Started with EnginesWork in progress Engines can be considered miniature applications that provide additional functionality to their host applications. In this guide you will learn how to create your own engine and integrate it with a host application. Threading and Code Execution in RailsWork in progress This guide describes the considerations needed and tools available when working directly with concurrency in a Rails application. Contributing Contributing to Ruby on Rails Rails is not "someone else''s framework". This guide covers a variety of ways that you can get involved in the ongoing development of Rails. API Documentation Guidelines This guide documents the Ruby on Rails API documentation guidelines. Guides Guidelines This guide documents the Ruby on Rails guides guidelines. Installing Rails Core Development Dependencies This guide covers how to set up an environment for Ruby on Rails core development. Policies Maintenance Policy What versions of Ruby on Rails are currently supported, and when to expect new versions. Release Notes Upgrading Ruby on Rails This guide provides steps to be followed when you upgrade your applications to a newer version of Ruby on Rails. Version 8.1 - October 2025 Release notes for Rails 8.1. Version 8.0 - November 2024 Release notes for Rails 8.0. Version 7.2 - August 2024 Release notes for Rails 7.2. Version 7.1 - October 2023 Release notes for Rails 7.1. Version 7.0 - December 2021 Release notes for Rails 7.0. Version 6.1 - December 2020 Release notes for Rails 6.1. Version 6.0 - August 2019 Release notes for Rails 6.0. Version 5.2 - April 2018 Release notes for Rails 5.2. Version 5.1 - April 2017 Release notes for Rails 5.1. Version 5.0 - June 2016 Release notes for Rails 5.0. Version 4.2 - December 2014 Release notes for Rails 4.2. Version 4.1 - April 2014 Release notes for Rails 4.1. Version 4.0 - June 2013 Release notes for Rails 4.0. Version 3.2 - January 2012 Release notes for Rails 3.2. Version 3.1 - August 2011 Release notes for Rails 3.1. Version 3.0 - August 2010 Release notes for Rails 3.0. Version 2.3 - March 2009 Release notes for Rails 2.3. Version 2.2 - November 2008 Release notes for Rails 2.2. Feedback You''re encouraged to help improve the quality of this guide. Please contribute if you see any typos or factual errors. To get started, you can read our documentation contributions section. You may also find incomplete content or stuff that is not up to date. Please do add any missing documentation for main. Make sure to check Edge Guides first to verify if the issues are already fixed or not on the main branch. Check the Ruby on Rails Guides Guidelines for style and conventions. If for whatever reason you spot something to fix but cannot patch it yourself, please open an issue. And last but not least, any kind of discussion regarding Ruby on Rails documentation is very welcome on the official Ruby on Rails Forum. This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License "Rails", "Ruby on Rails", and the Rails logo are trademarks of David Heinemeier Hansson. All rights reserved. Back to top') RETURNING "title" /*application='Openapi'*/[0m
+  ↳ lib/tasks/scrape_pages.rake:20:in 'block (4 levels) in <main>'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT /*application='Openapi'*/[0m
+  ↳ lib/tasks/scrape_pages.rake:20:in 'block (4 levels) in <main>'
+Indexed page: https://guides.rubyonrails.org/
+Started GET "/api/search?q=Rails" for ::1 at 2025-11-23 19:26:44 +0100
+Processing by Api::SearchController#index as HTML
+  Parameters: {"q" => "Rails"}
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mBEGIN /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+  [1m[36mSearchLog Create (36.0ms)[0m  [1m[32mINSERT INTO "search_logs" ("query", "user_ip", "created_at", "updated_at") VALUES ('Rails', '::1', '2025-11-23 18:26:46.059680', '2025-11-23 18:26:46.059680') RETURNING "id" /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+  [1m[36mTRANSACTION (38.0ms)[0m  [1m[35mCOMMIT /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:36:in 'Api::SearchController#log_search'
+Search logged: Rails
+  [1m[36mPage Load (28.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages" WHERE ((title ILIKE '%Rails%' OR content ILIKE '%Rails%')) /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:19:in 'Enumerable#map'
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 5.9ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 38.2ms | GC: 0.0ms)
+Completed 200 OK in 1983ms (Views: 52.0ms | ActiveRecord: 104.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 19:26:46 +0100

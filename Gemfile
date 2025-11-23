@@ -79,5 +79,9 @@ gem "rswag-specs"
 
 # HTTP requests
 gem "httparty"
+
+# Nokogiri
+gem "nokogiri"
+
 # Environment variables
 gem "dotenv-rails"
