@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # Authentication
   get "/login", to: "sessions#login"
   get "/register", to: "sessions#register"
-  get "/logout", to: "users#logout"
+  get "/logout", to: "api/users#logout", as: :logout
 
   # RESTful Users for Rswag
   resources :users, only: [ :index, :show, :create ]
@@ -26,5 +26,11 @@ Rails.application.routes.draw do
     post "/register", to: "users#register"
     post "/login", to: "users#login"
     get "/search", to: "search#index"
+  end
+
+  namespace :test do
+      post "/register", to: "users#register"
+      post "/login", to: "users#login"
+      get  "/logout", to: "users#logout"
   end
 end

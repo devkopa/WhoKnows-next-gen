@@ -4,11 +4,11 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-# Uncomment the line below in case you have `--require rails_helper` in the `.rspec` file
-# that will avoid rails generators crashing because migrations haven't been run yet
-# return unless Rails.env.test?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+
+# Selenium + Edge driver
+require 'selenium/webdriver'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -23,17 +23,26 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
 
-# Ensures that the test database schema matches the current schema file.
-# If there are pending migrations it will invoke `db:test:prepare` to
-# recreate the test database by loading the schema.
+Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
+
+# Register a custom Edge driver so Capybara knows it
+Capybara.register_driver :edge do |app|
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :edge,
+    capabilities: Selenium::WebDriver::Remote::Capabilities.edge
+  )
+end
+
+# Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
@@ -48,22 +57,25 @@ RSpec.configure do |config|
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
-  # RSpec Rails uses metadata to mix in different behaviours to your tests,
-  # for example enabling you to call `get` and `post` in request specs. e.g.:
+  # RSpec Rails can automatically mix in different behaviours to your tests
+  # based on their file location, for example enabling you to call `get` and
+  # `post` in specs under `spec/controllers`.
   #
-  #     RSpec.describe UsersController, type: :request do
+  # You can disable this behaviour by removing the line below, and instead
+  # explicitly tag your specs with their type, e.g.:
+  #
+  #     RSpec.describe UsersController, type: :controller do
   #       # ...
   #     end
   #
   # The different available types are documented in the features, such as in
-  # https://rspec.info/features/8-0/rspec-rails
-  #
-  # You can also this infer these behaviours automatically by location, e.g.
-  # /spec/models would pull in the same behaviour as `type: :model` but this
-  # behaviour is considered legacy and will be removed in a future version.
-  #
-  # To enable this behaviour uncomment the line below.
-  # config.infer_spec_type_from_file_location!
+  # https://rspec.info/features/6-0/rspec-rails
+  config.infer_spec_type_from_file_location!
+
+  # Use Microsoft Edge for system tests
+  config.before(:each, type: :system) do
+    driven_by :edge, screen_size: [1400, 1400]
+  end
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!

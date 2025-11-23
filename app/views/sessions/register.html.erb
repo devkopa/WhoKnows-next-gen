@@ -1,3 +1,4 @@
+<!-- app/views/sessions/register.html.erb -->
 <div class="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
   <div class="w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
 
@@ -9,21 +10,25 @@
       <p class="text-green-600 mb-4"><%= flash[:notice] %></p>
     <% end %>
 
-    <%= form_with url: api_register_path, method: :post, class: "flex flex-col gap-4" do |f| %>
+    <%= form_with url: api_register_path, method: :post, local: true, class: "flex flex-col gap-4" do |f| %>
 
       <%= f.text_field :username,
+        id: "username",
         placeholder: "Username",
         class: "px-4 py-2 rounded border" %>
 
       <%= f.email_field :email,
+        id: "email",
         placeholder: "Email",
         class: "px-4 py-2 rounded border" %>
 
       <%= f.password_field :password,
+        id: "password",
         placeholder: "Password",
         class: "px-4 py-2 rounded border" %>
 
       <%= f.password_field :password_confirmation,
+        id: "password_confirmation",
         placeholder: "Confirm Password",
         class: "px-4 py-2 rounded border" %>
 

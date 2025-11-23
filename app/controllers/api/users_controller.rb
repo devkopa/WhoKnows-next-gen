@@ -1,17 +1,12 @@
 module Api
   class UsersController < ApplicationController
-    skip_before_action :verify_authenticity_token, only: [ :login, :register ]
+    skip_before_action :verify_authenticity_token, only: [:login, :register, :logout]
 
     # POST /api/login
     def login
-      username = params[:username]
-      password = params[:password]
-
-      user = User.find_by(username: username)
-
-      if user&.authenticate(password)
+      user = User.find_by(username: params[:username])
+      if user&.authenticate(params[:password])
         session[:user_id] = user.id
-
         if user.force_password_reset
           redirect_to "/change_password"
         else
@@ -33,18 +28,25 @@ module Api
       )
 
       if user.save
-        flash[:notice] = "Registration successful. Please log in."
-        redirect_to login_path
+        # Gem success-besked i flash
+        flash[:notice] = "Registration successful. You can now log in."
+        # Redirect til /register (ikke render)
+        redirect_to register_path
       else
         flash[:alert] = user.errors.full_messages.join(", ")
         redirect_to register_path
       end
     end
 
-    # POST /api/logout
+    # GET /logout (browser)
+    # POST /api/logout (API)
     def logout
       session[:user_id] = nil
-      render json: { message: "Logged out successfully" }
+
+      respond_to do |format|
+        format.html { redirect_to login_path }
+        format.json { render json: { message: "Logged out successfully" } }
+      end
     end
   end
 end

@@ -21965,3 +21965,1310 @@ SyntaxError (C:/Users/omara/OneDrive/Skrivebord/DevOps/openapi/app/controllers/a
 ):
   
 app/controllers/api/search_controller.rb:24: syntax errors found
+Started GET "/api/search?q=" for ::1 at 2025-11-23 12:28:09 +0100
+Processing by Api::SearchController#index as HTML
+  Parameters: {"q" => ""}
+  [1m[36mPage Load (108.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages" /*action='index',application='Openapi',controller='search'*/[0m
+  ↳ app/controllers/api/search_controller.rb:18:in 'Enumerable#map'
+  Rendering layout layouts/application.html.erb
+  Rendering search/index.html.erb within layouts/application
+  Rendered search/index.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | GC: 0.0ms)
+Completed 200 OK in 1557ms (Views: 43.9ms | ActiveRecord: 131.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 12:28:11 +0100
+Started GET "/login" for ::1 at 2025-11-23 12:28:26 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 17.6ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 3.2ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | GC: 0.0ms)
+Completed 200 OK in 1981ms (Views: 43.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 12:28:29 +0100
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/__identify__" for 127.0.0.1 at 2025-11-23 14:21:27 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/__identify__"):
+  
+Started GET "/__identify__" for 127.0.0.1 at 2025-11-23 14:21:27 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/__identify__"):
+  
+Started GET "/__identify__" for 127.0.0.1 at 2025-11-23 14:21:27 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/__identify__"):
+  
+Started GET "/__identify__" for 127.0.0.1 at 2025-11-23 14:21:27 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/__identify__"):
+  
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for ::1 at 2025-11-23 15:23:18 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 66.9ms | GC: 0.0ms)
+Completed 200 OK in 3741ms (Views: 91.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:23:23 +0100
+Started GET "/register" for ::1 at 2025-11-23 15:23:26 +0100
+  
+AbstractController::ActionNotFound (The action 'new' could not be found for UsersController):
+  
+actionpack (8.0.2.1) lib/abstract_controller/base.rb:158:in 'AbstractController::Base#process'
+actionview (8.0.2.1) lib/action_view/rendering.rb:40:in 'ActionView::Rendering#process'
+actionpack (8.0.2.1) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.0.2.1) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:67:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.1) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.1) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.1) lib/rack/conditional_get.rb:31:in 'Rack::ConditionalGet#call'
+rack (3.2.1) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.0.2.1) lib/action_dispatch/http/permissions_policy.rb:38:in 'ActionDispatch::PermissionsPolicy::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/cookies.rb:706:in 'ActionDispatch::Cookies#call'
+activerecord (8.0.2.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.1) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.1) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.1) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (7.0.3) lib/puma/configuration.rb:299:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (7.0.3) lib/puma/request.rb:101:in 'block in Puma::Request#handle_request'
+puma (7.0.3) lib/puma/thread_pool.rb:346:in 'Puma::ThreadPool#with_force_shutdown'
+puma (7.0.3) lib/puma/request.rb:100:in 'Puma::Request#handle_request'
+puma (7.0.3) lib/puma/server.rb:497:in 'Puma::Server#process_client'
+puma (7.0.3) lib/puma/server.rb:266:in 'block in Puma::Server#run'
+puma (7.0.3) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/register" for ::1 at 2025-11-23 15:24:07 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 63.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 3.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 127.9ms | GC: 0.0ms)
+Completed 200 OK in 1278ms (Views: 169.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:24:09 +0100
+Started POST "/register" for ::1 at 2025-11-23 15:24:23 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/register"):
+  
+Started POST "/register" for ::1 at 2025-11-23 15:24:42 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/register"):
+  
+Started GET "/register" for ::1 at 2025-11-23 15:24:46 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 3.4ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | GC: 0.0ms)
+Completed 200 OK in 1205ms (Views: 35.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:24:48 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 15:24:58 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "omarfadelalali1", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: Api::UsersController, action: register, request: #<ActionDispatch::Request:0x0000021a61dc9240>, params: {"authenticity_token" => "[FILTERED]", "username" => "omarfadelalali1", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register", "controller" => "api/users", "action" => "register"} }[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:7:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (6.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'omarfadelalali1' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:7:in 'Api::UsersController#register'
+  [1m[36mUser Create (3.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('omarfadelalali1', 'oalali5@example.com', NULL, '$2a$12$6bDZYmMZgW2otV.8c.o.deyvwSejafD4o8yGFroGhi3VRA2OfJGWK', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:7:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:7:in 'Api::UsersController#register'
+Completed 201 Created in 1987ms (Views: 0.4ms | ActiveRecord: 30.1ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/" for ::1 at 2025-11-23 15:25:11 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | GC: 0.0ms)
+Completed 200 OK in 1109ms (Views: 15.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:25:12 +0100
+Started GET "/login" for ::1 at 2025-11-23 15:25:14 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | GC: 0.0ms)
+Completed 200 OK in 1166ms (Views: 14.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:25:15 +0100
+Started POST "/api/login" for ::1 at 2025-11-23 15:25:24 +0100
+Processing by Api::UsersController#login as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "omarfadelalali1", "password" => "[FILTERED]", "commit" => "Log ind"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'omarfadelalali1' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:15:in 'Api::UsersController#login'
+Completed 200 OK in 1426ms (Views: 0.2ms | ActiveRecord: 2.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-11-23 15:25:30 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 868ms (Views: 4.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:25:31 +0100
+Started GET "/" for ::1 at 2025-11-23 15:26:41 +0100
+Processing by HomeController#index as HTML
+Started GET "/logout" for ::1 at 2025-11-23 15:26:43 +0100
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | GC: 0.0ms)
+Completed 200 OK in 1456ms (Views: 43.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1683ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2025-11-23 15:26:46 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 3.8ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | GC: 0.0ms)
+Completed 200 OK in 1265ms (Views: 30.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:26:47 +0100
+Started GET "/register" for ::1 at 2025-11-23 15:26:50 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 3.6ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | GC: 0.0ms)
+Completed 200 OK in 1328ms (Views: 10.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:26:52 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 15:27:06 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "TestOmar", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: Api::UsersController, action: register, request: #<ActionDispatch::Request:0x0000021a6396bd68>, params: {"authenticity_token" => "[FILTERED]", "username" => "TestOmar", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register", "controller" => "api/users", "action" => "register"} }[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:7:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (6.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'TestOmar' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:7:in 'Api::UsersController#register'
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('TestOmar', 'omaralali12@example.com', NULL, '$2a$12$2p7Aha3rqajyloxvr4WKa.XCPS85OApp.mTvPrMrOkGQIttd8Hgym', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:7:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:7:in 'Api::UsersController#register'
+Completed 500 Internal Server Error in 1345ms (ActiveRecord: 19.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NameError (undefined local variable or method 'dashboard_path' for an instance of Api::UsersController):
+  
+app/controllers/api/users_controller.rb:10:in 'Api::UsersController#register'
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/api/register" for ::1 at 2025-11-23 15:29:12 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/register"):
+  
+Started GET "/" for ::1 at 2025-11-23 15:29:15 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 2.9ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | GC: 0.0ms)
+Completed 200 OK in 2486ms (Views: 46.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:29:18 +0100
+Started GET "/register" for ::1 at 2025-11-23 15:29:20 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 6.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | GC: 0.0ms)
+Completed 200 OK in 1216ms (Views: 19.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:29:22 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 15:29:38 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "testomar", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (13.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'testomar' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Create (18.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('testomar', 'oalali5@example.com', NULL, '$2a$12$eExD.ZkyDVbBRRQ/5WL1UuCiUd.fidNnv6CtZHpI.h36TkHhR5LPG', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+Completed 500 Internal Server Error in 1948ms (ActiveRecord: 52.8ms (2 queries, 0 cached) | GC: 1.4ms)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "idx_16416_sqlite_autoindex_users_2"
+DETAIL:  Key (email)=(oalali5@example.com) already exists.
+)
+Caused by: PG::UniqueViolation (ERROR:  duplicate key value violates unique constraint "idx_16416_sqlite_autoindex_users_2"
+DETAIL:  Key (email)=(oalali5@example.com) already exists.
+)
+
+Information for: ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "idx_16416_sqlite_autoindex_users_2"
+DETAIL:  Key (email)=(oalali5@example.com) already exists.
+):
+  
+
+Information for cause: PG::UniqueViolation (ERROR:  duplicate key value violates unique constraint "idx_16416_sqlite_autoindex_users_2"
+DETAIL:  Key (email)=(oalali5@example.com) already exists.
+):
+  
+app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+Started POST "/api/register" for ::1 at 2025-11-23 15:29:49 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "testomar", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (5.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'testomar' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('testomar', 'oalali5@example.dk', NULL, '$2a$12$yjwud76UuQ.51jZw1ZsZBuW/0BbGcKp4zcinBpYlsh5uSNwWiCWQm', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2257ms (ActiveRecord: 11.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2025-11-23 15:29:51 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | GC: 0.0ms)
+Completed 200 OK in 1475ms (Views: 12.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:29:53 +0100
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/register" for ::1 at 2025-11-23 15:30:42 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 25.3ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 3.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 75.1ms | GC: 0.0ms)
+Completed 200 OK in 3731ms (Views: 137.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:30:47 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 15:31:01 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "devkopa", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (5.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'devkopa' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('devkopa', 'devkopa@test.dk', NULL, '$2a$12$SG.UI2er.DD2ePKTbdCD4.ex8q05FnxQO49hqa8al3oPrPcJLFS/u', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1641ms (ActiveRecord: 25.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2025-11-23 15:31:03 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | GC: 0.0ms)
+Completed 200 OK in 1140ms (Views: 9.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:31:04 +0100
+Started GET "/register" for ::1 at 2025-11-23 15:33:04 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 5.3ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | GC: 0.0ms)
+Completed 200 OK in 1692ms (Views: 43.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:33:06 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 15:33:32 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Omanse", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (8.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Omanse' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('Omanse', 'oalali5@gmail.com', NULL, '$2a$12$.XuuMpFlQOwu2PeryOavaOc1MoxUSlLOSfgsYh/ic080f65davAwm', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+Completed 500 Internal Server Error in 1455ms (ActiveRecord: 22.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template api/users/new, application/new with {locale: [:en], formats: [:html], variants: [], handlers: [:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "C:/Users/omara/OneDrive/Skrivebord/DevOps/openapi/app/views"
+  * "C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/turbo-rails-2.0.16/app/views"
+  * "C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/actiontext-8.0.2.1/app/views"
+  * "C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/actionmailbox-8.0.2.1/app/views"
+):
+  
+app/controllers/api/users_controller.rb:37:in 'Api::UsersController#register'
+Started POST "/api/register" for ::1 at 2025-11-23 15:34:07 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Omanse", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (13.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Omanse' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[31mROLLBACK /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+Completed 500 Internal Server Error in 2527ms (ActiveRecord: 31.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template api/users/register, application/register with {locale: [:en], formats: [:html], variants: [], handlers: [:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "C:/Users/omara/OneDrive/Skrivebord/DevOps/openapi/app/views"
+  * "C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/turbo-rails-2.0.16/app/views"
+  * "C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/actiontext-8.0.2.1/app/views"
+  * "C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/actionmailbox-8.0.2.1/app/views"
+):
+  
+app/controllers/api/users_controller.rb:40:in 'Api::UsersController#register'
+Started GET "/" for ::1 at 2025-11-23 15:37:51 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | GC: 0.0ms)
+Completed 200 OK in 988ms (Views: 25.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:37:53 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 15:37:55 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Omanse", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (8.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Omanse' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+Redirected to http://localhost:3000/register
+Completed 302 Found in 1326ms (ActiveRecord: 19.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/register" for ::1 at 2025-11-23 15:37:57 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 6.2ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | GC: 0.0ms)
+Completed 200 OK in 941ms (Views: 18.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:37:58 +0100
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started POST "/api/register" for ::1 at 2025-11-23 15:38:40 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Omanse", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (7.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Omanse' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('Omanse', 'oalali5@gmail.com', NULL, '$2a$12$B8MSz8OgEGBdpA06O96fbeFDGO/nnqyJ4k6rWRxRFqGFcA0Vi4Tni', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2817ms (ActiveRecord: 31.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2025-11-23 15:38:44 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 24.0ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 105.5ms | GC: 0.0ms)
+Completed 200 OK in 1323ms (Views: 189.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:38:46 +0100
+Started GET "/register" for ::1 at 2025-11-23 15:40:27 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 8.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | GC: 0.0ms)
+Completed 200 OK in 1281ms (Views: 40.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:40:29 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 15:40:39 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Omanse", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (8.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Omanse' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('Omanse', 'oalali5@gmail.com', NULL, '$2a$12$jGZpboTy4nI9ltETPq9kxe9r6EiFkJc9QIPjj86QHbXjpNvnuKrcC', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2521ms (ActiveRecord: 25.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2025-11-23 15:40:42 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 2.9ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | GC: 0.0ms)
+Completed 200 OK in 1507ms (Views: 9.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:40:43 +0100
+Started GET "/register" for ::1 at 2025-11-23 15:41:48 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | GC: 0.0ms)
+Completed 200 OK in 961ms (Views: 36.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:41:49 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 15:41:57 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Omanse", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (7.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Omanse' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('Omanse', 'oalali5@gmail.com', NULL, '$2a$12$Z0yOs/ylvsVSAIE5fwuWzu3MhN5VMlRildthStiyxQZlTqQDuxF6K', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+Completed 500 Internal Server Error in 1325ms (ActiveRecord: 24.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template api/users/register, application/register with {locale: [:en], formats: [:html], variants: [], handlers: [:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "C:/Users/omara/OneDrive/Skrivebord/DevOps/openapi/app/views"
+  * "C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/turbo-rails-2.0.16/app/views"
+  * "C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/actiontext-8.0.2.1/app/views"
+  * "C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/actionmailbox-8.0.2.1/app/views"
+):
+  
+app/controllers/api/users_controller.rb:37:in 'Api::UsersController#register'
+Started POST "/api/register" for ::1 at 2025-11-23 15:44:21 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Omanse", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (9.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Omanse' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 5.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | GC: 0.0ms)
+Completed 200 OK in 1411ms (Views: 29.6ms | ActiveRecord: 21.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:44:23 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 15:44:36 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Omanser", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (8.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Omanser' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('Omanser', 'omaralali12@hotmail.com', NULL, '$2a$12$CwJk3O0ZM/8E7jn7EiEZ/.v9Cw3wYAAVGOniBLpfqCuLO8o/3GK9W', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | GC: 0.0ms)
+Completed 200 OK in 1432ms (Views: 9.2ms | ActiveRecord: 16.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:44:37 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 15:53:35 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Test", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (8.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Test' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('Test', 'test@test.dk', NULL, '$2a$12$xfYj1v5r8.saa6KiachdFOBAFPmglUKY8X2gDHYOrNU1usD1MuI1e', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:35:in 'Api::UsersController#register'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 2.9ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | GC: 0.0ms)
+Completed 200 OK in 1499ms (Views: 30.3ms | ActiveRecord: 26.3ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 15:53:37 +0100
+Started GET "/__identify__" for 127.0.0.1 at 2025-11-23 16:12:29 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/__identify__"):
+  
+Started GET "/__identify__" for 127.0.0.1 at 2025-11-23 16:12:29 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/__identify__"):
+  
+Started GET "/__identify__" for 127.0.0.1 at 2025-11-23 16:12:29 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/__identify__"):
+  
+Started GET "/__identify__" for 127.0.0.1 at 2025-11-23 16:12:29 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/__identify__"):
+  
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for ::1 at 2025-11-23 18:05:49 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 45.6ms | GC: 0.0ms)
+Completed 200 OK in 5197ms (Views: 73.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:05:56 +0100
+Started GET "/login" for ::1 at 2025-11-23 18:05:58 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 131.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 17.1ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 314.2ms | GC: 0.0ms)
+Completed 200 OK in 3353ms (Views: 359.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:06:02 +0100
+Started POST "/api/login" for ::1 at 2025-11-23 18:06:22 +0100
+Processing by Api::UsersController#login as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Omanse", "password" => "[FILTERED]", "commit" => "Login"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'Omanse' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:7:in 'Api::UsersController#login'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3736ms (ActiveRecord: 42.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-11-23 18:06:26 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 50.7ms | GC: 0.0ms)
+Completed 200 OK in 2387ms (Views: 66.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:06:29 +0100
+Started GET "/logout" for ::1 at 2025-11-23 18:06:38 +0100
+Processing by Api::UsersController#logout as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2490ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2025-11-23 18:06:40 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 46.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 110.9ms | GC: 0.0ms)
+Completed 200 OK in 2681ms (Views: 118.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:06:44 +0100
+Started GET "/register" for ::1 at 2025-11-23 18:06:50 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 481.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 489.1ms | GC: 0.0ms)
+Completed 200 OK in 3303ms (Views: 497.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:06:54 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 18:07:10 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "omarfadelalali1", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (10.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'omarfadelalali1' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mUser Create (2.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('omarfadelalali1', 'test@gmail.com', NULL, '$2a$12$yiY1nnhZYGh0R.HOx08sZ.nj49623lSVNd2C4IJshW6vhpxhrUC7e', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (12.0ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 3.7ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | GC: 0.0ms)
+Completed 200 OK in 2537ms (Views: 39.0ms | ActiveRecord: 27.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:07:14 +0100
+Started GET "/register" for ::1 at 2025-11-23 18:08:26 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 203.4ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 7.8ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 9.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 407.8ms | GC: 0.0ms)
+Completed 200 OK in 3551ms (Views: 514.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:08:32 +0100
+Started POST "/register" for ::1 at 2025-11-23 18:08:51 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/register"):
+  
+Started POST "/register" for ::1 at 2025-11-23 18:17:23 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/register"):
+  
+Started GET "/" for ::1 at 2025-11-23 18:17:28 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 61.7ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 22.4ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 63.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 629.2ms | GC: 0.0ms)
+Completed 200 OK in 4697ms (Views: 719.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:17:34 +0100
+Started GET "/register" for ::1 at 2025-11-23 18:17:47 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 192.9ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 34.9ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 333.7ms | GC: 0.0ms)
+Completed 200 OK in 3796ms (Views: 411.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:17:52 +0100
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/register" for ::1 at 2025-11-23 18:18:13 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (4.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 30.1ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 4.5ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 103.5ms | GC: 0.0ms)
+Completed 200 OK in 5367ms (Views: 170.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:18:19 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 18:18:35 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Testers", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (11.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Testers' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mUser Create (3.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('Testers', 'oalali5@tester.com', NULL, '$2a$12$Im4aIbsrJK69g5oGwtuzGOoHsoZUzzgZ/D6k850L0hSeLXZQLcEia', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (61.4ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+Redirected to http://localhost:3000/register
+Completed 302 Found in 3493ms (ActiveRecord: 110.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/register" for ::1 at 2025-11-23 18:18:39 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 11.6ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.8ms | GC: 0.0ms)
+Completed 200 OK in 2032ms (Views: 39.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:18:41 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 18:19:06 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "omarfadelalali111", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (15.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'omarfadelalali111' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mUser Create (3.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('omarfadelalali111', '1111@1111.dk', NULL, '$2a$12$kMRxWWNYJmckInrxB4lewuJcPlfcopdnvcTVnPib1PsNLA/2LdDD6', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (12.2ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+Redirected to http://localhost:3000/register
+Completed 302 Found in 3739ms (ActiveRecord: 33.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/register" for ::1 at 2025-11-23 18:19:10 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 41.0ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 88.6ms | GC: 0.0ms)
+Completed 200 OK in 2314ms (Views: 92.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:19:13 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 18:20:23 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "omarfadelalali1111111", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (14.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'omarfadelalali1111111' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mUser Create (16.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('omarfadelalali1111111', 'oalali5@111111.com', NULL, '$2a$12$De8GNHzStKnS72bPVdXBreQL3pWpAtVGJCVz5qgpsaAAOgcWwGMky', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+Redirected to http://localhost:3000/register
+Completed 302 Found in 2857ms (ActiveRecord: 56.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/register" for ::1 at 2025-11-23 18:20:28 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 6.2ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 58.1ms | GC: 0.0ms)
+Completed 200 OK in 2109ms (Views: 88.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:20:31 +0100
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:21:00 +0100
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-11-23 18:21:00 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/register" for ::1 at 2025-11-23 18:22:51 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Openapi'*/[0m
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 10.7ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 39.9ms | GC: 0.0ms)
+Completed 200 OK in 4581ms (Views: 75.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:22:57 +0100
+Started POST "/api/register" for ::1 at 2025-11-23 18:23:12 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Yasin", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mUser Exists? (15.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Yasin' LIMIT 1 /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset") VALUES ('Yasin', 'yasin@yasin.dk', NULL, '$2a$12$u/ddgpWf7UPf97uzObIbcu4eywUDvv2bcluH47jNcx.6i./RM/4Ey', NULL) RETURNING "id" /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+  [1m[36mTRANSACTION (35.2ms)[0m  [1m[35mCOMMIT /*action='register',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:30:in 'Api::UsersController#register'
+Redirected to http://localhost:3000/register
+Completed 302 Found in 2958ms (ActiveRecord: 292.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/register" for ::1 at 2025-11-23 18:23:15 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 12.0ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 4.5ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 43.2ms | GC: 0.0ms)
+Completed 200 OK in 2553ms (Views: 48.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:23:18 +0100
+Started GET "/login" for ::1 at 2025-11-23 18:23:23 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 15.2ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 7.4ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 78.0ms | GC: 0.0ms)
+Completed 200 OK in 4010ms (Views: 112.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:23:28 +0100
+Started POST "/api/login" for ::1 at 2025-11-23 18:23:36 +0100
+Processing by Api::UsersController#login as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "yasin", "password" => "[FILTERED]", "commit" => "Login"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'yasin' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:7:in 'Api::UsersController#login'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2764ms (ActiveRecord: 3.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2025-11-23 18:23:39 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 3.8ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | GC: 0.0ms)
+Completed 200 OK in 2782ms (Views: 12.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:23:42 +0100
+Started POST "/api/login" for ::1 at 2025-11-23 18:23:51 +0100
+Processing by Api::UsersController#login as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "username" => "Yasin", "password" => "[FILTERED]", "commit" => "Login"}
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = 'Yasin' LIMIT 1 /*action='login',application='Openapi',controller='users'*/[0m
+  ↳ app/controllers/api/users_controller.rb:7:in 'Api::UsersController#login'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3138ms (ActiveRecord: 7.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-11-23 18:23:54 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 18.6ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 113.0ms | GC: 0.0ms)
+Completed 200 OK in 2886ms (Views: 248.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:23:58 +0100
+Started GET "/logout" for ::1 at 2025-11-23 18:24:06 +0100
+  
+ActionController::RoutingError (uninitialized constant UsersController)
+Caused by: ActionDispatch::MissingController (uninitialized constant UsersController)
+Caused by: NameError (uninitialized constant UsersController)
+
+Information for: ActionController::RoutingError (uninitialized constant UsersController):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant UsersController):
+  
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:102:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.1) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.1) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.1) lib/rack/conditional_get.rb:31:in 'Rack::ConditionalGet#call'
+rack (3.2.1) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.0.2.1) lib/action_dispatch/http/permissions_policy.rb:38:in 'ActionDispatch::PermissionsPolicy::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/cookies.rb:706:in 'ActionDispatch::Cookies#call'
+activerecord (8.0.2.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.1) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.1) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.1) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (7.0.3) lib/puma/configuration.rb:299:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (7.0.3) lib/puma/request.rb:101:in 'block in Puma::Request#handle_request'
+puma (7.0.3) lib/puma/thread_pool.rb:346:in 'Puma::ThreadPool#with_force_shutdown'
+puma (7.0.3) lib/puma/request.rb:100:in 'Puma::Request#handle_request'
+puma (7.0.3) lib/puma/server.rb:497:in 'Puma::Server#process_client'
+puma (7.0.3) lib/puma/server.rb:266:in 'block in Puma::Server#run'
+puma (7.0.3) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: NameError (uninitialized constant UsersController):
+  
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in 'Module#const_get'
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in 'ActiveSupport::Inflector#constantize'
+activesupport (8.0.2.1) lib/active_support/core_ext/string/inflections.rb:74:in 'String#constantize'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:99:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.1) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.1) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.1) lib/rack/conditional_get.rb:31:in 'Rack::ConditionalGet#call'
+rack (3.2.1) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.0.2.1) lib/action_dispatch/http/permissions_policy.rb:38:in 'ActionDispatch::PermissionsPolicy::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/cookies.rb:706:in 'ActionDispatch::Cookies#call'
+activerecord (8.0.2.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.1) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.1) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.1) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (7.0.3) lib/puma/configuration.rb:299:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (7.0.3) lib/puma/request.rb:101:in 'block in Puma::Request#handle_request'
+puma (7.0.3) lib/puma/thread_pool.rb:346:in 'Puma::ThreadPool#with_force_shutdown'
+puma (7.0.3) lib/puma/request.rb:100:in 'Puma::Request#handle_request'
+puma (7.0.3) lib/puma/server.rb:497:in 'Puma::Server#process_client'
+puma (7.0.3) lib/puma/server.rb:266:in 'block in Puma::Server#run'
+puma (7.0.3) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/logout" for ::1 at 2025-11-23 18:25:34 +0100
+  
+ActionController::RoutingError (uninitialized constant UsersController)
+Caused by: ActionDispatch::MissingController (uninitialized constant UsersController)
+Caused by: NameError (uninitialized constant UsersController)
+
+Information for: ActionController::RoutingError (uninitialized constant UsersController):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant UsersController):
+  
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:102:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.1) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.1) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.1) lib/rack/conditional_get.rb:31:in 'Rack::ConditionalGet#call'
+rack (3.2.1) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.0.2.1) lib/action_dispatch/http/permissions_policy.rb:38:in 'ActionDispatch::PermissionsPolicy::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/cookies.rb:706:in 'ActionDispatch::Cookies#call'
+activerecord (8.0.2.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.1) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.1) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.1) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (7.0.3) lib/puma/configuration.rb:299:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (7.0.3) lib/puma/request.rb:101:in 'block in Puma::Request#handle_request'
+puma (7.0.3) lib/puma/thread_pool.rb:346:in 'Puma::ThreadPool#with_force_shutdown'
+puma (7.0.3) lib/puma/request.rb:100:in 'Puma::Request#handle_request'
+puma (7.0.3) lib/puma/server.rb:497:in 'Puma::Server#process_client'
+puma (7.0.3) lib/puma/server.rb:266:in 'block in Puma::Server#run'
+puma (7.0.3) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: NameError (uninitialized constant UsersController):
+  
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in 'Module#const_get'
+activesupport (8.0.2.1) lib/active_support/inflector/methods.rb:290:in 'ActiveSupport::Inflector#constantize'
+activesupport (8.0.2.1) lib/active_support/core_ext/string/inflections.rb:74:in 'String#constantize'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:99:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.2.1) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.2.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.2.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.2.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.1) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.1) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.1) lib/rack/conditional_get.rb:31:in 'Rack::ConditionalGet#call'
+rack (3.2.1) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.0.2.1) lib/action_dispatch/http/permissions_policy.rb:38:in 'ActionDispatch::PermissionsPolicy::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/cookies.rb:706:in 'ActionDispatch::Cookies#call'
+activerecord (8.0.2.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.1) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.1) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.1) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.2.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (7.0.3) lib/puma/configuration.rb:299:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (7.0.3) lib/puma/request.rb:101:in 'block in Puma::Request#handle_request'
+puma (7.0.3) lib/puma/thread_pool.rb:346:in 'Puma::ThreadPool#with_force_shutdown'
+puma (7.0.3) lib/puma/request.rb:100:in 'Puma::Request#handle_request'
+puma (7.0.3) lib/puma/server.rb:497:in 'Puma::Server#process_client'
+puma (7.0.3) lib/puma/server.rb:266:in 'block in Puma::Server#run'
+puma (7.0.3) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/logout" for ::1 at 2025-11-23 18:26:20 +0100
+Processing by Api::UsersController#logout as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3264ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2025-11-23 18:26:28 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 5.0ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 3.7ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.3ms | GC: 0.0ms)
+Completed 200 OK in 2136ms (Views: 53.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:26:30 +0100
+Started GET "/register" for ::1 at 2025-11-23 18:26:35 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 4.9ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | GC: 0.0ms)
+Completed 200 OK in 1641ms (Views: 21.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwindcss" for ::1 at 2025-11-23 18:26:37 +0100
