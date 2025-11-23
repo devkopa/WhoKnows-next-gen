@@ -9,7 +9,7 @@ RSpec.describe "Weathers", type: :request do
         double(success?: true, parsed_response: {
           "name" => "Copenhagen",
           "main" => { "temp" => 20 },
-          "weather" => [{ "description" => "clear sky" }],
+          "weather" => [ { "description" => "clear sky" } ],
           "coord" => { "lat" => 55.6761, "lon" => 12.5683 }
         })
       )

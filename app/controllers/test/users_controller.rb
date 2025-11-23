@@ -1,6 +1,6 @@
 module Test
   class UsersController < ApplicationController
-    skip_before_action :verify_authenticity_token, only: [:login, :register, :logout]
+    skip_before_action :verify_authenticity_token, only: [ :login, :register, :logout ]
 
     # POST /test/register
     def register
