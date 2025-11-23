@@ -1,5 +1,5 @@
-require 'httparty'
-require 'nokogiri'
+require "httparty"
+require "nokogiri"
 
 class ScraperService
   # Simple scrape for a single URL
@@ -10,8 +10,8 @@ class ScraperService
     doc = Nokogiri::HTML(response.body)
     {
       url: url,
-      title: doc.at('title')&.text || "No title",
-      content: doc.at('body')&.text&.squish || "No content"
+      title: doc.at("title")&.text || "No title",
+      content: doc.at("body")&.text&.squish || "No content"
     }
   rescue => e
     Rails.logger.error("Scrape failed for #{url}: #{e.message}")

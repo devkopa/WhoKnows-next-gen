@@ -2,13 +2,13 @@ namespace :scrape do
   desc "Scrape pages based on top searches"
   task top_searches: :environment do
     # Get top 5 search queries from logs
-    top_queries = SearchLog.group(:query).order('count_id DESC').count('id').keys.first(5)
+    top_queries = SearchLog.group(:query).order("count_id DESC").count("id").keys.first(5)
 
     # Map queries to URLs to scrape (replace with real sources)
     query_to_urls = {
-      "ruby" => ["https://www.ruby-lang.org/en/documentation/"],
-      "rails" => ["https://guides.rubyonrails.org/"],
-      "javascript" => ["https://developer.mozilla.org/en-US/docs/Web/JavaScript"]
+      "ruby" => [ "https://www.ruby-lang.org/en/documentation/" ],
+      "rails" => [ "https://guides.rubyonrails.org/" ],
+      "javascript" => [ "https://developer.mozilla.org/en-US/docs/Web/JavaScript" ]
       # Add more mappings as needed
     }
 
