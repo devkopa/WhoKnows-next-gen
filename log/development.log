@@ -40357,3 +40357,219 @@ Processing by MetricsController#index as HTML
 Completed 200 OK in 664ms (Views: 0.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:38:54 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 634ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for ::1 at 2025-11-24 23:39:04 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 560ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:39:09 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 570ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/weather?city=Br%C3%B8nsh%C3%B8j" for ::1 at 2025-11-24 23:39:10 +0100
+Processing by Api::WeatherController#show as HTML
+  Parameters: {"city" => "Brønshøj"}
+Completed 200 OK in 670ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:39:24 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 602ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:39:39 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 632ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:39:54 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 633ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:40:23 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 580ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:40:38 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 578ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:40:53 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 685ms (Views: 0.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:41:08 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 583ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:41:22 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 648ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:41:37 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 745ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:41:52 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 646ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:42:07 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 603ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:42:23 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 732ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:42:37 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 634ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:42:52 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 604ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:43:07 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 617ms (Views: 0.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:43:22 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 574ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:43:38 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 576ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:43:52 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 661ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:44:07 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 648ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:44:22 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 694ms (Views: 0.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:44:37 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 593ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:44:52 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 662ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:45:07 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 594ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:45:22 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 595ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:45:37 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 640ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:45:52 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 651ms (Views: 0.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:46:07 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 622ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
