@@ -122,6 +122,12 @@ jobs:
       - name: Build Docker image
         run: docker build -t whoknows-next-gen:ci .
 
+      - name: Install Docker Scout plugin
+        run: |
+          mkdir -p ~/.docker/cli-plugins
+          curl -SL https://github.com/docker/scout-cli/releases/download/v0.14.0/docker-scout-linux-amd64 -o ~/.docker/cli-plugins/docker-scout
+          chmod +x ~/.docker/cli-plugins/docker-scout
+
       - name: Docker Scout scan
         run: docker scout cve whoknows-next-gen:ci
 
