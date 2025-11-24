@@ -85,3 +85,4 @@ gem "nokogiri"
 
 # Environment variables
 gem "dotenv-rails"
+gem "prometheus-client"
