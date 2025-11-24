@@ -29,28 +29,13 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             set -e
-
-            # Install Docker if missing
-            if ! command -v docker >/dev/null; then
-              curl -fsSL https://get.docker.com -o get-docker.sh
-              sh get-docker.sh
-            fi
-
-            # Install Docker Compose if missing
-            if ! command -v docker-compose >/dev/null; then
-              sudo curl -L "https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-              sudo chmod +x /usr/local/bin/docker-compose
-            fi
-
-            # Ensure app directory exists
-            mkdir -p ${{ secrets.AZURE_VM_APP_PATH }}
             cd ${{ secrets.AZURE_VM_APP_PATH }}
-
+            
             # Pull latest code
             git fetch origin master
             git reset --hard origin/master
             git clean -fd
 
-            # Build and start containers
-            docker-compose up -d --build
+            # Start containers (genbruger allerede buildede images)
+            docker-compose up -d
           EOF
