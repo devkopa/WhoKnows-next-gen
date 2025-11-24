@@ -95,10 +95,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Trivy
-        uses: aquasecurity/trivy-action@v2
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@v0.67.2
         with:
           scan-type: fs
+          scan-ref: .
           format: table
           exit-code: 1
           ignore-unfixed: true
@@ -110,13 +111,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: 'lts/*'
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
       - name: Install Snyk CLI
-        run: npm install -g snyk
+        run: npm install -g snyk@latest
       - name: Authenticate Snyk
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
