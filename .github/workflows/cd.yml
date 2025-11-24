@@ -48,11 +48,11 @@ jobs:
               eval "$(rbenv init -)"
             fi
 
-            # Installer Ruby 3.4.6, hvis den ikke findes
-            if ! rbenv versions | grep -q "3.4.6"; then
-              rbenv install 3.4.6
+            # Installer Ruby 3.4.5, hvis den ikke findes
+            if ! rbenv versions | grep -q "3.4.5"; then
+              rbenv install 3.4.5
             fi
-            rbenv global 3.4.6
+            rbenv global 3.4.5
 
             # Opret app-mappen, hvis den ikke findes
             mkdir -p ${{ secrets.AZURE_VM_APP_PATH }}
