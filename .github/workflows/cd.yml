@@ -20,9 +20,14 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.AZURE_VM_SSH_KEY }}
 
+      - name: Add Azure VM to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.AZURE_VM_HOST }} >> ~/.ssh/known_hosts
+
       - name: Deploy to Azure VM
         run: |
-          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             set -e
 
             # Install Docker if missing
