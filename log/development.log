@@ -40573,3 +40573,66 @@ Processing by MetricsController#index as HTML
 Completed 200 OK in 622ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:46:22 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 604ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:46:38 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 603ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:46:52 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 584ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:47:07 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 582ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:47:22 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 562ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:47:37 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 643ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:47:52 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 615ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:48:07 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 623ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-24 23:48:22 +0100
+Processing by MetricsController#index as HTML
+  Rendering text template
+  Rendered text template (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 578ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
