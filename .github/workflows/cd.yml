@@ -30,9 +30,9 @@ jobs:
           ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             set -e
 
-            # Opdater pakker
-            sudo apt-get update -y
-            sudo apt-get install -y git curl build-essential libssl-dev libreadline-dev zlib1g-dev
+            # Opdater pakker (kun hvis sudo uden password virker)
+            sudo apt-get update -y || true
+            sudo apt-get install -y git curl build-essential libssl-dev libreadline-dev zlib1g-dev || true
 
             # Installer rbenv og Ruby, hvis det ikke allerede findes
             if [ ! -d "$HOME/.rbenv" ]; then
@@ -43,6 +43,9 @@ jobs:
               export PATH="$HOME/.rbenv/bin:$PATH"
               eval "$(rbenv init -)"
               git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+            else
+              export PATH="$HOME/.rbenv/bin:$PATH"
+              eval "$(rbenv init -)"
             fi
 
             # Installer Ruby 3.4.6, hvis den ikke findes
