@@ -68,10 +68,10 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-
     steps:
       - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config google-chrome-stable
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config google-chrome-stable wget
+
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
@@ -79,11 +79,14 @@ jobs:
           bundler-cache: true
       - run: chmod +x bin/*
       - run: sed -i '1 s/ruby.exe/ruby/' bin/*
+
       - name: Wait for Postgres
         run: |
           until pg_isready -h $POSTGRES_HOST -p $POSTGRES_PORT -U $POSTGRES_USER; do sleep 1; done
+
       - name: Run tests
         run: bin/rails db:test:prepare test test:system
+
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
@@ -91,39 +94,37 @@ jobs:
           path: ${{ github.workspace }}/tmp/screenshots
           if-no-files-found: ignore
 
-  trivy_scan:
+  security:
     runs-on: ubuntu-latest
+    needs: [scan_ruby, scan_js, lint, test]
     steps:
       - uses: actions/checkout@v4
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@v0.33.1
-        with:
-          version: v0.67.2     # CLI version
-          scan-type: fs
-          scan-ref: .
-          format: table
-          exit-code: 1
-          ignore-unfixed: true
 
-  snyk_scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 'lts/*'  # seneste stabile Node.js
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
+      # --- Snyk ---
+      - name: Install Node.js
+        run: sudo apt-get install -y nodejs npm
+
       - name: Install Snyk CLI
-        run: npm install -g snyk@latest  # seneste stabile Snyk
+        run: npm install -g snyk
+
       - name: Authenticate Snyk
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: snyk auth $SNYK_TOKEN
-      - name: Run Snyk Test
-        run: snyk test --all-projects --severity-threshold=medium
-      - name: Run Snyk Monitor
-        run: snyk monitor --all-projects
+
+      - name: Run Snyk test
+        run: snyk test
+
+      # --- Trivy ---
+      - name: Install Trivy
+        run: |
+          wget https://github.com/aquasecurity/trivy/releases/download/v0.67.2/trivy_0.67.2_Linux-64bit.deb
+          sudo dpkg -i trivy_0.67.2_Linux-64bit.deb
+
+      - name: Trivy scan project files
+        run: trivy fs .
+
+      - name: Trivy scan Docker image
+        run: |
+          docker build -t whoknows-next-gen:ci .
+          trivy image whoknows-next-gen:ci
