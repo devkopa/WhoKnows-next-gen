@@ -1,4 +1,4 @@
-name: CD
+name: Full CD
 
 on:
   workflow_run:
@@ -15,21 +15,37 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up SSH key
-        uses: webfactory/ssh-agent@v0.8.0
+      # Set up SSH to VM
+      - uses: webfactory/ssh-agent@v0.8.0
         with:
           ssh-private-key: ${{ secrets.AZURE_VM_SSH_KEY }}
 
-      - name: Add Azure VM to known_hosts
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H ${{ secrets.AZURE_VM_HOST }} >> ~/.ssh/known_hosts
-
-      - name: Deploy with Docker Compose
+      - name: Deploy to Azure VM
         run: |
           ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             set -e
+
+            # Install Docker if missing
+            if ! command -v docker >/dev/null; then
+              curl -fsSL https://get.docker.com -o get-docker.sh
+              sh get-docker.sh
+            fi
+
+            # Install Docker Compose if missing
+            if ! command -v docker-compose >/dev/null; then
+              sudo curl -L "https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+              sudo chmod +x /usr/local/bin/docker-compose
+            fi
+
+            # Ensure app directory exists
+            mkdir -p ${{ secrets.AZURE_VM_APP_PATH }}
             cd ${{ secrets.AZURE_VM_APP_PATH }}
-            docker-compose pull
-            docker-compose up -d
+
+            # Pull latest code
+            git fetch origin master
+            git reset --hard origin/master
+            git clean -fd
+
+            # Build and start containers
+            docker-compose up -d --build
           EOF
