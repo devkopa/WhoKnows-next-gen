@@ -78,7 +78,7 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
       - run: chmod +x bin/*
-      - run: sed -i '1 s/ruby.exe/ruby/' bin/*
+      - run: sed -i '1 s/ruby.exe/ruby/' bin*
       - name: Wait for Postgres
         run: |
           until pg_isready -h $POSTGRES_HOST -p $POSTGRES_PORT -U $POSTGRES_USER; do sleep 1; done
@@ -96,7 +96,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@v0.67.2
+        uses: aquasecurity/trivy-action@v0.33.1
         with:
           scan-type: fs
           scan-ref: .
@@ -111,13 +111,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 'lts/*'
+          node-version: 'lts/*'  # nyeste stabile Node.js
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
       - name: Install Snyk CLI
-        run: npm install -g snyk@latest
+        run: npm install -g snyk@latest  # nyeste Snyk
       - name: Authenticate Snyk
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
