@@ -116,20 +116,28 @@ jobs:
         run: snyk test
 
       # --- Docker Scout ---
+      - name: Install latest Docker
+        run: |
+          sudo apt-get remove -y docker docker-engine docker.io containerd runc
+          curl -fsSL https://get.docker.com | sh
+          docker --version
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-
-      - name: Build Docker image
-        run: docker build -t whoknows-next-gen:ci .
 
       - name: Install Docker Scout plugin
         run: |
           mkdir -p ~/.docker/cli-plugins
-          curl -SL https://github.com/docker/scout-cli/releases/download/v0.14.0/docker-scout-linux-amd64 -o ~/.docker/cli-plugins/docker-scout
+          curl -SL https://github.com/docker/scout-cli/releases/download/v1.18.4/docker-scout-linux-amd64 -o ~/.docker/cli-plugins/docker-scout
           chmod +x ~/.docker/cli-plugins/docker-scout
+          docker scout version
+
+      - name: Build Docker image
+        run: docker build -t whoknows-next-gen:ci .
 
       - name: Docker Scout scan
         run: docker scout cve whoknows-next-gen:ci
+
 
       # --- Trivy ---
       - name: Install Trivy
