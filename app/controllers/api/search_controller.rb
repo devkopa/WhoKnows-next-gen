@@ -4,6 +4,7 @@ module Api
 
     def index
       query = params[:q].to_s.strip
+      log_search(query) if query.present?
 
       pages = if query.present?
         terms = query.split
@@ -27,6 +28,13 @@ module Api
         format.html { render template: "search/index" }
         format.json { render json: @results }
       end
+    end
+
+    private
+
+    def log_search(query)
+      SearchLog.create(query: query, user_ip: request.remote_ip)
+      Rails.logger.info("Search logged: #{query}")
     end
   end
 end

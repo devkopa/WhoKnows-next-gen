@@ -8,6 +8,6 @@ scrape_configs:
 
 - job_name: rails-app
   static_configs:
-    - targets: [devkopa.dk:443]
+    - targets: [web:3000]
   metrics_path: /metrics
   scheme: https

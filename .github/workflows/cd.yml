@@ -1,4 +1,4 @@
-name: CD
+name: Full CD
 
 on:
   workflow_run:
@@ -30,17 +30,42 @@ jobs:
           ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             set -e
 
-            # Load rbenv so we use Ruby 3.4.5
-            export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
-            eval "$(rbenv init -)"
+            # Opdater pakker (kun hvis sudo uden password virker)
+            sudo apt-get update -y || true
+            sudo apt-get install -y git curl build-essential libssl-dev libreadline-dev zlib1g-dev || true
 
-            # Skift til app-mappen
+            # Installer rbenv og Ruby, hvis det ikke allerede findes
+            if [ ! -d "$HOME/.rbenv" ]; then
+              git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+              cd ~/.rbenv && src/configure && make -C src
+              echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+              echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+              export PATH="$HOME/.rbenv/bin:$PATH"
+              eval "$(rbenv init -)"
+              git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+            else
+              export PATH="$HOME/.rbenv/bin:$PATH"
+              eval "$(rbenv init -)"
+            fi
+
+            # Installer Ruby 3.4.5, hvis den ikke findes
+            if ! rbenv versions | grep -q "3.4.5"; then
+              rbenv install 3.4.5
+            fi
+            rbenv global 3.4.5
+
+            # Opret app-mappen, hvis den ikke findes
+            mkdir -p ${{ secrets.AZURE_VM_APP_PATH }}
             cd ${{ secrets.AZURE_VM_APP_PATH }}
 
-            # Opdater repo
-            git fetch origin master
-            git reset --hard origin/master
-            git clean -fd
+            # Hvis repo ikke findes, clone det, ellers fetch
+            if [ ! -d ".git" ]; then
+              git clone https://github.com/${{ github.repository }} . 
+            else
+              git fetch origin master
+              git reset --hard origin/master
+              git clean -fd
+            fi
 
             # Fix Windows shebangs
             sed -i '1 s|ruby.exe|'"$HOME/.rbenv/shims/ruby"'|' bin/*
