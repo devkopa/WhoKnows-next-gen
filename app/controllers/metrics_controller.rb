@@ -12,10 +12,10 @@ class MetricsController < ApplicationController
         # Handle histogram buckets
         if metric.type == :histogram && value.is_a?(Hash)
           value.each do |bucket, count|
-            if bucket == 'sum'
+            if bucket == "sum"
               labels_str = label_set.empty? ? "" : "{#{label_set.map { |k, v| "#{k}=\"#{v}\"" }.join(',')}}"
               output << "#{metric.name}_sum#{labels_str} #{count}"
-            elsif bucket == 'count'
+            elsif bucket == "count"
               labels_str = label_set.empty? ? "" : "{#{label_set.map { |k, v| "#{k}=\"#{v}\"" }.join(',')}}"
               output << "#{metric.name}_count#{labels_str} #{count}"
             else
@@ -29,7 +29,7 @@ class MetricsController < ApplicationController
           if label_set.empty?
             output << "#{metric.name} #{value}"
           else
-            labels = label_set.map { |k, v| "#{k}=\"#{v}\"" }.join(',')
+            labels = label_set.map { |k, v| "#{k}=\"#{v}\"" }.join(",")
             output << "#{metric.name}{#{labels}} #{value}"
           end
         end
@@ -37,6 +37,6 @@ class MetricsController < ApplicationController
       output << ""
     end
 
-    render plain: output.join("\n"), content_type: 'text/plain; version=0.0.4'
+    render plain: output.join("\n"), content_type: "text/plain; version=0.0.4"
   end
 end
