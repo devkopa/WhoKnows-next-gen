@@ -18,8 +18,38 @@ services:
       - .env
     volumes:
       - pgdata:/var/lib/postgresql/data
+  node_exporter:
+    container_name: node-exporter
+    image: prom/node-exporter:latest
+    command:
+      - '--path.rootfs=host'
+    ports: 
+      - '9100:9100'
+    pid: host
+    volumes:
+      - '/:/host:ro'
+  
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus:latest
     ports:
-      - "5432:5432"
+      - '9090:9090'
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus-data:/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+  
+  grafana:
+    container_name: grafana
+    image: grafana/grafana-oss:latest
+    ports:
+      - "5000:3000"
+    volumes:
+      - ./grafana-data:/var/lib/grafana
+    env_file:
+      - .env
+
 
 volumes:
   pgdata:

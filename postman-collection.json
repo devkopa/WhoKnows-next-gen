@@ -1,0 +1,241 @@
+{
+  "info": {
+    "name": "WhoKnows API Health Monitoring",
+    "_postman_id": "whoknows-api-health",
+    "description": "Health monitoring collection for WhoKnows Rails application",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response time is less than 500ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://devkopa.dk/up",
+          "protocol": "https",
+          "host": ["devkopa", "dk"],
+          "path": ["up"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Weather API",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response time is less than 2000ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+              "});",
+              "",
+              "pm.test(\"Response has weather data\", function () {",
+              "    const body = pm.response.json();",
+              "    pm.expect(body).to.have.property(\"city\");",
+              "    pm.expect(body).to.have.property(\"temperature\");",
+              "    pm.expect(body).to.have.property(\"condition\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://devkopa.dk/api/weather?city=Copenhagen",
+          "protocol": "https",
+          "host": ["devkopa", "dk"],
+          "path": ["api", "weather"],
+          "query": [
+            {
+              "key": "city",
+              "value": "Copenhagen"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search API",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response time is less than 1000ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+              "});",
+              "",
+              "pm.test(\"Response body is present\", function () {",
+              "    pm.expect(pm.response.text()).to.not.be.empty;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://devkopa.dk/api/search?q=test",
+          "protocol": "https",
+          "host": ["devkopa", "dk"],
+          "path": ["api", "search"],
+          "query": [
+            {
+              "key": "q",
+              "value": "test"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response time is less than 1000ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "username",
+              "value": "testuser",
+              "type": "text"
+            },
+            {
+              "key": "email",
+              "value": "test@example.com",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "password123",
+              "type": "text"
+            },
+            {
+              "key": "password_confirmation",
+              "value": "password123",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://devkopa.dk/api/register",
+          "protocol": "https",
+          "host": ["devkopa", "dk"],
+          "path": ["api", "register"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response time is less than 1000ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "username",
+              "value": "testuser",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "password123",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://devkopa.dk/api/login",
+          "protocol": "https",
+          "host": ["devkopa", "dk"],
+          "path": ["api", "login"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

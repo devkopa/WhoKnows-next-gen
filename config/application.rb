@@ -23,5 +23,9 @@ module Openapi
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Prometheus monitoring middleware
+    require_relative "../app/middleware/prometheus_middleware"
+    config.middleware.use PrometheusMiddleware
   end
 end
