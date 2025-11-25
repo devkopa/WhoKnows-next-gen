@@ -42679,3 +42679,18 @@ Started GET "/icon.png" for ::1 at 2025-11-25 15:10:47 +0100
   
 ActionController::RoutingError (No route matches [GET] "/icon.png"):
   
+Started GET "/" for ::1 at 2025-11-25 17:35:24 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 3.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | GC: 0.0ms)
+Completed 200 OK in 1011ms (Views: 30.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/grafana" for ::1 at 2025-11-25 17:35:30 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/grafana"):
+  
