@@ -26,6 +26,8 @@
 
 prometheus-data/
 
+grafana-data/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
