@@ -1,7 +1,15 @@
 class MetricsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  skip_before_action :allow_browser, raise: false
 
   def index
+    # Update user registrations gauge dynamically
+    begin
+      USER_REGISTRATIONS.set(User.count) if USER_REGISTRATIONS.respond_to?(:set)
+    rescue => e
+      Rails.logger.warn("Could not update user_registrations_total: #{e.message}")
+    end
+    
     output = []
 
     Prometheus::Client.registry.metrics.each do |metric|

@@ -17,7 +17,7 @@ HTTP_REQUEST_DURATION = prometheus.histogram(
 )
 
 # User behavior metrics
-USER_REGISTRATIONS = prometheus.counter(
+USER_REGISTRATIONS = prometheus.gauge(
   :user_registrations_total,
   docstring: "Total user registrations"
 )

@@ -7,12 +7,14 @@ module Api
       user = User.find_by(username: params[:username])
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
+        USER_LOGINS.increment(labels: { status: "success" })
         if user.force_password_reset
           redirect_to "/change_password"
         else
           redirect_to root_path
         end
       else
+        USER_LOGINS.increment(labels: { status: "failure" })
         flash[:alert] = "Wrong username or password"
         redirect_to login_path
       end

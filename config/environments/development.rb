@@ -13,6 +13,9 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   config.hosts << "devkopa.dk"
+  config.hosts << "localhost"
+  config.hosts << "127.0.0.1"
+  config.hosts << "host.docker.internal"
 
   # Allow web console from any IP
   config.web_console.permissions = "0.0.0.0/0"

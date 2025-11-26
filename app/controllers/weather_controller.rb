@@ -12,6 +12,11 @@ class WeatherController < ApplicationController
     end
 
     response = self.class.get("/weather", query: { q: city, appid: api_key, units: "metric" })
+    begin
+      WEATHER_REQUESTS.increment
+    rescue => e
+      Rails.logger.warn("Could not increment WEATHER_REQUESTS: #{e.message}")
+    end
 
     if response.success?
       data = response.parsed_response

@@ -4,7 +4,14 @@ module Api
 
     def index
       query = params[:q].to_s.strip
-      log_search(query) if query.present?
+      if query.present?
+        log_search(query)
+        begin
+          SEARCH_REQUESTS.increment
+        rescue => e
+          Rails.logger.warn("Could not increment SEARCH_REQUESTS: #{e.message}")
+        end
+      end
 
       pages = if query.present?
         terms = query.split

@@ -26,8 +26,10 @@ module Test
 
       if user&.authenticate(data["password"])
         session[:user_id] = user.id
+        USER_LOGINS.increment(labels: { status: "success" })
         render json: { id: user.id, username: user.username, message: "Login successful" }
       else
+        USER_LOGINS.increment(labels: { status: "failure" })
         render json: { message: "Invalid username or password" }, status: :unauthorized
       end
     end
