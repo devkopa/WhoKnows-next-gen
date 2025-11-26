@@ -9,7 +9,7 @@ class MetricsController < ApplicationController
     rescue => e
       Rails.logger.warn("Could not update user_registrations_total: #{e.message}")
     end
-    
+
     output = []
 
     Prometheus::Client.registry.metrics.each do |metric|

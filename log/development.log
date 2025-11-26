@@ -49068,3 +49068,120 @@ Processing by MetricsController#index as HTML
 Completed 200 OK in 1797ms (Views: 5.8ms | ActiveRecord: 6.1ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:18:58 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 1682ms (Views: 1.7ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:19:13 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 1828ms (Views: 1.3ms | ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:19:28 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 1885ms (Views: 2.4ms | ActiveRecord: 2.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:19:44 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 1872ms (Views: 2.2ms | ActiveRecord: 2.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:19:58 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 1649ms (Views: 1.8ms | ActiveRecord: 3.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:20:14 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 1776ms (Views: 2.1ms | ActiveRecord: 3.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:20:28 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 1674ms (Views: 1.8ms | ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:20:44 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 1886ms (Views: 1.5ms | ActiveRecord: 2.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:20:58 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 1653ms (Views: 1.7ms | ActiveRecord: 2.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:21:14 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 1803ms (Views: 2.0ms | ActiveRecord: 2.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:21:28 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 1.3ms | GC: 0.0ms)
+Completed 200 OK in 1717ms (Views: 3.3ms | ActiveRecord: 2.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:21:43 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 1921ms (Views: 1.7ms | ActiveRecord: 2.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/metrics" for 127.0.0.1 at 2025-11-26 22:21:58 +0100
+Processing by MetricsController#index as HTML
+  [1m[36mUser Count (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*action='index',application='Openapi',controller='metrics'*/[0m
+  ↳ app/controllers/metrics_controller.rb:8:in 'MetricsController#index'
+  Rendering text template
+  Rendered text template (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 1750ms (Views: 2.0ms | ActiveRecord: 2.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
