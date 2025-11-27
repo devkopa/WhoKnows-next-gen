@@ -16,37 +16,63 @@ module Scraper
     # Return array of urls (strings) for a query (max limit)
     def lookup(query, limit: 5)
       urls = []
-      begin
-        ddg_url = "https://html.duckduckgo.com/html?q=#{URI.encode_www_form_component(query)}"
-        html = open_with_agent(ddg_url)
-        doc = Nokogiri::HTML(html)
+      # try multiple DuckDuckGo HTML endpoints and be resilient with retries
+      endpoints = [
+        "https://html.duckduckgo.com/html?q=",
+        "https://duckduckgo.com/html?q="
+      ]
 
-        # Try to pick result anchors; DuckDuckGo markup may vary, so be flexible
-        anchors = doc.css("a.result__a")
-        anchors = doc.css("a") if anchors.empty?
+      endpoints.each do |base|
+        break if urls.uniq.size >= limit
+        url = base + URI.encode_www_form_component(query)
+        attempts = 0
+        begin
+          attempts += 1
+          html = open_with_agent(url)
+          doc = Nokogiri::HTML(html)
 
-        anchors.each do |a|
-          href = a["href"] || a["data-href"]
-          next unless href
-          # normalize
-          begin
-            u = URI.parse(href)
-            next unless u.scheme =~ /^https?$/i
-          rescue URI::InvalidURIError
-            next
+          # Try several selectors to catch variations
+          anchors = doc.css('a.result__a, a[data-testid="result-title-a"], a.result__snippet, a')
+
+          anchors.each do |a|
+            href = a['href'] || a['data-href'] || a['data-url']
+            next unless href
+
+            # handle DuckDuckGo redirect links with uddg parameter
+            if href.include?('uddg=')
+              if href =~ /uddg=([^&]+)/
+                decoded = CGI.unescape($1)
+                begin
+                  u = URI.parse(decoded)
+                rescue URI::InvalidURIError
+                  next
+                end
+              else
+                next
+              end
+            else
+              begin
+                u = URI.parse(href)
+              rescue URI::InvalidURIError
+                next
+              end
+            end
+
+            # accept absolute http/https links
+            next unless u && u.scheme && u.scheme =~ /^https?$/i
+            # skip internal ddg hosts
+            next if u.host&.include?('duckduckgo')
+            # robots check
+            next unless allowed_by_robots?(u)
+
+            urls << u.to_s
+            break if urls.uniq.size >= limit
           end
-
-          # skip duckduckgo internal
-          next if u.host&.include?("duckduckgo")
-
-          # robots check
-          next unless allowed_by_robots?(u)
-
-          urls << u.to_s
-          break if urls.uniq.size >= limit
+        rescue => e
+          Rails.logger.warn("SearchLookup.lookup attempt #{attempts} for #{url.inspect} failed: #{e.class} #{e.message}") if defined?(Rails)
+          sleep(0.5 * attempts) if attempts < 3
+          retry if attempts < 3
         end
-      rescue => e
-        Rails.logger.warn("SearchLookup.lookup error for #{query.inspect}: #{e.class} #{e.message}") if defined?(Rails)
       end
       urls.uniq
     end
@@ -56,7 +82,7 @@ module Scraper
     def open_with_agent(url)
       uri = URI.parse(url)
       throttle_for!(uri.host)
-      open(uri.to_s, "User-Agent" => USER_AGENT, read_timeout: 10).read
+      URI.open(uri.to_s, "User-Agent" => USER_AGENT, read_timeout: 10).read
     end
 
     def throttle_for!(host)
@@ -92,7 +118,7 @@ module Scraper
       data = { disallow: [] }
       begin
         throttle_for!(host)
-        txt = open(robots_url, "User-Agent" => USER_AGENT, read_timeout: 5).read
+        txt = URI.open(robots_url, "User-Agent" => USER_AGENT, read_timeout: 5).read
         current_agent = nil
         txt.each_line do |line|
           line = line.strip
