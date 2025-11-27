@@ -1,10 +1,10 @@
 require 'csv'
 Dir.mkdir('tmp') unless Dir.exist?('tmp')
-out = CSV.open('tmp/user_creations.csv','w')
-out << ['file','lineno','username','ts','line']
+out = CSV.open('tmp/user_creations.csv', 'w')
+out << [ 'file', 'lineno', 'username', 'ts', 'line' ]
 Dir['log/*.log'].each do |f|
   lines = File.readlines(f)
-  lines.each_with_index do |line,i|
+  lines.each_with_index do |line, i|
     if line.include?('INSERT INTO "users"')
       ts = nil
       ((i-50)..(i-1)).reverse_each do |k|
@@ -24,7 +24,7 @@ Dir['log/*.log'].each do |f|
           username = $1
         end
       end
-      out << [f, i+1, username, ts, line.strip]
+      out << [ f, i+1, username, ts, line.strip ]
     end
   end
 end
