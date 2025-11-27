@@ -35,11 +35,11 @@ module Scraper
           anchors = doc.css('a.result__a, a[data-testid="result-title-a"], a.result__snippet, a')
 
           anchors.each do |a|
-            href = a['href'] || a['data-href'] || a['data-url']
+            href = a["href"] || a["data-href"] || a["data-url"]
             next unless href
 
             # handle DuckDuckGo redirect links with uddg parameter
-            if href.include?('uddg=')
+            if href.include?("uddg=")
               if href =~ /uddg=([^&]+)/
                 decoded = CGI.unescape($1)
                 begin
@@ -61,7 +61,7 @@ module Scraper
             # accept absolute http/https links
             next unless u && u.scheme && u.scheme =~ /^https?$/i
             # skip internal ddg hosts
-            next if u.host&.include?('duckduckgo')
+            next if u.host&.include?("duckduckgo")
             # robots check
             next unless allowed_by_robots?(u)
 
