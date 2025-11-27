@@ -1,11 +1,11 @@
-require 'open-uri'
-require 'nokogiri'
-require 'net/http'
-require 'uri'
+require "open-uri"
+require "nokogiri"
+require "net/http"
+require "uri"
 
 module Scraper
   class SearchLookup
-    USER_AGENT = 'Mozilla/5.0 (compatible; WhoKnowsBot/1.0; +https://example.org/bot)'.freeze
+    USER_AGENT = "Mozilla/5.0 (compatible; WhoKnowsBot/1.0; +https://example.org/bot)".freeze
 
     def initialize(throttle_seconds: 1)
       @robots_cache = {}
@@ -22,11 +22,11 @@ module Scraper
         doc = Nokogiri::HTML(html)
 
         # Try to pick result anchors; DuckDuckGo markup may vary, so be flexible
-        anchors = doc.css('a.result__a')
-        anchors = doc.css('a') if anchors.empty?
+        anchors = doc.css("a.result__a")
+        anchors = doc.css("a") if anchors.empty?
 
         anchors.each do |a|
-          href = a['href'] || a['data-href']
+          href = a["href"] || a["data-href"]
           next unless href
           # normalize
           begin
@@ -37,7 +37,7 @@ module Scraper
           end
 
           # skip duckduckgo internal
-          next if u.host&.include?('duckduckgo')
+          next if u.host&.include?("duckduckgo")
 
           # robots check
           next unless allowed_by_robots?(u)
@@ -56,7 +56,7 @@ module Scraper
     def open_with_agent(url)
       uri = URI.parse(url)
       throttle_for!(uri.host)
-      open(uri.to_s, 'User-Agent' => USER_AGENT, read_timeout: 10).read
+      open(uri.to_s, "User-Agent" => USER_AGENT, read_timeout: 10).read
     end
 
     def throttle_for!(host)
@@ -78,7 +78,7 @@ module Scraper
         robots = fetch_robots(host)
         @robots_cache[host] = robots
       end
-      path = uri.path.empty? ? '/' : uri.path
+      path = uri.path.empty? ? "/" : uri.path
       # crude check: if any Disallow entry matches prefix of path
       disallows = robots[:disallow] || []
       disallows.each do |d|
@@ -92,17 +92,17 @@ module Scraper
       data = { disallow: [] }
       begin
         throttle_for!(host)
-        txt = open(robots_url, 'User-Agent' => USER_AGENT, read_timeout: 5).read
+        txt = open(robots_url, "User-Agent" => USER_AGENT, read_timeout: 5).read
         current_agent = nil
         txt.each_line do |line|
           line = line.strip
-          next if line.empty? || line.start_with?('#')
+          next if line.empty? || line.start_with?("#")
           if line =~ /^User-agent:\s*(.*)/i
             current_agent = $1.strip
           elsif line =~ /^Disallow:\s*(.*)/i
             dis = $1.strip
             # only honor User-agent: * or blank
-            if current_agent == '*' || current_agent.nil? || current_agent == ''
+            if current_agent == "*" || current_agent.nil? || current_agent == ""
               data[:disallow] << dis unless dis.empty?
             end
           end

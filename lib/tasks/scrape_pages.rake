@@ -23,9 +23,9 @@ namespace :scrape do
         puts "No mapping for query: #{query.inspect} - performing lookup"
         urls = lookup.lookup(query, limit: 5)
         puts "Lookup found URLs: #{urls.inspect}"
-        audit_rows << [query, urls.join('|'), 'lookup']
+        audit_rows << [ query, urls.join("|"), "lookup" ]
       else
-        audit_rows << [query, urls.join('|'), 'mapping']
+        audit_rows << [ query, urls.join("|"), "mapping" ]
       end
 
       next if urls.nil? || urls.empty?
@@ -41,9 +41,9 @@ namespace :scrape do
     end
 
     # write audit CSV
-    require 'csv'
-    CSV.open('tmp/top_search_results.csv','w') do |csv|
-      csv << ['query','urls','source']
+    require "csv"
+    CSV.open("tmp/top_search_results.csv", "w") do |csv|
+      csv << [ "query", "urls", "source" ]
       audit_rows.each { |r| csv << r }
     end
     puts "Wrote tmp/top_search_results.csv"
