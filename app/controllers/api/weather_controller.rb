@@ -13,7 +13,7 @@ class Api::WeatherController < ApplicationController
 
     response = self.class.get("/weather", query: { q: city, appid: api_key, units: "metric" })
 
-    # log API weather request
+      # log API weather request
       begin
         WeatherSearch.create(city: city, user_ip: request.remote_ip)
     rescue => e
