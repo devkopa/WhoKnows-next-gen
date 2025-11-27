@@ -24,9 +24,9 @@
 .DS_Store
 *.pem
 
-/prometheus-data/
+/prometheus-data/*
 
-/grafana-data/
+/grafana-data/*
 
 # debug
 npm-debug.log*
