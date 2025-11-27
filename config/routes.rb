@@ -34,13 +34,4 @@ Rails.application.routes.draw do
       post "/login", to: "users#login"
       get  "/logout", to: "users#logout"
   end
-
-  # Backwards-compatible alias for legacy tests or external callers
-  # Some integration/tests hit `/test_api/*` paths; map them to the
-  # existing `Test::UsersController` actions so routing errors don't occur.
-  scope '/test_api' do
-    post "/register", to: "test/users#register"
-    post "/login", to: "test/users#login"
-    get  "/logout", to: "test/users#logout"
-  end
 end
