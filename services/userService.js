@@ -49,6 +49,13 @@ export const userService = {
                 throw new Error("Wrong password.");
             }
 
+                // update last_login in DB (fire-and-forget)
+                try {
+                    await userRepository.updateLastLogin(storedUser.id);
+                } catch (err) {
+                    console.error('Failed to update last_login during login:', err);
+                }
+
             return {
                 id: storedUser.id,
                 username: storedUser.username,

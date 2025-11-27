@@ -7,7 +7,14 @@ module Api
       user = User.find_by(username: params[:username])
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
+        Rails.logger.info("Login success via Api::UsersController for user=#{user.username} id=#{user.id}")
         USER_LOGINS.increment(labels: { status: "success" })
+        # Update last_login timestamp
+        begin
+          user.update_columns(last_login: Time.current)
+        rescue => e
+          Rails.logger.error("Failed to update last_login for user=#{user.id}: #{e}")
+        end
         if user.force_password_reset
           redirect_to "/change_password"
         else

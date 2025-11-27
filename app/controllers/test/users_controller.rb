@@ -26,7 +26,13 @@ module Test
 
       if user&.authenticate(data["password"])
         session[:user_id] = user.id
+        Rails.logger.info("Login success via Test::UsersController for user=#{user.username} id=#{user.id}")
         USER_LOGINS.increment(labels: { status: "success" })
+        begin
+          user.update_columns(last_login: Time.current)
+        rescue => e
+          Rails.logger.error("Failed to update last_login for user=#{user.id}: #{e}")
+        end
         render json: { id: user.id, username: user.username, message: "Login successful" }
       else
         USER_LOGINS.increment(labels: { status: "failure" })

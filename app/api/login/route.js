@@ -7,6 +7,7 @@ export async function POST(request) {
     const { username, email, password } = await request.json();
 
     try{
+        console.log('Next API /api/login called with', { username });
         const user = await userService.login({username, password});
         return NextResponse.json(user, { status: 200 });
     } catch(error) {

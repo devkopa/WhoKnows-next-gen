@@ -32,7 +32,14 @@ class UserService
             raise StandardError.new("Invalid password")
         end
 
-        { id: user.id, username: user.username, message: "Login successful" }
+                # Update last_login timestamp
+                begin
+                    user.update_columns(last_login: Time.current)
+                rescue => e
+                    Rails.logger.error("Failed to update last_login for user=#{user.id}: #{e}")
+                end
+
+                { id: user.id, username: user.username, message: "Login successful" }
     end
 
     def self.logout(username)
