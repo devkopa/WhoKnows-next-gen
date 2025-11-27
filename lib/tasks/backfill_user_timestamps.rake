@@ -11,37 +11,52 @@ namespace :users do
       ts_raw = (row["ts"]||"").to_s.strip
       next if ts_raw.empty?
       ts = ts_raw[/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/]
-      next unless ts
-      parsed = Time.parse(ts) rescue next
+      # Aggregate earliest timestamp per username/email from CSV
+      entries = {}
+      CSV.foreach(path, headers: true) do |row|
+        username = (row['username']||'').to_s.strip
+        email = (row['email']||'').to_s.strip
+        ts_raw = (row['ts']||'').to_s.strip
+        next if ts_raw.empty?
+        ts = ts_raw[/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/]
+        next unless ts
+        parsed = Time.parse(ts) rescue next
 
-      user = nil
-      if username && !username.empty?
-        user = User.where("lower(username)=?", username.downcase).first
-      end
-
-      if user.nil? && row["line"]
-        sql = row["line"]
-        if sql =~ /VALUES\s*\((.*)\)/i
-          vals = $1
-          parts = vals.scan(/'([^']*)'|([^,\s]+)/).map { |a, b|(a||b) }.map(&:to_s)
-          maybe_username = parts[0].to_s.strip
-          maybe_email = parts.find { |p| p =~ /@/ }
-          user = User.where("lower(username)=?", maybe_username.downcase).first if maybe_username.present?
-          user ||= User.where("lower(email)=?", maybe_email.downcase).first if maybe_email
-        end
-      end
-
-      if user
-        if ENV["DRY_RUN"]=="true"
-          puts "DRY: would set user #{user.id}/#{user.username} created_at => #{parsed} (row #{idx})"
+        key = if username && !username.empty?
+          "u:#{username.downcase}"
+        elsif email && !email.empty?
+          "e:#{email.downcase}"
         else
-          user.update_columns(created_at: parsed)
-          updated += 1
+          nil
         end
-      else
-        skipped += 1
+        next unless key
+        if entries[key].nil? || parsed < entries[key]
+          entries[key] = parsed
+        end
       end
-    end
-    puts "Done. Updated=#{updated} Skipped=#{skipped}" if ENV["DRY_RUN"]!="true"
-  end
-end
+
+      updated = 0
+      skipped = 0
+
+      entries.each do |key, ts|
+        if key.start_with?('u:')
+          username = key.sub('u:','')
+          user = User.where('lower(username)=?', username).first
+        else
+          email = key.sub('e:','')
+          user = User.where('lower(email)=?', email).first
+        end
+
+        if user
+          if ENV['DRY_RUN']=='true'
+            puts "DRY: would set user #{user.id}/#{user.username} created_at => #{ts}"
+          else
+            user.update_columns(created_at: ts)
+            updated += 1
+          end
+        else
+          skipped += 1
+        end
+      end
+
+      puts "Done. Updated=#{updated} Skipped=#{skipped}" if ENV['DRY_RUN']!='true'
