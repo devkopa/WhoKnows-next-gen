@@ -14,9 +14,9 @@ namespace :users do
       # Aggregate earliest timestamp per username/email from CSV
       entries = {}
       CSV.foreach(path, headers: true) do |row|
-        username = (row['username']||'').to_s.strip
-        email = (row['email']||'').to_s.strip
-        ts_raw = (row['ts']||'').to_s.strip
+        username = (row["username"]||"").to_s.strip
+        email = (row["email"]||"").to_s.strip
+        ts_raw = (row["ts"]||"").to_s.strip
         next if ts_raw.empty?
         ts = ts_raw[/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/]
         next unless ts
@@ -39,16 +39,16 @@ namespace :users do
       skipped = 0
 
       entries.each do |key, ts|
-        if key.start_with?('u:')
-          username = key.sub('u:','')
-          user = User.where('lower(username)=?', username).first
+        if key.start_with?("u:")
+          username = key.sub("u:", "")
+          user = User.where("lower(username)=?", username).first
         else
-          email = key.sub('e:','')
-          user = User.where('lower(email)=?', email).first
+          email = key.sub("e:", "")
+          user = User.where("lower(email)=?", email).first
         end
 
         if user
-          if ENV['DRY_RUN']=='true'
+          if ENV["DRY_RUN"]=="true"
             puts "DRY: would set user #{user.id}/#{user.username} created_at => #{ts}"
           else
             user.update_columns(created_at: ts)
@@ -59,4 +59,7 @@ namespace :users do
         end
       end
 
-      puts "Done. Updated=#{updated} Skipped=#{skipped}" if ENV['DRY_RUN']!='true'
+      puts "Done. Updated=#{updated} Skipped=#{skipped}" if ENV["DRY_RUN"]!="true"
+    end
+  end
+end

@@ -3,8 +3,8 @@ require 'zlib'
 require 'stringio'
 
 Dir.mkdir('tmp') unless Dir.exist?('tmp')
-out = CSV.open('tmp/user_creations.csv','w')
-out << ['file','lineno','username','email','ts','line']
+out = CSV.open('tmp/user_creations.csv', 'w')
+out << [ 'file', 'lineno', 'username', 'email', 'ts', 'line' ]
 
 # helper to read lines from plain or gz file
 def read_lines(path)
@@ -13,23 +13,23 @@ def read_lines(path)
       gz = Zlib::GzipReader.open(path)
       lines = gz.read.split("\n")
       gz.close
-      return lines
+      lines
     rescue => e
       puts "Failed to read gz #{path}: #{e}"
-      return []
+      []
     end
   else
-    return File.readlines(path)
+    File.readlines(path)
   end
 end
 
 # consider log files and rotated variants
-log_patterns = ['log/*.log', 'log/*.log.*', 'log/*.log.*.gz', 'log/*.gz']
+log_patterns = [ 'log/*.log', 'log/*.log.*', 'log/*.log.*.gz', 'log/*.gz' ]
 files = log_patterns.flat_map { |p| Dir[p] }.uniq.sort
 files.each do |f|
   lines = read_lines(f)
   next if lines.nil? || lines.empty?
-  lines.each_with_index do |line,i|
+  lines.each_with_index do |line, i|
     if line.include?('INSERT INTO "users"') || line =~ /INSERT INTO\s+"users"/i
       # search up to 200 lines above for a timestamp
       ts = nil
@@ -56,7 +56,7 @@ files.each do |f|
         email = email_match.to_s if email_match
       end
 
-      out << [f, i+1, username, email, ts, line.strip]
+      out << [ f, i+1, username, email, ts, line.strip ]
     end
   end
 end
