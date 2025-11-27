@@ -13,6 +13,13 @@ class Api::WeatherController < ApplicationController
 
     response = self.class.get("/weather", query: { q: city, appid: api_key, units: "metric" })
 
+    # log API weather request
+      begin
+        WeatherSearch.create(city: city, user_ip: request.remote_ip)
+    rescue => e
+      Rails.logger.warn("Could not log api weather search: #{e.message}")
+    end
+
     if response.success?
       data = response.parsed_response
       render json: {

@@ -6,6 +6,13 @@ class WeatherController < ApplicationController
     city = params[:city] || "Copenhagen"
     api_key = ENV["OPENWEATHER_API_KEY"]
 
+    # log the weather page search in dedicated table
+    begin
+      WeatherSearch.create(city: city, user_ip: request.remote_ip)
+    rescue => e
+      Rails.logger.warn("Could not log weather search: #{e.message}")
+    end
+
     if api_key.blank?
       @error = "API key not set"
       return
