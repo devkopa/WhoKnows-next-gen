@@ -10,11 +10,10 @@ body:
     attributes:
       label: Issue Title
       description: Summarize the issue in a few words
-    required: true
 
   - type: textarea
     id: description
     attributes:
       label: Issue Description
       description: Explain the issue or question in detail
-    required: true
+      
