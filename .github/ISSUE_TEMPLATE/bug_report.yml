@@ -10,13 +10,15 @@ body:
     attributes:
       value: |
         **Please fill in the following details to help us resolve the bug.**
+
   - type: input
     id: environment
     attributes:
       label: Environment
       description: Where did the bug occur (OS, browser, device)?
       placeholder: e.g., Windows 10, Chrome 116
-      required: true
+    required: true
+
   - type: textarea
     id: steps_to_reproduce
     attributes:
@@ -26,22 +28,24 @@ body:
         1. Go to '...'
         2. Click '....'
         3. See error
-      required: true
+    required: true
+
   - type: textarea
     id: expected_behavior
     attributes:
       label: Expected Behavior
       description: What you expected to happen
-      required: true
+    required: true
+
   - type: textarea
     id: actual_behavior
     attributes:
       label: Actual Behavior
       description: What actually happened
-      required: true
+    required: true 
+
   - type: textarea
     id: screenshots
     attributes:
       label: Screenshots
       description: Add screenshots to help explain your problem
-      
