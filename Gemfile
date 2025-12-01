@@ -86,3 +86,5 @@ gem "nokogiri"
 # Environment variables
 gem "dotenv-rails"
 gem "prometheus-client"
+
+gem "faker", "~> 3.5"
