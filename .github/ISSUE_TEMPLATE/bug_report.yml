@@ -1,8 +1,9 @@
 name: Bug Report
 description: Report a problem or unexpected behavior
 title: "[BUG] "
-labels: bug
-assignees: ''
+labels:
+  - bug
+assignees: []
 
 body:
   - type: markdown

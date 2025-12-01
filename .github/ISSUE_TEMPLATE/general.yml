@@ -1,8 +1,8 @@
 name: General Issue
 description: Report a general issue or question
 title: "[ISSUE] "
-labels: ''
-assignees: ''
+labels: []
+assignees: []
 
 body:
   - type: input
