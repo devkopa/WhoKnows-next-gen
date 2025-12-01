@@ -24,6 +24,8 @@
 .DS_Store
 *.pem
 
+*.dump
+
 /prometheus-data/*
 
 /grafana-data/*

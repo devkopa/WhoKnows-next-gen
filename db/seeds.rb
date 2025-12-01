@@ -9,4 +9,3 @@
 #   end
 
 # db/seeds.rb
-

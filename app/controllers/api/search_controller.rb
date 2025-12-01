@@ -26,14 +26,14 @@ module Api
       @results = pages.map do |page|
         {
           title: page.title,
-          url: "#{BASE_PAGE_URL}#{page.id}",
+          url: (page.respond_to?(:url) && page.url.present?) ? page.url : "#{BASE_PAGE_URL}#{page.id}",
           content: page.content.truncate(150)
         }
       end
 
       respond_to do |format|
         format.html { render template: "search/index" }
-        format.json { render json: @results }
+        format.json { render json: { data: @results } }
       end
     end
 

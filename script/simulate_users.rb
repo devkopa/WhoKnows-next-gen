@@ -126,7 +126,7 @@ NUM_USERS.times do |i|
 
   # small backoff
   sleep(0.005)
-  
+
   # Optional: simulate login + actions for this created user
   if created_ok && SIMULATE
     begin
@@ -159,7 +159,7 @@ NUM_USERS.times do |i|
         # if both actions done, stop early
         break if searched && weather_checked
 
-        action = [:search, :weather, :idle].sample
+        action = [ :search, :weather, :idle ].sample
         case action
         when :search
           next if searched
@@ -173,8 +173,8 @@ NUM_USERS.times do |i|
                   start_idx = rand(0..(words.size - 2))
                   words[start_idx, 2].join(' ')
                 end
-              else
-                ["arsenal fc", "weather tomorrow", "coffee shops near me", "how to tie a tie",
+          else
+                [ "arsenal fc", "weather tomorrow", "coffee shops near me", "how to tie a tie",
                   "bitcoin price", "ruby on rails tutorial", "local cinema times",
                   "python list comprehension", "nearest petrol station", "who won the world cup",
                   "latest movies", "restaurant reviews", "current stock prices", "music charts",
@@ -190,7 +190,7 @@ NUM_USERS.times do |i|
                   "dog training tips", "movie reviews 2025", "DIY home projects", "best sci-fi books",
                   "how to code in JavaScript", "famous quotes", "car maintenance tips", "cheap flights Europe"
                 ].sample
-              end
+          end
 
           resp = HTTParty.get("#{APP_URL}#{SEARCH_PATH}", query: { q: q }, headers: headers)
           code = resp.respond_to?(:code) ? resp.code.to_i : 0
