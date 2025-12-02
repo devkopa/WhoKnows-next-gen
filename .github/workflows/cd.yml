@@ -30,37 +30,13 @@ jobs:
           ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             set -e
 
-            # Opdater pakker (kun hvis sudo uden password virker)
-            sudo apt-get update -y || true
-            sudo apt-get install -y git curl build-essential libssl-dev libreadline-dev zlib1g-dev || true
-
-            # Installer rbenv og Ruby, hvis det ikke allerede findes
-            if [ ! -d "$HOME/.rbenv" ]; then
-              git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-              cd ~/.rbenv && src/configure && make -C src
-              echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-              echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-              export PATH="$HOME/.rbenv/bin:$PATH"
-              eval "$(rbenv init -)"
-              git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-            else
-              export PATH="$HOME/.rbenv/bin:$PATH"
-              eval "$(rbenv init -)"
-            fi
-
-            # Installer Ruby 3.4.5, hvis den ikke findes
-            if ! rbenv versions | grep -q "3.4.5"; then
-              rbenv install 3.4.5
-            fi
-            rbenv global 3.4.5
-
             # Opret app-mappen, hvis den ikke findes
             mkdir -p ${{ secrets.AZURE_VM_APP_PATH }}
             cd ${{ secrets.AZURE_VM_APP_PATH }}
 
             # Hvis repo ikke findes, clone det, ellers fetch
             if [ ! -d ".git" ]; then
-              git clone https://github.com/${{ github.repository }} . 
+              git clone https://github.com/${{ github.repository }} .
             else
               git fetch origin master
               git reset --hard origin/master
@@ -68,11 +44,15 @@ jobs:
             fi
 
             # Fix Windows shebangs
-            sed -i '1 s|ruby.exe|'"$HOME/.rbenv/shims/ruby"'|' bin/*
+            sed -i '1 s|ruby.exe|/usr/local/bin/ruby|' bin/*
 
             # Sørg for execute permissions
             chmod +x bin/rails
 
-            # Genstart app-service (ingen sudo password)
-            sudo systemctl restart whoknows-next-gen.service
+            # Genstart Docker container
+            if docker ps -q -f name=whoknows-next-gen-web-1; then
+              docker restart whoknows-next-gen-web-1
+            else
+              docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 whoknows-next-gen-web
+            fi
           EOF
