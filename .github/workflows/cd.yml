@@ -49,8 +49,14 @@ jobs:
             # Sørg for execute permissions
             chmod +x bin/rails
 
-            # Genstart Docker container
+            # Genstart Docker container med PID-kontrol
             if docker ps -q -f name=whoknows-next-gen-web-1; then
+              # Tjek om container hænger og kill PID hvis nødvendigt
+              PID=$(docker inspect -f '{{.State.Pid}}' whoknows-next-gen-web-1)
+              if ! kill -0 $PID 2>/dev/null; then
+                echo "Container PID ikke aktiv, tvinger kill"
+                sudo kill -9 $PID || true
+              fi
               docker restart whoknows-next-gen-web-1
             else
               docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 whoknows-next-gen-web
