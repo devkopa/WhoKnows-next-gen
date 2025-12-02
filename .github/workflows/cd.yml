@@ -30,6 +30,8 @@ jobs:
         with:
           name: image-info
           path: /tmp
+          repository: ${{ github.repository }}
+          run-id: ${{ github.event.workflow_run.id }}
 
       - name: Read image info
         id: read-image
