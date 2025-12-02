@@ -2,7 +2,7 @@ name: Full CD
 
 on:
   workflow_run:
-    workflows: ["CI"]
+    workflows: ["Delivery"]
     types:
       - completed
 
@@ -26,6 +26,9 @@ jobs:
           ssh-keyscan -H ${{ secrets.AZURE_VM_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy to Azure VM
+        env:
+          GHCR_USERNAME: ${{ github.repository_owner }}
+          GHCR_REGISTRY: ghcr.io
         run: |
           ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             set -e
@@ -34,31 +37,25 @@ jobs:
             mkdir -p ${{ secrets.AZURE_VM_APP_PATH }}
             cd ${{ secrets.AZURE_VM_APP_PATH }}
 
-            # Hvis repo ikke findes, clone det, ellers fetch
-            if [ ! -d ".git" ]; then
-              git clone https://github.com/${{ github.repository }} .
-            else
-              git fetch origin master
-              git reset --hard origin/master
-              git clean -fd
+            # Login to GHCR (use PAT stored in AZURE_VM_GHCR_PAT)
+            echo ${{ secrets.AZURE_VM_GHCR_PAT }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+
+            # Pull the latest image built by Delivery
+            docker pull ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:latest || true
+            docker pull ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:$(cat /tmp/image-sha || echo latest) || true
+
+            # Tag image locally
+            docker image inspect ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:${{ github.sha }} >/dev/null 2>&1 && IMAGE=ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:${{ github.sha }} || IMAGE=ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:latest
+
+            # Ensure execute permissions for app scripts
+            if [ -d bin ]; then
+              sed -i '1 s|ruby.exe|/usr/local/bin/ruby|' bin/* || true
+              chmod +x bin/rails || true
             fi
 
-            # Fix Windows shebangs
-            sed -i '1 s|ruby.exe|/usr/local/bin/ruby|' bin/*
-
-            # Sørg for execute permissions
-            chmod +x bin/rails
-
-            # Genstart Docker container med PID-kontrol
+            # Restart container using the pulled image
             if docker ps -q -f name=whoknows-next-gen-web-1; then
-              # Tjek om container hænger og kill PID hvis nødvendigt
-              PID=$(docker inspect -f '{{.State.Pid}}' whoknows-next-gen-web-1)
-              if ! kill -0 $PID 2>/dev/null; then
-                echo "Container PID ikke aktiv, tvinger kill"
-                sudo kill -9 $PID || true
-              fi
-              docker restart whoknows-next-gen-web-1
-            else
-              docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 whoknows-next-gen-web
+              docker rm -f whoknows-next-gen-web-1 || true
             fi
+            docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:latest
           EOF

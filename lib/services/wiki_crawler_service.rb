@@ -20,9 +20,31 @@ class WikiCrawlerService
     }
 
     search_json = get_json(API_ENDPOINT, search_params)
-    return [] unless search_json && search_json["query"] && search_json["query"]["search"]
 
-    titles = search_json["query"]["search"].map { |s| s["title"] }
+    # Diagnostic: log search response shape
+    if defined?(Rails)
+      Rails.logger.debug("WikiCrawlerService search response for '#{query}': #{search_json.inspect}")
+    else
+      puts "WikiCrawlerService search response for '#{query}': #{search_json.inspect}"
+    end
+
+    if search_json && search_json["query"] && search_json["query"]["search"]
+      titles = search_json["query"]["search"].map { |s| s["title"] }
+    else
+      # Fallback to opensearch (older endpoint) if list=search returned nothing
+      opensearch_params = { action: 'opensearch', search: query, limit: limit, namespace: 0, format: 'json' }
+      opensearch_json = get_json(API_ENDPOINT, opensearch_params)
+      if defined?(Rails)
+        Rails.logger.debug("WikiCrawlerService opensearch response for '#{query}': #{opensearch_json.inspect}")
+      else
+        puts "WikiCrawlerService opensearch response for '#{query}': #{opensearch_json.inspect}"
+      end
+
+      # opensearch returns an array: [searchterm, [titles...], [descriptions...], [urls...]]
+      titles = Array(opensearch_json && opensearch_json[1])
+    end
+
+    titles = Array(titles).map(&:to_s).reject(&:empty?)
     return [] if titles.empty?
 
     # Second: fetch extracts for titles
