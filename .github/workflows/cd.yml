@@ -82,14 +82,11 @@ jobs:
               chmod +x bin/rails || true
             fi
 
-            # Stop eksisterende container
+            # Stop eksisterende container og fjern den forcefully
             CID=\$(docker ps -q -f name=\$CONTAINER_NAME)
             if [ -n "\$CID" ]; then
-              echo "Stopping container \$CONTAINER_NAME (CID=\$CID)..."
-              PID=\$(docker inspect --format '{{.State.Pid}}' \$CID)
-              echo "Container PID: \$PID"
-              sudo kill -9 \$PID || true
-              docker rm \$CID || true
+              echo "Stopping and removing container \$CONTAINER_NAME (CID=\$CID)..."
+              docker rm -f \$CID || true
             fi
 
             # Start container
