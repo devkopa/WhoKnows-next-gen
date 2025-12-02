@@ -25,33 +25,39 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.AZURE_VM_HOST }} >> ~/.ssh/known_hosts
 
+      - name: Download image metadata from Delivery
+        uses: actions/download-artifact@v4
+        with:
+          name: image-info
+          path: /tmp
+
+      - name: Read image info
+        id: read-image
+        run: echo "IMAGE=$(cat /tmp/image-info.txt | cut -d= -f2)" >> $GITHUB_ENV
+
       - name: Deploy to Azure VM
         env:
           GHCR_USERNAME: ${{ github.repository_owner }}
           GHCR_REGISTRY: ghcr.io
           AZURE_VM_GHCR_PAT: ${{ secrets.AZURE_VM_GHCR_PAT }}
         run: |
-          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} "
+          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} 'bash -s' <<'EOF'
             set -e
 
             APP_PATH='${{ secrets.AZURE_VM_APP_PATH }}'
             CONTAINER_NAME='whoknows-next-gen-web-1'
+            IMAGE="${IMAGE}"
 
             # Opret app-mappen, hvis den ikke findes
-            mkdir -p \$APP_PATH
-            cd \$APP_PATH
+            mkdir -p "$APP_PATH"
+            cd "$APP_PATH"
 
             # Login til GHCR med PAT
-            echo \"\$AZURE_VM_GHCR_PAT\" | docker login ghcr.io -u '${{ github.repository_owner }}' --password-stdin
+            echo "$AZURE_VM_GHCR_PAT" | docker login ghcr.io -u '${{ github.repository_owner }}' --password-stdin
 
             # Pull de nyeste images
+            docker pull "$IMAGE" || true
             docker pull ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:latest || true
-            docker pull ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:\$(cat /tmp/image-sha || echo latest) || true
-
-            # Tag image lokalt
-            docker image inspect ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:${{ github.sha }} >/dev/null 2>&1 && \
-              IMAGE=ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:${{ github.sha }} || \
-              IMAGE=ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:latest
 
             # Ensure execute permissions for app scripts
             if [ -d bin ]; then
@@ -60,15 +66,15 @@ jobs:
             fi
 
             # Stop eksisterende container via PID, hvis den kører
-            CID=\$(docker ps -q -f name=\$CONTAINER_NAME)
-            if [ -n \"\$CID\" ]; then
-              echo \"Stopping container \$CONTAINER_NAME (CID=\$CID)...\"
-              PID=\$(docker inspect --format '{{.State.Pid}}' \$CID)
-              echo \"Container PID: \$PID\"
-              sudo kill -9 \$PID || true
-              docker rm \$CID || true
+            CID=$(docker ps -q -f name=$CONTAINER_NAME)
+            if [ -n "$CID" ]; then
+              echo "Stopping container $CONTAINER_NAME (CID=$CID)..."
+              PID=$(docker inspect --format '{{.State.Pid}}' $CID)
+              echo "Container PID: $PID"
+              sudo kill -9 $PID || true
+              docker rm $CID || true
             fi
 
             # Start ny container
-            docker run -d --name \$CONTAINER_NAME -p 3000:3000 \$IMAGE
-          "
+            docker run -d --name $CONTAINER_NAME -p 3000:3000 "$IMAGE"
+          EOF
