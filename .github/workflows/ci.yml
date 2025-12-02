@@ -10,6 +10,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        run: echo "${{ secrets.AZURE_VM_GHCR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build and push Docker image
+        run: |
+          IMAGE_NAME=ghcr.io/devkopa/whoknows-next-gen
+          docker build -t $IMAGE_NAME:latest .
+          docker push $IMAGE_NAME:latest
+
   scan_ruby:
     runs-on: ubuntu-latest
     steps:
