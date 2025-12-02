@@ -51,6 +51,9 @@ jobs:
             sed -i '1 s|ruby.exe|/usr/local/bin/ruby|' bin/* || true
             chmod +x bin/rails || true
 
+            # --- Log ind på GHCR ---
+            echo "${{ secrets.AZURE_VM_GHCR_PAT }}" | sudo docker login ghcr.io -u devkopa --password-stdin
+            
             # --- Pull nyeste web-image fra GHCR ---
             sudo docker pull ghcr.io/devkopa/whoknows-next-gen:latest
 
