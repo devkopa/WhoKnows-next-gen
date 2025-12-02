@@ -1,4 +1,4 @@
-name: Full CD
+name: CD
 
 on:
   workflow_run:
@@ -25,38 +25,32 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.AZURE_VM_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy to Azure VM
+      - name: Deploy latest image from GHCR
         run: |
           ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             set -e
 
-            # --- Bootstrap tools på en frisk VM ---
-            sudo apt-get update -y
-            sudo apt-get install -y docker.io docker-compose git
-            sudo systemctl enable --now docker
+            IMAGE_NAME=ghcr.io/devkopa/whoknows-next-gen
+            APP_PATH=${{ secrets.AZURE_VM_APP_PATH }}
 
-            # --- App setup (repo til docker-compose.yml osv.) ---
-            mkdir -p ${{ secrets.AZURE_VM_APP_PATH }}
-            cd ${{ secrets.AZURE_VM_APP_PATH }}
+            # Opret app-mappen, hvis den ikke findes
+            mkdir -p $APP_PATH
+            cd $APP_PATH
 
-            if [ ! -d ".git" ]; then
-              git clone https://github.com/${{ github.repository }} .
-            else
-              git fetch origin master
-              git reset --hard origin/master
-              git clean -fd
+            echo "Logging in to GHCR..."
+            echo "${{ secrets.AZURE_VM_GHCR_PAT }}" | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
+
+            # Stop gamle containere
+            CONTAINER_NAME=whoknows-next-gen-web-1
+            if docker ps -a -q -f name=$CONTAINER_NAME; then
+              docker stop $CONTAINER_NAME || true
+              docker rm $CONTAINER_NAME || true
             fi
 
-            # Fix Windows shebangs (hvis nødvendigt)
-            sed -i '1 s|ruby.exe|/usr/local/bin/ruby|' bin/* || true
-            chmod +x bin/rails || true
+            # Hent og kør ny container
+            docker pull $IMAGE_NAME:latest
+            docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 $IMAGE_NAME:latest
 
-            # --- Log ind på GHCR ---
-            echo "${{ secrets.AZURE_VM_GHCR_PAT }}" | sudo docker login ghcr.io -u devkopa --password-stdin
-            
-            # --- Pull nyeste web-image fra GHCR ---
-            sudo docker pull ghcr.io/devkopa/whoknows-next-gen:latest
-
-            # --- Genstart kun web-containeren med nyeste image ---
-            sudo docker-compose up -d --no-deps web
+            echo "Deployment complete!"
+            docker ps
           EOF
