@@ -1,6 +1,6 @@
 namespace :scrape do
   # Ensure service is loaded when running rake tasks (Rails may not autoload lib/ during rake)
-  require File.expand_path('../../services/wiki_crawler_service', __FILE__)
+  require File.expand_path("../../services/wiki_crawler_service", __FILE__)
   desc "Scrape pages based on top searches"
   task top_searches: :environment do
     # Get top 5 search queries from logs
