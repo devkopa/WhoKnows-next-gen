@@ -30,11 +30,17 @@ jobs:
           ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             set -e
 
-            # Opret app-mappen, hvis den ikke findes
+            # --- Bootstrap tools på en frisk VM ---
+            sudo apt-get update -y
+            sudo apt-get install -y docker.io git ruby-full build-essential
+
+            # Sørg for at Docker kører
+            sudo systemctl enable --now docker
+
+            # --- App setup ---
             mkdir -p ${{ secrets.AZURE_VM_APP_PATH }}
             cd ${{ secrets.AZURE_VM_APP_PATH }}
 
-            # Hvis repo ikke findes, clone det, ellers fetch
             if [ ! -d ".git" ]; then
               git clone https://github.com/${{ github.repository }} .
             else
@@ -46,19 +52,15 @@ jobs:
             # Fix Windows shebangs
             sed -i '1 s|ruby.exe|/usr/local/bin/ruby|' bin/*
 
-            # Sørg for execute permissions
             chmod +x bin/rails
 
-            # Genstart Docker container med PID-kontrol
-            if docker ps -q -f name=whoknows-next-gen-web-1; then
-              # Tjek om container hænger og kill PID hvis nødvendigt
-              PID=$(docker inspect -f '{{.State.Pid}}' whoknows-next-gen-web-1)
-              if ! kill -0 $PID 2>/dev/null; then
-                echo "Container PID ikke aktiv, tvinger kill"
-                sudo kill -9 $PID || true
-              fi
-              docker restart whoknows-next-gen-web-1
-            else
-              docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 whoknows-next-gen-web
-            fi
+            # --- Build og kør Docker container ---
+            sudo docker build -t whoknows-next-gen-web .
+
+            # Stop og fjern gammel container hvis den findes
+            sudo docker rm -f whoknows-next-gen-web-1 || true
+
+            # Start ny container
+            sudo docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 whoknows-next-gen-web
           EOF
+          
