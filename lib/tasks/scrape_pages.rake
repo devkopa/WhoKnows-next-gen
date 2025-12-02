@@ -1,4 +1,6 @@
 namespace :scrape do
+  # Ensure service is loaded when running rake tasks (Rails may not autoload lib/ during rake)
+  require File.expand_path('../../services/wiki_crawler_service', __FILE__)
   desc "Scrape pages based on top searches"
   task top_searches: :environment do
     # Get top 5 search queries from logs
@@ -14,6 +16,21 @@ namespace :scrape do
     }
 
     top_queries.each do |query|
+      # Try Wikipedia first
+      wiki_results = WikiCrawlerService.scrape_for(query, limit: 3)
+
+      if wiki_results.any?
+        wiki_results.each do |data|
+          Page.find_or_create_by(url: data[:url]) do |page|
+            page.title = data[:title]
+            page.content = data[:content]
+          end
+          Rails.logger.info("Indexed wiki page: #{data[:url]}")
+        end
+        next
+      end
+
+      # Fallback to hardcoded mapping and ScraperService
       urls = query_to_urls[query.downcase]
       next unless urls
 
