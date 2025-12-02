@@ -25,13 +25,24 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.AZURE_VM_HOST }} >> ~/.ssh/known_hosts
 
+      - name: Install GitHub CLI
+        run: sudo apt-get update && sudo apt-get install -y gh jq unzip
+
       - name: Download image metadata from Delivery
-        uses: actions/download-artifact@v4
-        with:
-          name: image-info
-          path: /tmp
-          repository: ${{ github.repository }}
-          run-id: ${{ github.event.workflow_run.id }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Listing artifacts for workflow run ${{ github.event.workflow_run.id }}..."
+          ARTIFACT_ID=$(gh run-artifacts ${{ github.event.workflow_run.id }} --repo ${{ github.repository }} --json id,name \
+            | jq -r '.[] | select(.name=="image-info") | .id')
+
+          if [ -z "$ARTIFACT_ID" ]; then
+            echo "Artifact 'image-info' not found. Exiting."
+            exit 1
+          fi
+
+          echo "Found artifact ID: $ARTIFACT_ID. Downloading..."
+          gh run-artifact download "$ARTIFACT_ID" --repo ${{ github.repository }} --dir /tmp
 
       - name: Read image info
         id: read-image
@@ -50,24 +61,19 @@ jobs:
             CONTAINER_NAME='whoknows-next-gen-web-1'
             IMAGE="${IMAGE}"
 
-            # Opret app-mappen, hvis den ikke findes
             mkdir -p "$APP_PATH"
             cd "$APP_PATH"
 
-            # Login til GHCR med PAT
             echo "$AZURE_VM_GHCR_PAT" | docker login ghcr.io -u '${{ github.repository_owner }}' --password-stdin
 
-            # Pull de nyeste images
             docker pull "$IMAGE" || true
             docker pull ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:latest || true
 
-            # Ensure execute permissions for app scripts
             if [ -d bin ]; then
               sed -i '1 s|ruby.exe|/usr/local/bin/ruby|' bin/* || true
               chmod +x bin/rails || true
             fi
 
-            # Stop eksisterende container via PID, hvis den kører
             CID=$(docker ps -q -f name=$CONTAINER_NAME)
             if [ -n "$CID" ]; then
               echo "Stopping container $CONTAINER_NAME (CID=$CID)..."
@@ -77,6 +83,5 @@ jobs:
               docker rm $CID || true
             fi
 
-            # Start ny container
             docker run -d --name $CONTAINER_NAME -p 3000:3000 "$IMAGE"
           EOF
