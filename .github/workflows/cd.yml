@@ -56,38 +56,42 @@ jobs:
           GHCR_REGISTRY: ghcr.io
           AZURE_VM_GHCR_PAT: ${{ secrets.AZURE_VM_GHCR_PAT }}
         run: |
-          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} "bash -s" <<EOF
+          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} \
+          "AZURE_VM_GHCR_PAT='${{ secrets.AZURE_VM_GHCR_PAT }}' IMAGE='${{ env.IMAGE }}' bash -s" <<EOF
             set -e
 
             APP_PATH='${{ secrets.AZURE_VM_APP_PATH }}'
             CONTAINER_NAME='whoknows-next-gen-web-1'
-            IMAGE="${IMAGE}"
 
             mkdir -p "\$APP_PATH"
             cd "\$APP_PATH"
 
-            # Debug: tjek at token er til stede
+            # Debug: tjek token længde
             echo "PAT length: \${#AZURE_VM_GHCR_PAT}"
 
+            # Login til GHCR non-interaktivt
             echo "\$AZURE_VM_GHCR_PAT" | docker login ghcr.io -u '${{ github.repository_owner }}' --password-stdin
 
+            # Pull images
             docker pull "\$IMAGE" || true
             docker pull ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:latest || true
 
+            # Fix bin scripts hvis de findes
             if [ -d bin ]; then
               sed -i '1 s|ruby.exe|/usr/local/bin/ruby|' bin/* || true
               chmod +x bin/rails || true
             fi
 
-            CID=$(docker ps -q -f name=\$CONTAINER_NAME)
+            # Stop eksisterende container
+            CID=\$(docker ps -q -f name=\$CONTAINER_NAME)
             if [ -n "\$CID" ]; then
               echo "Stopping container \$CONTAINER_NAME (CID=\$CID)..."
-              PID=$(docker inspect --format '{{.State.Pid}}' \$CID)
+              PID=\$(docker inspect --format '{{.State.Pid}}' \$CID)
               echo "Container PID: \$PID"
               sudo kill -9 \$PID || true
               docker rm \$CID || true
             fi
 
+            # Start container
             docker run -d --name \$CONTAINER_NAME -p 3000:3000 "\$IMAGE"
           EOF
-          
