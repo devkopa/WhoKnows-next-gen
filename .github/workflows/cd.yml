@@ -33,8 +33,6 @@ jobs:
             # --- Bootstrap tools på en frisk VM ---
             sudo apt-get update -y
             sudo apt-get install -y docker.io git ruby-full build-essential
-
-            # Sørg for at Docker kører
             sudo systemctl enable --now docker
 
             # --- App setup ---
@@ -54,13 +52,12 @@ jobs:
 
             chmod +x bin/rails
 
-            # --- Build og kør Docker container ---
-            sudo docker build -t whoknows-next-gen-web .
-
-            # Stop og fjern gammel container hvis den findes
-            sudo docker rm -f whoknows-next-gen-web-1 || true
-
-            # Start ny container
-            sudo docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 whoknows-next-gen-web
+            # --- Container lifecycle ---
+            if sudo docker ps -q -f name=whoknows-next-gen-web-1; then
+              echo "Genstarter eksisterende container..."
+              sudo docker restart whoknows-next-gen-web-1
+            else
+              echo "Starter ny container..."
+              sudo docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 whoknows-next-gen-web
+            fi
           EOF
-          
