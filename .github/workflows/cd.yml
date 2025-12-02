@@ -25,24 +25,26 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.AZURE_VM_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Install GitHub CLI
-        run: sudo apt-get update && sudo apt-get install -y gh jq unzip
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y jq unzip curl
 
       - name: Download image metadata from Delivery
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Listing artifacts for workflow run ${{ github.event.workflow_run.id }}..."
-          ARTIFACT_ID=$(gh run-artifacts ${{ github.event.workflow_run.id }} --repo ${{ github.repository }} --json id,name \
-            | jq -r '.[] | select(.name=="image-info") | .id')
+          ARTIFACT_URL=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}/artifacts \
+            | jq -r '.artifacts[] | select(.name=="image-info") | .archive_download_url')
 
-          if [ -z "$ARTIFACT_ID" ]; then
+          if [ -z "$ARTIFACT_URL" ]; then
             echo "Artifact 'image-info' not found. Exiting."
             exit 1
           fi
 
-          echo "Found artifact ID: $ARTIFACT_ID. Downloading..."
-          gh run-artifact download "$ARTIFACT_ID" --repo ${{ github.repository }} --dir /tmp
+          echo "Downloading artifact from $ARTIFACT_URL..."
+          curl -L -H "Authorization: token $GITHUB_TOKEN" "$ARTIFACT_URL" -o /tmp/image-info.zip
+          unzip -o /tmp/image-info.zip -d /tmp
 
       - name: Read image info
         id: read-image
