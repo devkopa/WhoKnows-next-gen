@@ -2,6 +2,7 @@ require "net/http"
 require "uri"
 require "json"
 
+module Services
 class WikiCrawlerService
   API_ENDPOINT = "https://en.wikipedia.org/w/api.php"
   USER_AGENT = "WhoKnowsWikiCrawler/1.0 (https://example.com)"
@@ -32,7 +33,7 @@ class WikiCrawlerService
       titles = search_json["query"]["search"].map { |s| s["title"] }
     else
       # Fallback to opensearch (older endpoint) if list=search returned nothing
-      opensearch_params = { action: "opensearch", search: query, limit: limit, namespace: 0, format: "json" }
+      opensearch_params = { action: 'opensearch', search: query, limit: limit, namespace: 0, format: 'json' }
       opensearch_json = get_json(API_ENDPOINT, opensearch_params)
       if defined?(Rails)
         Rails.logger.debug("WikiCrawlerService opensearch response for '#{query}': #{opensearch_json.inspect}")
@@ -88,4 +89,5 @@ class WikiCrawlerService
     return nil unless resp.is_a?(Net::HTTPSuccess)
     JSON.parse(resp.body)
   end
+end
 end

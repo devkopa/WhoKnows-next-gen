@@ -27,12 +27,15 @@
 *.dump
 
 /prometheus-data/*
+/prometheus-data-backup/*
 
 /grafana-data/*
 
 # debug
 npm-debug.log*
 yarn-debug.log*
+
+/tmp/*
 yarn-error.log*
 .pnpm-debug.log*
 
