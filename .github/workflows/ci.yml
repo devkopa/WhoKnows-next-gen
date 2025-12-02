@@ -87,7 +87,7 @@ jobs:
       - name: Run tests
         run: bin/rails db:test:prepare test test:system
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: failure()
         with:
           name: screenshots
