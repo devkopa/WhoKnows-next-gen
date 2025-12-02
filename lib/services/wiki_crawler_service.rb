@@ -33,7 +33,7 @@ class WikiCrawlerService
       titles = search_json["query"]["search"].map { |s| s["title"] }
     else
       # Fallback to opensearch (older endpoint) if list=search returned nothing
-      opensearch_params = { action: 'opensearch', search: query, limit: limit, namespace: 0, format: 'json' }
+      opensearch_params = { action: "opensearch", search: query, limit: limit, namespace: 0, format: "json" }
       opensearch_json = get_json(API_ENDPOINT, opensearch_params)
       if defined?(Rails)
         Rails.logger.debug("WikiCrawlerService opensearch response for '#{query}': #{opensearch_json.inspect}")
