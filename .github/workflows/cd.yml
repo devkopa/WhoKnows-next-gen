@@ -32,10 +32,10 @@ jobs:
 
             # --- Bootstrap tools på en frisk VM ---
             sudo apt-get update -y
-            sudo apt-get install -y docker.io git ruby-full build-essential
+            sudo apt-get install -y docker.io docker-compose git
             sudo systemctl enable --now docker
 
-            # --- App setup ---
+            # --- App setup (repo til docker-compose.yml osv.) ---
             mkdir -p ${{ secrets.AZURE_VM_APP_PATH }}
             cd ${{ secrets.AZURE_VM_APP_PATH }}
 
@@ -47,17 +47,13 @@ jobs:
               git clean -fd
             fi
 
-            # Fix Windows shebangs
-            sed -i '1 s|ruby.exe|/usr/local/bin/ruby|' bin/*
+            # Fix Windows shebangs (hvis nødvendigt)
+            sed -i '1 s|ruby.exe|/usr/local/bin/ruby|' bin/* || true
+            chmod +x bin/rails || true
 
-            chmod +x bin/rails
+            # --- Pull nyeste web-image fra GHCR ---
+            sudo docker pull ghcr.io/${{ github.repository }}/web:latest
 
-            # --- Container lifecycle ---
-            if sudo docker ps -q -f name=whoknows-next-gen-web-1; then
-              echo "Genstarter eksisterende container..."
-              sudo docker restart whoknows-next-gen-web-1
-            else
-              echo "Starter ny container..."
-              sudo docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 whoknows-next-gen-web
-            fi
+            # --- Genstart kun web-containeren med nyeste image ---
+            sudo docker-compose up -d --no-deps web
           EOF
