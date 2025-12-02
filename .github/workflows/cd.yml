@@ -2,7 +2,7 @@ name: Full CD
 
 on:
   workflow_run:
-    workflows: ["Delivery"]
+    workflows: ["CI"]
     types:
       - completed
 
@@ -25,70 +25,40 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.AZURE_VM_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y jq unzip curl
-
-      - name: Download image metadata from Delivery
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "Listing artifacts for workflow run ${{ github.event.workflow_run.id }}..."
-          ARTIFACT_URL=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}/artifacts \
-            | jq -r '.artifacts[] | select(.name=="image-info") | .archive_download_url')
-
-          if [ -z "$ARTIFACT_URL" ]; then
-            echo "Artifact 'image-info' not found. Exiting."
-            exit 1
-          fi
-
-          echo "Downloading artifact from $ARTIFACT_URL..."
-          curl -L -H "Authorization: token $GITHUB_TOKEN" "$ARTIFACT_URL" -o /tmp/image-info.zip
-          unzip -o /tmp/image-info.zip -d /tmp
-
-      - name: Read image info
-        id: read-image
-        run: echo "IMAGE=$(cat /tmp/image-info.txt | cut -d= -f2)" >> $GITHUB_ENV
-
       - name: Deploy to Azure VM
-        env:
-          GHCR_USERNAME: ${{ github.repository_owner }}
-          GHCR_REGISTRY: ghcr.io
-          AZURE_VM_GHCR_PAT: ${{ secrets.AZURE_VM_GHCR_PAT }}
         run: |
-          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} \
-          "AZURE_VM_GHCR_PAT='${{ secrets.AZURE_VM_GHCR_PAT }}' IMAGE='${{ env.IMAGE }}' bash -s" <<EOF
+          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             set -e
 
-            APP_PATH='${{ secrets.AZURE_VM_APP_PATH }}'
-            CONTAINER_NAME='whoknows-next-gen-web-1'
+            # Opret app-mappen, hvis den ikke findes
+            mkdir -p ${{ secrets.AZURE_VM_APP_PATH }}
+            cd ${{ secrets.AZURE_VM_APP_PATH }}
 
-            mkdir -p "\$APP_PATH"
-            cd "\$APP_PATH"
-
-            # Debug: tjek token længde
-            echo "PAT length: \${#AZURE_VM_GHCR_PAT}"
-
-            # Login til GHCR non-interaktivt
-            echo "\$AZURE_VM_GHCR_PAT" | docker login ghcr.io -u '${{ github.repository_owner }}' --password-stdin
-
-            # Pull images
-            docker pull "\$IMAGE" || true
-            docker pull ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:latest || true
-
-            # Fix bin scripts hvis de findes
-            if [ -d bin ]; then
-              sed -i '1 s|ruby.exe|/usr/local/bin/ruby|' bin/* || true
-              chmod +x bin/rails || true
+            # Hvis repo ikke findes, clone det, ellers fetch
+            if [ ! -d ".git" ]; then
+              git clone https://github.com/${{ github.repository }} .
+            else
+              git fetch origin master
+              git reset --hard origin/master
+              git clean -fd
             fi
 
-            # Stop eksisterende container og fjern den forcefully
-            CID=\$(docker ps -q -f name=\$CONTAINER_NAME)
-            if [ -n "\$CID" ]; then
-              echo "Stopping and removing container \$CONTAINER_NAME (CID=\$CID)..."
-              docker rm -f \$CID || true
-            fi
+            # Fix Windows shebangs
+            sed -i '1 s|ruby.exe|/usr/local/bin/ruby|' bin/*
 
-            # Start container
-            docker run -d --name \$CONTAINER_NAME -p 3000:3000 "\$IMAGE"
+            # Sørg for execute permissions
+            chmod +x bin/rails
+
+            # Genstart Docker container med PID-kontrol
+            if docker ps -q -f name=whoknows-next-gen-web-1; then
+              # Tjek om container hænger og kill PID hvis nødvendigt
+              PID=$(docker inspect -f '{{.State.Pid}}' whoknows-next-gen-web-1)
+              if ! kill -0 $PID 2>/dev/null; then
+                echo "Container PID ikke aktiv, tvinger kill"
+                sudo kill -9 $PID || true
+              fi
+              docker restart whoknows-next-gen-web-1
+            else
+              docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 whoknows-next-gen-web
+            fi
           EOF
