@@ -29,23 +29,29 @@ jobs:
         env:
           GHCR_USERNAME: ${{ github.repository_owner }}
           GHCR_REGISTRY: ghcr.io
+          AZURE_VM_GHCR_PAT: ${{ secrets.AZURE_VM_GHCR_PAT }}
         run: |
-          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
+          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} "
             set -e
 
+            APP_PATH='${{ secrets.AZURE_VM_APP_PATH }}'
+            CONTAINER_NAME='whoknows-next-gen-web-1'
+
             # Opret app-mappen, hvis den ikke findes
-            mkdir -p ${{ secrets.AZURE_VM_APP_PATH }}
-            cd ${{ secrets.AZURE_VM_APP_PATH }}
+            mkdir -p \$APP_PATH
+            cd \$APP_PATH
 
-            # Login to GHCR (use PAT stored in AZURE_VM_GHCR_PAT)
-            echo ${{ secrets.AZURE_VM_GHCR_PAT }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+            # Login til GHCR med PAT
+            echo \"\$AZURE_VM_GHCR_PAT\" | docker login ghcr.io -u '${{ github.repository_owner }}' --password-stdin
 
-            # Pull the latest image built by Delivery
+            # Pull de nyeste images
             docker pull ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:latest || true
-            docker pull ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:$(cat /tmp/image-sha || echo latest) || true
+            docker pull ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:\$(cat /tmp/image-sha || echo latest) || true
 
-            # Tag image locally
-            docker image inspect ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:${{ github.sha }} >/dev/null 2>&1 && IMAGE=ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:${{ github.sha }} || IMAGE=ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:latest
+            # Tag image lokalt
+            docker image inspect ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:${{ github.sha }} >/dev/null 2>&1 && \
+              IMAGE=ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:${{ github.sha }} || \
+              IMAGE=ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:latest
 
             # Ensure execute permissions for app scripts
             if [ -d bin ]; then
@@ -53,9 +59,16 @@ jobs:
               chmod +x bin/rails || true
             fi
 
-            # Restart container using the pulled image
-            if docker ps -q -f name=whoknows-next-gen-web-1; then
-              docker rm -f whoknows-next-gen-web-1 || true
+            # Stop eksisterende container via PID, hvis den kører
+            CID=\$(docker ps -q -f name=\$CONTAINER_NAME)
+            if [ -n \"\$CID\" ]; then
+              echo \"Stopping container \$CONTAINER_NAME (CID=\$CID)...\"
+              PID=\$(docker inspect --format '{{.State.Pid}}' \$CID)
+              echo \"Container PID: \$PID\"
+              sudo kill -9 \$PID || true
+              docker rm \$CID || true
             fi
-            docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 ghcr.io/${{ github.repository_owner }}/whoknows-next-gen:latest
-          EOF
+
+            # Start ny container
+            docker run -d --name \$CONTAINER_NAME -p 3000:3000 \$IMAGE
+          "
