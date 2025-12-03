@@ -27,5 +27,5 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v2
         with:
           projectBaseDir: .
-          extraProperties: |
-            sonar.coverageReportPaths=coverage/coverage.json
+          args: >
+            -Dsonar.coverageReportPaths=coverage/coverage.json
