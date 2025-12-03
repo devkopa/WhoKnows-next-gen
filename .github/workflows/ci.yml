@@ -134,7 +134,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_ORGANIZATION: devkopa-1
-          SONAR_PROJECT_KEY: devkopa_WhoKnows-next-gen
+          SONAR_PROJECT_KEY: devkopa-1_WhoKnows-next-gen
 
   security:
     runs-on: ubuntu-latest
