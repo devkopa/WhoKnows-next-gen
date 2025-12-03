@@ -62,3 +62,5 @@ next-env.d.ts
 !/app/assets/builds/.keep
 
 config/master.key
+
+*.sql
