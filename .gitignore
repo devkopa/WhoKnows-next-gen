@@ -65,4 +65,4 @@ config/master.key
 
 *.sql
 
-public/assets/*
+public/assets

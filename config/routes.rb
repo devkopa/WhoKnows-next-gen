@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "/metrics", to: "metrics#index"
   root "home#index"
 
+  get "/sla", to: "pages#sla"
+
   # Authentication
   get "/login", to: "sessions#login"
   get "/register", to: "sessions#register"
