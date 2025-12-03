@@ -129,6 +129,8 @@ jobs:
           projectBaseDir: .
           args: >
             -Dsonar.coverageReportPaths=coverage/coverage.json
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   security:
     runs-on: ubuntu-latest
