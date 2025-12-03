@@ -133,7 +133,7 @@ jobs:
             -Dsonar.coverageReportPaths=coverage/coverage.json
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_ORGANIZATION: devkopa
+          SONAR_ORGANIZATION: devkopa-1
           SONAR_PROJECT_KEY: devkopa_WhoKnows-next-gen
 
   security:
