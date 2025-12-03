@@ -2,7 +2,6 @@ require "net/http"
 require "uri"
 require "json"
 
-module Services
 class WikiCrawlerService
   API_ENDPOINT = "https://en.wikipedia.org/w/api.php"
   USER_AGENT = "WhoKnowsWikiCrawler/1.0 (https://example.com)"
@@ -89,5 +88,4 @@ class WikiCrawlerService
     return nil unless resp.is_a?(Net::HTTPSuccess)
     JSON.parse(resp.body)
   end
-end
 end
