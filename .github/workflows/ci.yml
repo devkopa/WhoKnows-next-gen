@@ -131,6 +131,8 @@ jobs:
             -Dsonar.coverageReportPaths=coverage/coverage.json
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PRIVATE_KEY }}
 
   security:
     runs-on: ubuntu-latest
