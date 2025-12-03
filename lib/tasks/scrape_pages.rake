@@ -17,7 +17,7 @@ namespace :scrape do
 
     top_queries.each do |query|
       # Try Wikipedia first
-      wiki_results = WikiCrawlerService.scrape_for(query, limit: 3)
+      wiki_results = Services::WikiCrawlerService.scrape_for(query, limit: 3)
 
       if wiki_results.any?
         wiki_results.each do |data|
