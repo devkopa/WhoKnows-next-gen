@@ -64,3 +64,5 @@ next-env.d.ts
 config/master.key
 
 *.sql
+
+public/assets/*
