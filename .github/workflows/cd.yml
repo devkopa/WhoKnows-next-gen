@@ -47,7 +47,6 @@ jobs:
               echo "Docker already installed."
             fi
 
-
             # Ensure Docker Compose v2 is available
             if ! docker compose version &> /dev/null; then
               echo "Docker Compose not found. Installing plugin..."
