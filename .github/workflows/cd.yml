@@ -33,24 +33,19 @@ jobs:
             IMAGE_NAME=ghcr.io/devkopa/whoknows-next-gen
             APP_PATH=${{ secrets.AZURE_VM_APP_PATH }}
 
-            # Opret app-mappen, hvis den ikke findes
+            # Ensure app folder exists
             mkdir -p $APP_PATH
             cd $APP_PATH
 
             echo "Logging in to GHCR..."
             echo "${{ secrets.AZURE_VM_GHCR_PAT }}" | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
 
-            # Stop gamle containere
-            CONTAINER_NAME=whoknows-next-gen-web-1
-            if docker ps -a -q -f name=$CONTAINER_NAME; then
-              docker stop $CONTAINER_NAME || true
-              docker rm $CONTAINER_NAME || true
-            fi
+            echo "Pulling latest images..."
+            docker compose pull
 
-            # Hent og kør ny container
-            docker pull $IMAGE_NAME:latest
-            docker run -d --name whoknows-next-gen-web-1 -p 3000:3000 $IMAGE_NAME:latest
+            echo "Starting/Updating containers..."
+            docker compose up -d --remove-orphans
 
-            echo "Deployment complete!"
-            docker ps
+            echo "Deployment complete! Running containers:"
+            docker compose ps
           EOF
