@@ -6,6 +6,9 @@ require_relative '../config/environment'
 require 'rspec/rails'
 require 'spec_helper'
 
+# Autoload support files
+Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
+
 # --- SIMPLECOV MUST BE CONFIGURED BEFORE ANY CODE IS LOADED ---
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -23,9 +26,6 @@ end
 
 ENV['RAILS_ENV'] ||= 'test'
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-
-# Autoload support files
-Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
 
 # Capybara custom driver
 Capybara.register_driver :edge do |app|
