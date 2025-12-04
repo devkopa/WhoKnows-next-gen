@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe "Test Users API", type: :request do
+  JSON_HEADERS = {
+    "CONTENT_TYPE" => "application/json",
+    "ACCEPT" => "application/json"
+  }.freeze
+
+  TEST_LOGIN_PATH = "/test/login".freeze
+  TEST_REGISTER_PATH = "/test/register".freeze
+  TEST_LOGOUT_PATH = "/test/logout".freeze
+
   let(:user_params) do
     {
       username: "testuser_#{SecureRandom.hex(4)}",
@@ -12,8 +21,7 @@ RSpec.describe "Test Users API", type: :request do
 
   describe "POST /test/register" do
     it "creates a new user" do
-      post "/test/register", params: user_params.to_json,
-           headers: { "CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json" }
+      post TEST_REGISTER_PATH, params: user_params.to_json, headers: JSON_HEADERS
 
       expect(response).to have_http_status(:created)
       json = JSON.parse(response.body)
@@ -26,8 +34,9 @@ RSpec.describe "Test Users API", type: :request do
     let!(:user) { User.create!(user_params) }
 
     it "logs in a user with correct credentials" do
-      post "/test/login", params: { username: user.username, password: "password" }.to_json,
-           headers: { "CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json" }
+      post TEST_LOGIN_PATH,
+           params: { username: user.username, password: "password" }.to_json,
+           headers: JSON_HEADERS
 
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
@@ -36,8 +45,9 @@ RSpec.describe "Test Users API", type: :request do
     end
 
     it "fails with wrong password" do
-      post "/test/login", params: { username: user.username, password: "wrong" }.to_json,
-           headers: { "CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json" }
+      post TEST_LOGIN_PATH,
+           params: { username: user.username, password: "wrong" }.to_json,
+           headers: JSON_HEADERS
 
       expect(response).to have_http_status(:unauthorized)
       json = JSON.parse(response.body)
@@ -49,12 +59,13 @@ RSpec.describe "Test Users API", type: :request do
     let!(:user) { User.create!(user_params) }
 
     before do
-      post "/test/login", params: { username: user.username, password: "password" }.to_json,
-           headers: { "CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json" }
+      post TEST_LOGIN_PATH,
+           params: { username: user.username, password: "password" }.to_json,
+           headers: JSON_HEADERS
     end
 
     it "logs out the user via JSON" do
-      get "/test/logout", headers: { "ACCEPT" => "application/json" }
+      get TEST_LOGOUT_PATH, headers: JSON_HEADERS
 
       expect(response).to have_http_status(:ok)
       json = JSON.parse(response.body)
