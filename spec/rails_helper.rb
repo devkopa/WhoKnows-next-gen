@@ -38,7 +38,7 @@ require 'selenium/webdriver'
 # require only the support files necessary.
 #
 
-Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
+Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| load f }
 
 # Register a custom Edge driver so Capybara knows it
 Capybara.register_driver :edge do |app|
