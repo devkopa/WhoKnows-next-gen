@@ -21,7 +21,9 @@ RSpec.describe "Test Users API", type: :request do
 
   describe "POST /test/register" do
     it "creates a new user" do
-      post TEST_REGISTER_PATH, params: user_params.to_json, headers: JSON_HEADERS
+      post TEST_REGISTER_PATH,
+           params: { user: user_params }.to_json,
+           headers: JSON_HEADERS
 
       expect(response).to have_http_status(:created)
       json = JSON.parse(response.body)
@@ -35,7 +37,7 @@ RSpec.describe "Test Users API", type: :request do
 
     it "logs in a user with correct credentials" do
       post TEST_LOGIN_PATH,
-           params: { username: user.username, password: "password" }.to_json,
+           params: { user: { username: user.username, password: "password" } }.to_json,
            headers: JSON_HEADERS
 
       expect(response).to have_http_status(:success)
@@ -46,7 +48,7 @@ RSpec.describe "Test Users API", type: :request do
 
     it "fails with wrong password" do
       post TEST_LOGIN_PATH,
-           params: { username: user.username, password: "wrong" }.to_json,
+           params: { user: { username: user.username, password: "wrong" } }.to_json,
            headers: JSON_HEADERS
 
       expect(response).to have_http_status(:unauthorized)
@@ -60,7 +62,7 @@ RSpec.describe "Test Users API", type: :request do
 
     before do
       post TEST_LOGIN_PATH,
-           params: { username: user.username, password: "password" }.to_json,
+           params: { user: { username: user.username, password: "password" } }.to_json,
            headers: JSON_HEADERS
     end
 
