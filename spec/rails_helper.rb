@@ -1,5 +1,4 @@
 # --- REQUIRE STATEMENTS MUST BE FIRST ---
-
 require 'simplecov'
 require 'simplecov-json'
 require 'selenium/webdriver'
