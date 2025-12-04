@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # Define constants for reused paths
+  LOGIN_PATH = "/login".freeze
+  REGISTER_PATH = "/register".freeze
+
   # Swagger / OpenAPI
   mount Rswag::Ui::Engine => "/api-docs"
   mount Rswag::Api::Engine => "/api-docs"
@@ -10,8 +14,8 @@ Rails.application.routes.draw do
   get "/sla", to: "pages#sla"
 
   # Authentication
-  get "/login", to: "sessions#login"
-  get "/register", to: "sessions#register"
+  get LOGIN_PATH, to: "sessions#login"
+  get REGISTER_PATH, to: "sessions#register"
   get "/logout", to: "api/users#logout", as: :logout
 
   # RESTful Users for Rswag
@@ -26,14 +30,14 @@ Rails.application.routes.draw do
 
   namespace :api do
     get "/weather", to: "weather#show"
-    post "/register", to: "users#register"
-    post "/login", to: "users#login"
+    post REGISTER_PATH, to: "users#register"
+    post LOGIN_PATH, to: "users#login"
     get "/search", to: "search#index"
   end
 
   namespace :test do
-      post "/register", to: "users#register"
-      post "/login", to: "users#login"
+      post REGISTER_PATH, to: "users#register"
+      post LOGIN_PATH, to: "users#login"
       get  "/logout", to: "users#logout"
   end
 end
