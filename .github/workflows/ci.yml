@@ -133,7 +133,7 @@ jobs:
       # --- Trivy ---
       - name: Install Trivy
         run: |
-          wget https://github.com/aquasecurity/trivy/releases/download/v0.67.2/trivy_0.67.2_Linux-64bit.deb
+          sudo apt install ./trivy_0.67.2_Linux-64bit.deb
           sudo dpkg -i trivy_0.67.2_Linux-64bit.deb
 
       - name: Trivy scan project files
