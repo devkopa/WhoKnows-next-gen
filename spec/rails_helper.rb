@@ -1,16 +1,17 @@
-Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
-# This file is copied to spec/ when you run 'rails generate rspec:install'
-# Selenium + Edge driver
+# --- REQUIRE STATEMENTS MUST BE FIRST ---
+
+require 'simplecov'
+require 'simplecov-json'
 require 'selenium/webdriver'
 require_relative '../config/environment'
 require 'rspec/rails'
 require 'spec_helper'
-require 'simplecov'
-require 'simplecov-json'
+
+# --- SIMPLECOV MUST BE CONFIGURED BEFORE ANY CODE IS LOADED ---
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::HTMLFormatter,  # browser-visning
-  SimpleCov::Formatter::JSONFormatter   # SonarCloud
+  SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov::Formatter::JSONFormatter
 ])
 
 SimpleCov.start 'rails' do
@@ -19,24 +20,15 @@ SimpleCov.start 'rails' do
   add_filter '/spec/'
 end
 
+# --- REST OF THE FILE CAN FOLLOW ---
+
 ENV['RAILS_ENV'] ||= 'test'
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-# Add additional requires below this line. Rails is not loaded until this point!
-# Requires supporting ruby files with custom matchers and macros, etc, in
-# spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
-# run as spec files by default. This means that files in spec/support that end
-# in _spec.rb will both be required and run as specs, causing the specs to be
-# run twice. It is recommended that you do not name files matching this glob to
-# end with _spec.rb. You can configure this pattern with the --pattern
-# option on the command line or in ~/.rspec, .rspec or `.rspec-local`.
-#
-# The following line is provided for convenience purposes. It has the downside
-# of increasing the boot-up time by auto-requiring all files in the support
-# directory. Alternatively, in the individual `*_spec.rb` files, manually
-# require only the support files necessary.
-#
 
-# Register a custom Edge driver so Capybara knows it
+# Autoload support files
+Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
+
+# Capybara custom driver
 Capybara.register_driver :edge do |app|
   Capybara::Selenium::Driver.new(
     app,
@@ -45,50 +37,22 @@ Capybara.register_driver :edge do |app|
   )
 end
 
-# Checks for pending migrations and applies them before tests are run.
-# If you are not using ActiveRecord, you can remove these lines.
+# ActiveRecord schema checks
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 
+# RSpec config
 RSpec.configure do |config|
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_paths = [
-    Rails.root.join('spec/fixtures')
-  ]
-
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
+  config.fixture_paths = [ Rails.root.join('spec/fixtures') ]
   config.use_transactional_fixtures = true
-
-  # You can uncomment this line to turn off ActiveRecord support entirely.
-  # config.use_active_record = false
-
-  # RSpec Rails can automatically mix in different behaviours to your tests
-  # based on their file location, for example enabling you to call `get` and
-  # `post` in specs under `spec/controllers`.
-  #
-  # You can disable this behaviour by removing the line below, and instead
-  # explicitly tag your specs with their type, e.g.:
-  #
-  #     RSpec.describe UsersController, type: :controller do
-  #       # ...
-  #     end
-  #
-  # The different available types are documented in the features, such as in
-  # https://rspec.info/features/6-0/rspec-rails
   config.infer_spec_type_from_file_location!
 
-  # Use Microsoft Edge for system tests
   config.before(:each, type: :system) do
     driven_by :edge, screen_size: [ 1400, 1400 ]
   end
 
-  # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
-  # arbitrary gems may also be filtered via:
-  # config.filter_gems_from_backtrace("gem name")
 end
