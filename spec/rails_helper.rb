@@ -5,15 +5,15 @@ ENV['RAILS_ENV'] ||= 'test'
 abort("The Rails environment is running in production mode!") if ENV['RAILS_ENV'] == 'production'
 
 # --- REQUIRE STATEMENTS FOR COVERAGE / TOOLS (must be before app code) ---
-require 'simplecov' # NOSONAR
-require 'simplecov-json' # NOSONAR
-require 'selenium/webdriver' # NOSONAR
-require_relative '../config/environment' # NOSONAR
-require 'rspec/rails' # NOSONAR
-require 'spec_helper' # NOSONAR
+require 'simplecov'
+require 'simplecov-json'
+require 'selenium/webdriver'
+require_relative '../config/environment'
+require 'rspec/rails'
+require 'spec_helper'
 
 # Autoload support files
-Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f } # NOSONAR
+Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
 
 # --- SIMPLECOV MUST BE CONFIGURED BEFORE ANY CODE IS LOADED ---
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
