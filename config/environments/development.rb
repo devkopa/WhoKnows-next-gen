@@ -12,7 +12,6 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
-  config.hosts << "devkopa.dk"
   config.hosts << "localhost"
   config.hosts << "127.0.0.1"
   config.hosts << "host.docker.internal"
