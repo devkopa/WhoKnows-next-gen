@@ -4,12 +4,7 @@ class Api::WeatherController < ApplicationController
 
   def show
     city = params[:city] || "Copenhagen"
-    api_key = ENV["OPENWEATHER_API_KEY"]
-
-    if api_key.blank?
-      render json: { error: "API key not set" }, status: :unprocessable_entity
-      return
-    end
+    api_key = ENV.fetch("OPENWEATHER_API_KEY")
 
     response = self.class.get("/weather", query: { q: city, appid: api_key, units: "metric" })
 
