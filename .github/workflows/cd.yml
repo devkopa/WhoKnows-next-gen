@@ -28,8 +28,13 @@ jobs:
           ssh-keyscan -H "$AZURE_VM_HOST" >> ~/.ssh/known_hosts
 
       - name: Deploy latest image from GHCR
+        env:
+          GHCR_PAT: ${{ secrets.AZURE_VM_GHCR_PAT }}
+          VM_USER: ${{ secrets.AZURE_VM_USER }}
+          VM_HOST: ${{ secrets.AZURE_VM_HOST }}
+          APP_PATH: ${{ secrets.AZURE_VM_APP_PATH }}
         run: |
-          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
+          ssh $VM_USER@$VM_HOST << 'EOF'
             set -e
 
             # Install Docker if not present
@@ -43,7 +48,6 @@ jobs:
               curl -fsSL https://get.docker.com | sudo sh
 
               sudo usermod -aG docker $USER
-
               echo "Docker installed."
             else
               echo "Docker already installed."
@@ -64,14 +68,14 @@ jobs:
             fi
 
             IMAGE_NAME=ghcr.io/devkopa/whoknows-next-gen
-            APP_PATH=${{ secrets.AZURE_VM_APP_PATH }}
+            APP_PATH=$APP_PATH
 
             # Ensure app folder exists
             mkdir -p $APP_PATH
             cd $APP_PATH
 
             echo "Logging in to GHCR..."
-            echo "${{ secrets.AZURE_VM_GHCR_PAT }}" | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
+            echo "$GHCR_PAT" | docker login ghcr.io -u "${GITHUB_ACTOR}" --password-stdin
 
             echo "Pulling latest images..."
             docker compose pull
