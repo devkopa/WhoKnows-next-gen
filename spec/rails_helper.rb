@@ -63,7 +63,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.before(:each, type: :system) do
-    driven_by :edge, screen_size: [1400, 1400]
+    driven_by :edge, screen_size: [ 1400, 1400 ]
   end
 
   config.before(:each, type: :request) do
