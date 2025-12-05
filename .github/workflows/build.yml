@@ -69,14 +69,14 @@ jobs:
           cat coverage/coverage.json || echo "No JSON file generated!"
 
       - name: Convert coverage.json for Sonar
-          run: |
-            ruby -r json -e "
-              f = 'coverage/coverage.json'
-              j = JSON.parse(File.read(f))
-              files = {}
-              j['files'].each { |file| files[file['filename']] = file }
-              File.write('coverage/coverage_sonar.json', JSON.pretty_generate(files))
-            "
+        run: |
+          ruby -r json -e "
+            f = 'coverage/coverage.json'
+            j = JSON.parse(File.read(f))
+            files = {}
+            j['files'].each { |file| files[file['filename']] = file }
+            File.write('coverage/coverage_sonar.json', JSON.pretty_generate(files))
+          "
 
       - name: Verify coverage_sonar.json
         run: cat coverage/coverage_sonar.json
