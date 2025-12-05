@@ -28,56 +28,57 @@ jobs:
           ssh-keyscan -H "$AZURE_VM_HOST" >> ~/.ssh/known_hosts
 
       - name: Deploy latest image from GHCR
-        env:
-          AZURE_VM_USER: ${{ secrets.AZURE_VM_USER }}
-          AZURE_VM_HOST: ${{ secrets.AZURE_VM_HOST }}
-          AZURE_VM_APP_PATH: ${{ secrets.AZURE_VM_APP_PATH }}
-          GHCR_PAT: ${{ secrets.AZURE_VM_GHCR_PAT }}
         run: |
-          ssh "$AZURE_VM_USER@$AZURE_VM_HOST" bash -s << EOF
+          ssh ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_HOST }} << 'EOF'
             set -e
 
-            # Brug GitHub Actions environment variables direkte
-            APP_PATH="$AZURE_VM_APP_PATH"
-            GHCR_PAT="$GHCR_PAT"
-            IMAGE_NAME=ghcr.io/devkopa/whoknows-next-gen
-
-            echo "Ensuring Docker is installed..."
+            # Install Docker if not present
             if ! command -v docker &> /dev/null; then
+              echo "Docker not found. Installing Docker..."
+
               sudo apt-get update
               sudo apt-get install -y ca-certificates curl gnupg
+
               sudo install -m 0755 -d /etc/apt/keyrings
               curl -fsSL https://get.docker.com | sudo sh
+
               sudo usermod -aG docker $USER
+
               echo "Docker installed."
             else
               echo "Docker already installed."
             fi
 
-            echo "Ensuring Docker Compose v2 is installed..."
+            # Ensure Docker Compose v2 is available
             if ! docker compose version &> /dev/null; then
+              echo "Docker Compose not found. Installing plugin..."
+
               sudo mkdir -p /usr/local/lib/docker/cli-plugins
               sudo curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 \
                 -o /usr/local/lib/docker/cli-plugins/docker-compose
               sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
+
               echo "Docker Compose installed."
             else
               echo "Docker Compose already installed."
             fi
 
-            echo "Preparing application directory..."
-            mkdir -p "$APP_PATH"
-            cd "$APP_PATH"
+            IMAGE_NAME=ghcr.io/devkopa/whoknows-next-gen
+            APP_PATH=${{ secrets.AZURE_VM_APP_PATH }}
+
+            # Ensure app folder exists
+            mkdir -p $APP_PATH
+            cd $APP_PATH
 
             echo "Logging in to GHCR..."
-            echo "$GHCR_PAT" | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
+            echo "${{ secrets.AZURE_VM_GHCR_PAT }}" | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
 
-            echo "Pulling latest Docker images..."
+            echo "Pulling latest images..."
             docker compose pull
 
-            echo "Starting/updating containers..."
+            echo "Starting/Updating containers..."
             docker compose up -d --remove-orphans
 
-            echo "Deployment complete! Current containers:"
+            echo "Deployment complete! Running containers:"
             docker compose ps
           EOF
