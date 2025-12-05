@@ -13,7 +13,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:15
+        image: postgres:18
         ports:
           - 5432:5432
         env:
@@ -21,7 +21,7 @@ jobs:
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
         options: >-
-          --health-cmd="pg_isready -U ${{ secrets.POSTGRES_USER }}"
+          --health-cmd="pg_isready -U devkopa"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=5
