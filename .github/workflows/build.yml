@@ -68,6 +68,14 @@ jobs:
           ls -l coverage/
           cat coverage/coverage.json || echo "No JSON file generated!"
 
+      - name: Convert coverage.json for Sonar
+        run: |
+          ruby -r json -e '
+            f = "coverage/coverage.json"
+            j = JSON.parse(File.read(f))
+            File.write("coverage/coverage_sonar.json", JSON.pretty_generate(j["files"]))
+          '
+
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
