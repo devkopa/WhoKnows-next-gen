@@ -34,13 +34,12 @@ jobs:
           AZURE_VM_APP_PATH: ${{ secrets.AZURE_VM_APP_PATH }}
           GHCR_PAT: ${{ secrets.AZURE_VM_GHCR_PAT }}
         run: |
-          ssh "$AZURE_VM_USER@$AZURE_VM_HOST" << 'EOF'
+          ssh "$AZURE_VM_USER@$AZURE_VM_HOST" bash -s << EOF
             set -e
 
-            # Eksporter environment variabler på remote
-            export APP_PATH="$AZURE_VM_APP_PATH"
-            export GHCR_PAT="$GHCR_PAT"
-
+            # Brug GitHub Actions environment variables direkte
+            APP_PATH="$AZURE_VM_APP_PATH"
+            GHCR_PAT="$GHCR_PAT"
             IMAGE_NAME=ghcr.io/devkopa/whoknows-next-gen
 
             echo "Ensuring Docker is installed..."
