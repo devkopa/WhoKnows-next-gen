@@ -34,7 +34,7 @@ jobs:
           VM_HOST: ${{ secrets.AZURE_VM_HOST }}
           APP_PATH: ${{ secrets.AZURE_VM_APP_PATH }}
         run: |
-          ssh $VM_USER@$VM_HOST << 'EOF'
+          ssh $VM_USER@$VM_HOST << EOF
             set -e
 
             # Install Docker if not present
