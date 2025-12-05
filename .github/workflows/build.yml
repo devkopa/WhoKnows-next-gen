@@ -73,9 +73,9 @@ jobs:
           ruby -r json -e '
             f = "coverage/coverage.json"
             j = JSON.parse(File.read(f))
-            File.write("coverage/coverage_sonar.json", JSON.pretty_generate(j["files"]))
+            File.write("coverage/coverage_sonar.json", JSON.pretty_generate({ "files" => j["files"] }))
           '
-
+          
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
