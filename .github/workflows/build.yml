@@ -62,8 +62,11 @@ jobs:
       - name: Run RSpec with Coverage
         run: bundle exec rspec
 
-      - name: Verify coverage file
-        run: ls -l coverage/
+      - name: Check coverage output
+        run: |
+          pwd
+          ls -l coverage/
+          cat coverage/coverage.json || echo "No JSON file generated!"
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6

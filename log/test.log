@@ -10539,3 +10539,158 @@ Processing by WeatherController#index as HTML
   Rendered layout layouts/application.html.erb (Duration: 50.0ms | GC: 0.0ms)
 Completed 200 OK in 1289ms (Views: 194.7ms | ActiveRecord: 24.0ms (1 query, 0 cached) | GC: 0.0ms)
   [1m[36mTRANSACTION (1.7ms)[0m  [1m[31mROLLBACK[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+Started POST "/test/register" for 127.0.0.1 at 2025-12-05 14:22:24 +0100
+Processing by Test::UsersController#register as JSON
+  Parameters: {"user" => {"username" => "testuser_9335bab8", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+TEST REGISTER called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_9335bab8", "email" => "test_acb1e6be@example.com", "password" => "password", "password_confirmation" => "password"}, "controller" => "test/users", "action" => "register"} permitted: false>
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_9335bab8"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_9335bab8"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-05 13:22:24.713283"], ["updated_at", "2025-12-05 13:22:24.713283"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+User created successfully: id=488 username=testuser_9335bab8
+Completed 201 Created in 62ms (Views: 0.3ms | ActiveRecord: 20.5ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_6c67b226"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_6c67b226"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-05 13:22:24.732082"], ["updated_at", "2025-12-05 13:22:24.732082"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/test/login" for 127.0.0.1 at 2025-12-05 14:22:24 +0100
+Processing by Test::UsersController#login as JSON
+  Parameters: {"user" => {"username" => "testuser_6c67b226", "password" => "[FILTERED]"}}
+TEST LOGIN called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_6c67b226", "password" => "password"}, "controller" => "test/users", "action" => "login"} permitted: false>
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_6c67b226"], ["LIMIT", 1]]
+Login success via Test::UsersController for user=testuser_6c67b226 id=489
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "last_login" = $1 WHERE "users"."id" = $2[0m  [["last_login", "2025-12-05 13:22:24.739585"], ["id", 489]]
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_368aa697"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_368aa697"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-05 13:22:24.749976"], ["updated_at", "2025-12-05 13:22:24.749976"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/test/login" for 127.0.0.1 at 2025-12-05 14:22:24 +0100
+Processing by Test::UsersController#login as JSON
+  Parameters: {"user" => {"username" => "testuser_368aa697", "password" => "[FILTERED]"}}
+TEST LOGIN called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_368aa697", "password" => "wrong"}, "controller" => "test/users", "action" => "login"} permitted: false>
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_368aa697"], ["LIMIT", 1]]
+Login failed for username=testuser_368aa697
+Completed 401 Unauthorized in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_1e8020a2"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_1e8020a2"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-05 13:22:24.765345"], ["updated_at", "2025-12-05 13:22:24.765345"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/test/login" for 127.0.0.1 at 2025-12-05 14:22:24 +0100
+Processing by Test::UsersController#login as JSON
+  Parameters: {"user" => {"username" => "testuser_1e8020a2", "password" => "[FILTERED]"}}
+TEST LOGIN called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_1e8020a2", "password" => "password"}, "controller" => "test/users", "action" => "login"} permitted: false>
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_1e8020a2"], ["LIMIT", 1]]
+Login success via Test::UsersController for user=testuser_1e8020a2 id=491
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "last_login" = $1 WHERE "users"."id" = $2[0m  [["last_login", "2025-12-05 13:22:24.773853"], ["id", 491]]
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.1ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/test/logout" for 127.0.0.1 at 2025-12-05 14:22:24 +0100
+Processing by Test::UsersController#logout as JSON
+  Parameters: {"user" => {}}
+TEST LOGOUT called for session_user_id=491
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/weather" for 127.0.0.1 at 2025-12-05 14:22:24 +0100
+Processing by WeatherController#index as HTML
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeatherSearch Create (2.1ms)[0m  [1m[32mINSERT INTO "weather_searches" ("city", "user_ip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["city", "Copenhagen"], ["user_ip", "127.0.0.1"], ["created_at", "2025-12-05 13:22:24.815373"], ["updated_at", "2025-12-05 13:22:24.815373"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering weather/index.html.erb within layouts/application
+  Rendered weather/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | GC: 0.0ms)
+Completed 200 OK in 427ms (Views: 19.7ms | ActiveRecord: 7.0ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/register" for 127.0.0.1 at 2025-12-05 14:22:30 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 44.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 46.2ms | GC: 0.0ms)
+Completed 200 OK in 52ms (Views: 50.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/icon.svg" for 127.0.0.1 at 2025-12-05 14:22:31 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/icon.svg"):
+  
+Started GET "/icon.png" for 127.0.0.1 at 2025-12-05 14:22:31 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+Started POST "/api/register" for 127.0.0.1 at 2025-12-05 14:22:31 +0100
+Processing by Api::UsersController#register as HTML
+  Parameters: {"username" => "e2euser", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "commit" => "Register"}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "e2euser"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "e2euser"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-05 13:22:31.898782"], ["updated_at", "2025-12-05 13:22:31.898782"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://localhost:3000/register
+Completed 302 Found in 9ms (ActiveRecord: 3.6ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/register" for 127.0.0.1 at 2025-12-05 14:22:31 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2025-12-05 14:22:32 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started POST "/api/login" for 127.0.0.1 at 2025-12-05 14:22:32 +0100
+Processing by Api::UsersController#login as HTML
+  Parameters: {"username" => "e2euser", "password" => "[FILTERED]", "commit" => "Login"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "e2euser"], ["LIMIT", 1]]
+Login success via Api::UsersController for user=e2euser id=492
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "last_login" = $1 WHERE "users"."id" = $2[0m  [["last_login", "2025-12-05 13:22:32.418656"], ["id", 492]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 2.3ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2025-12-05 14:22:32 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/logout" for 127.0.0.1 at 2025-12-05 14:22:32 +0100
+Processing by Api::UsersController#logout as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/login" for 127.0.0.1 at 2025-12-05 14:22:32 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Unset [31mRACK_ENV[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
