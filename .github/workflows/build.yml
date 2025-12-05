@@ -21,7 +21,7 @@ jobs:
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
         options: >-
-          --health-cmd="pg_isready -U devkopa"
+          --health-cmd="pg_isready -U devkopa
           --health-interval=10s
           --health-timeout=5s
           --health-retries=5
@@ -70,13 +70,16 @@ jobs:
 
       - name: Convert coverage.json to Sonar format
         run: |
-          ruby -r json -r pathname -e "
+          ruby <<'EOF'
+            require 'json'
+            require 'pathname'
+
             root = Pathname.new(ENV['GITHUB_WORKSPACE'])
             input = JSON.parse(File.read('coverage/coverage.json'))
             output = { 'files' => {} }
 
             input['files'].each do |entry|
-              # Convert Windows paths → relative Unix paths
+              # Normalize Windows paths
               abs = Pathname.new(entry['filename'].gsub('\\', '/'))
               rel = abs.relative_path_from(root).to_s
 
@@ -89,7 +92,10 @@ jobs:
             end
 
             File.write('coverage/coverage_sonar.json', JSON.pretty_generate(output))
-          "
+          EOF
+
+      - name: Verify converted coverage
+        run: cat coverage/coverage_sonar.json
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
