@@ -6,6 +6,7 @@ abort("The Rails environment is running in production mode!") if ENV['RAILS_ENV'
 
 # --- SIMPLECOV MUST BE CONFIGURED BEFORE ANY CODE IS LOADED ---
 require 'simplecov'
+require 'simplecov-json'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter,
