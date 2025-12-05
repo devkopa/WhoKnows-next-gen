@@ -68,6 +68,29 @@ jobs:
           ls -l coverage/
           cat coverage/coverage.json || echo "No JSON file generated!"
 
+      - name: Convert coverage.json to Sonar format
+        run: |
+          ruby -r json -r pathname -e "
+            root = Pathname.new(ENV['GITHUB_WORKSPACE'])
+            input = JSON.parse(File.read('coverage/coverage.json'))
+            output = { 'files' => {} }
+
+            input['files'].each do |entry|
+              # Convert Windows paths → relative Unix paths
+              abs = Pathname.new(entry['filename'].gsub('\\', '/'))
+              rel = abs.relative_path_from(root).to_s
+
+              output['files'][rel] = {
+                'covered_percent' => entry['covered_percent'],
+                'coverage' => {
+                  'lines' => entry['coverage']['lines']
+                }
+              }
+            end
+
+            File.write('coverage/coverage_sonar.json', JSON.pretty_generate(output))
+          "
+
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
