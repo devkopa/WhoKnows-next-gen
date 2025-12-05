@@ -34,6 +34,7 @@ jobs:
       POSTGRES_HOST: localhost
       POSTGRES_PORT: 5432
       RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+      OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
 
     steps:
       - uses: actions/checkout@v4
