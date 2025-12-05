@@ -10,6 +10,31 @@ jobs:
   sonarqube:
     name: SonarQube
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+        options: >-
+          --health-cmd="pg_isready -U ${{ secrets.POSTGRES_USER }}"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    env:
+      RAILS_ENV: test
+      POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+      POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
+      RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -30,18 +55,12 @@ jobs:
       - name: Install Gems
         run: bundle install
 
-      # Run tests with SimpleCov enabled
+      - name: Prepare DB
+        run: bin/rails db:create db:schema:load --trace
+
       - name: Run RSpec with Coverage
-        env:
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-          POSTGRES_HOST: localhost
-          POSTGRES_PORT: 5432
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: bundle exec rspec
 
-      # Verify coverage file exists
       - name: Verify coverage file
         run: ls -l coverage/
 
