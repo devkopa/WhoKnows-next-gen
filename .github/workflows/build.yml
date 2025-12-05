@@ -31,7 +31,7 @@ jobs:
       POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
       POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-      POSTGRES_HOST: postgres
+      POSTGRES_HOST: localhost
       POSTGRES_PORT: 5432
       RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
@@ -68,13 +68,18 @@ jobs:
           ls -l coverage/
           cat coverage/coverage.json || echo "No JSON file generated!"
 
-      - name: Convert coverage.json for Sonar
+      - name: Convert coverage.json for Sonar (relative paths)
         run: |
-          ruby -r json -e "
+          ruby -r json -r pathname -e "
+            repo_root = ENV['GITHUB_WORKSPACE']
             f = 'coverage/coverage.json'
             j = JSON.parse(File.read(f))
             files = {}
-            j['files'].each { |file| files[file['filename']] = file }
+            j['files'].each do |file|
+              relative_path = Pathname.new(file['filename']).relative_path_from(Pathname.new(repo_root)).to_s
+              file['filename'] = relative_path
+              files[relative_path] = file
+            end
             File.write('coverage/coverage_sonar.json', JSON.pretty_generate(files))
           "
 
