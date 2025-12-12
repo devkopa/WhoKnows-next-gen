@@ -40,7 +40,15 @@ SimpleCov.start 'rails' do
                                   .relative_path_from(Pathname.new(root_path))
                                   .to_s
                                   .gsub('\\', '/')
-          new_coverage[relative_path] = coverage_data
+          
+          # SimpleCov uses different formats - normalize to just line array for SonarQube
+          if coverage_data.is_a?(Hash) && coverage_data['lines']
+            # If it's a hash with 'lines', extract just the lines array
+            new_coverage[relative_path] = coverage_data['lines']
+          else
+            # Otherwise use as-is (should already be an array)
+            new_coverage[relative_path] = coverage_data
+          end
         end
         
         command_data['coverage'] = new_coverage
