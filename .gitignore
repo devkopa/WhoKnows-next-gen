@@ -15,6 +15,7 @@
 
 /.build
 /.devcontainer
+/.bundle
 
 # misc
 .DS_Store
@@ -22,8 +23,8 @@
 
 *.dump
 
-/prometheus-data/*
-/prometheus-data-backup/*
+/prometheus-data/
+/prometheus-data-backup/
 
 /grafana-data/*
 
@@ -52,7 +53,7 @@ next-env.d.ts
 /app/generated/prisma
 
 # dump files
-.sql
+*.sql
 
 !/app/assets/builds/.keep
 
