@@ -68,14 +68,17 @@ jobs:
           pwd
           echo "=== Coverage directory contents ==="
           ls -la coverage/
-          echo "=== Checking .resultset.json ==="
-          if [ -f "coverage/.resultset.json" ]; then
-            echo "✓ .resultset.json exists"
-            echo "File size: $(wc -c < coverage/.resultset.json) bytes"
-            echo "First 100 lines:"
-            head -n 100 coverage/.resultset.json
+          echo "=== Checking coverage.json ==="
+          if [ -f "coverage/coverage.json" ]; then
+            echo "✓ coverage.json exists"
+            echo "File size: $(wc -c < coverage/coverage.json) bytes"
+            echo "First 50 lines:"
+            head -n 50 coverage/coverage.json
+            echo ""
+            echo "=== Sample file path from coverage ==="
+            grep -o '"filename":"[^"]*"' coverage/coverage.json | head -n 3
           else
-            echo "✗ .resultset.json NOT FOUND!"
+            echo "✗ coverage.json NOT FOUND!"
             exit 1
           fi
 
