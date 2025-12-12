@@ -15,7 +15,6 @@
 
 /.build
 /.devcontainer
-/.bundle
 
 # misc
 .DS_Store
