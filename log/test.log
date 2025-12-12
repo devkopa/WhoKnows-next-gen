@@ -19151,3 +19151,755 @@ Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached
 [dotenv] Restored snapshot of [32mENV[0m
 [dotenv] Restored [36mOPENWEATHER_API_KEY[0m
   [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Ruby': {"query" => {"search" => [{"title" => "Ruby programming language"}, {"title" => "Ruby (gem)"}]}}
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Python': nil
+WikiCrawlerService opensearch response for 'Python': ["Python", ["Python (programming language)", "Python (snake)"], ["Desc1", "Desc2"], ["url1", "url2"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Java': {"query" => {}}
+WikiCrawlerService opensearch response for 'Java': ["Java", ["Java (programming language)"], ["Desc"], ["url"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'unknown': {"query" => {"search" => nil}}
+WikiCrawlerService opensearch response for 'unknown': nil
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'nonexistent': {"query" => {"search" => []}}
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Test': {"query" => {"search" => [{"title" => "Test"}]}}
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'NoContent': {"query" => {"search" => [{"title" => "NoContent"}]}}
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Programming Language': {"query" => {"search" => [{"title" => "Programming Language"}]}}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::InternalMetadata Load (7.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Ruby': {"query" => {"search" => [{"title" => "Ruby programming language"}, {"title" => "Ruby (gem)"}]}}
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Python': nil
+WikiCrawlerService opensearch response for 'Python': ["Python", ["Python (programming language)", "Python (snake)"], ["Desc1", "Desc2"], ["url1", "url2"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Java': {"query" => {}}
+WikiCrawlerService opensearch response for 'Java': ["Java", ["Java (programming language)"], ["Desc"], ["url"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'unknown': {"query" => {"search" => nil}}
+WikiCrawlerService opensearch response for 'unknown': nil
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'nonexistent': {"query" => {"search" => []}}
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Test': {"query" => {"search" => [{"title" => "Test"}]}}
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'NoContent': {"query" => {"search" => [{"title" => "NoContent"}]}}
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Programming Language': {"query" => {"search" => [{"title" => "Programming Language"}]}}
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (5.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Ruby': {"query" => {"search" => [{"title" => "Ruby programming language"}, {"title" => "Ruby (gem)"}]}}
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Python': nil
+WikiCrawlerService opensearch response for 'Python': ["Python", ["Python (programming language)", "Python (snake)"], ["Desc1", "Desc2"], ["url1", "url2"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Java': {"query" => {}}
+WikiCrawlerService opensearch response for 'Java': ["Java", ["Java (programming language)"], ["Desc"], ["url"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'unknown': {"query" => {"search" => nil}}
+WikiCrawlerService opensearch response for 'unknown': nil
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'nonexistent': {"query" => {"search" => []}}
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Test': {"query" => {"search" => [{"title" => "Test"}]}}
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'NoContent': {"query" => {"search" => [{"title" => "NoContent"}]}}
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Programming Language': {"query" => {"search" => [{"title" => "Programming Language"}]}}
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (4.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (5.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:44:48.823832"], ["updated_at", "2025-12-12 10:44:48.823832"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:44:48.854376"], ["updated_at", "2025-12-12 10:44:48.854376"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:44:48.874874"], ["updated_at", "2025-12-12 10:44:48.874874"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:44:48.899863"], ["updated_at", "2025-12-12 10:44:48.899863"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeatherSearch Create (5.5ms)[0m  [1m[32mINSERT INTO "weather_searches" ("city", "user_ip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["city", "Copenhagen"], ["user_ip", nil], ["created_at", "2025-12-12 10:44:48.925372"], ["updated_at", "2025-12-12 10:44:48.925372"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/test/register" for 127.0.0.1 at 2025-12-12 11:44:48 +0100
+Processing by Test::UsersController#register as JSON
+  Parameters: {"user" => {"username" => "testuser_e5194977", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+TEST REGISTER called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_e5194977", "email" => "test_83416b24@example.com", "password" => "password", "password_confirmation" => "password"}, "controller" => "test/users", "action" => "register"} permitted: false>
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (4.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_e5194977"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_e5194977"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:44:49.150159"], ["updated_at", "2025-12-12 10:44:49.150159"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+User created successfully: id=813 username=testuser_e5194977
+Completed 201 Created in 70ms (Views: 0.5ms | ActiveRecord: 10.9ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+Processing by Test::UsersController#register as JSON
+  Parameters: {"user" => {"username" => "testuser_b1149a8a", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (4.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_b1149a8a"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_b1149a8a"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:44:49.252740"], ["updated_at", "2025-12-12 10:44:49.252740"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 16ms (Views: 0.3ms | ActiveRecord: 9.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+Started POST "/test/register" for 127.0.0.1 at 2025-12-12 11:44:49 +0100
+Processing by Test::UsersController#register as JSON
+  Parameters: {"user" => {"username" => "testuser_55618671", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+TEST REGISTER called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_55618671", "email" => "test_0f89ef50@example.com", "password" => "password", "password_confirmation" => "mismatch"}, "controller" => "test/users", "action" => "register"} permitted: false>
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_55618671"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+User creation failed: Password confirmation doesn't match Password
+Completed 422 Unprocessable Content in 13ms (Views: 0.3ms | ActiveRecord: 5.7ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+Started POST "/test/register" for 127.0.0.1 at 2025-12-12 11:44:49 +0100
+Processing by Test::UsersController#register as HTML
+  Parameters: {"user" => {"username" => "testuser_9545493d", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+TEST REGISTER called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_9545493d", "email" => "test_ec307601@example.com", "password" => "password", "password_confirmation" => "password"}, "controller" => "test/users", "action" => "register"} permitted: false>
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_9545493d"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_9545493d"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:44:49.387838"], ["updated_at", "2025-12-12 10:44:49.387838"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+User created successfully: id=815 username=testuser_9545493d
+Completed 201 Created in 16ms (Views: 0.3ms | ActiveRecord: 8.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_d14386c7"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_d14386c7"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:44:49.411599"], ["updated_at", "2025-12-12 10:44:49.411599"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/test/login" for 127.0.0.1 at 2025-12-12 11:44:49 +0100
+Processing by Test::UsersController#login as JSON
+  Parameters: {"user" => {"username" => "testuser_d14386c7", "password" => "[FILTERED]"}}
+TEST LOGIN called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_d14386c7", "password" => "password"}, "controller" => "test/users", "action" => "login"} permitted: false>
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_d14386c7"], ["LIMIT", 1]]
+Login success via Test::UsersController for user=testuser_d14386c7 id=816
+  [1m[36mUser Update (4.0ms)[0m  [1m[33mUPDATE "users" SET "last_login" = $1 WHERE "users"."id" = $2[0m  [["last_login", "2025-12-12 10:44:49.434988"], ["id", 816]]
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 9.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (4.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_15d400ba"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_15d400ba"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:44:49.462278"], ["updated_at", "2025-12-12 10:44:49.462278"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/test/login" for 127.0.0.1 at 2025-12-12 11:44:49 +0100
+Processing by Test::UsersController#login as JSON
+  Parameters: {"user" => {"username" => "testuser_15d400ba", "password" => "[FILTERED]"}}
+TEST LOGIN called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_15d400ba", "password" => "wrong"}, "controller" => "test/users", "action" => "login"} permitted: false>
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_15d400ba"], ["LIMIT", 1]]
+Login failed for username=testuser_15d400ba
+Completed 401 Unauthorized in 5ms (Views: 0.2ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_d9d15a2c"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_d9d15a2c"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:44:49.493155"], ["updated_at", "2025-12-12 10:44:49.493155"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/test/login" for 127.0.0.1 at 2025-12-12 11:44:49 +0100
+Processing by Test::UsersController#login as JSON
+  Parameters: {"user" => {"username" => "testuser_d9d15a2c", "password" => "[FILTERED]"}}
+TEST LOGIN called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_d9d15a2c", "password" => "password"}, "controller" => "test/users", "action" => "login"} permitted: false>
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_d9d15a2c"], ["LIMIT", 1]]
+Login success via Test::UsersController for user=testuser_d9d15a2c id=818
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.7ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_6e587d41"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_6e587d41"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:44:49.522336"], ["updated_at", "2025-12-12 10:44:49.522336"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/test/login" for 127.0.0.1 at 2025-12-12 11:44:49 +0100
+Processing by Test::UsersController#login as JSON
+  Parameters: {"user" => {"username" => "testuser_6e587d41", "password" => "[FILTERED]"}}
+TEST LOGIN called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_6e587d41", "password" => "password"}, "controller" => "test/users", "action" => "login"} permitted: false>
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_6e587d41"], ["LIMIT", 1]]
+Login success via Test::UsersController for user=testuser_6e587d41 id=819
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE "users" SET "last_login" = $1 WHERE "users"."id" = $2[0m  [["last_login", "2025-12-12 10:44:49.534928"], ["id", 819]]
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 2.5ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/test/logout" for 127.0.0.1 at 2025-12-12 11:44:49 +0100
+Processing by Test::UsersController#logout as JSON
+  Parameters: {"user" => {}}
+TEST LOGOUT called for session_user_id=819
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2025-12-12 11:44:49 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | GC: 0.0ms)
+Completed 200 OK in 67ms (Views: 49.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/change_password" for 127.0.0.1 at 2025-12-12 11:44:49 +0100
+Processing by PasswordsController#edit as HTML
+Redirected to http://test.host/login
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/passwords_controller.rb:5:in 'PasswordsController#edit'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+Started GET "/login" for 127.0.0.1 at 2025-12-12 11:44:51 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 9.5ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/register" for 127.0.0.1 at 2025-12-12 11:44:51 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 22.3ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 29.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/weather?city=Copenhagen" for 127.0.0.1 at 2025-12-12 11:44:51 +0100
+Processing by Api::WeatherController#show as HTML
+  Parameters: {"city" => "Copenhagen"}
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeatherSearch Create (5.0ms)[0m  [1m[32mINSERT INTO "weather_searches" ("city", "user_ip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["city", "Copenhagen"], ["user_ip", "127.0.0.1"], ["created_at", "2025-12-12 10:44:51.555837"], ["updated_at", "2025-12-12 10:44:51.555837"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 12ms (Views: 0.7ms | ActiveRecord: 9.2ms (1 query, 0 cached) | GC: 0.0ms)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Restored [36mOPENWEATHER_API_KEY[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/weather?city=Copenhagen" for 127.0.0.1 at 2025-12-12 11:44:51 +0100
+Processing by Api::WeatherController#show as HTML
+  Parameters: {"city" => "Copenhagen"}
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeatherSearch Create (2.9ms)[0m  [1m[32mINSERT INTO "weather_searches" ("city", "user_ip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["city", "Copenhagen"], ["user_ip", "127.0.0.1"], ["created_at", "2025-12-12 10:44:51.587520"], ["updated_at", "2025-12-12 10:44:51.587520"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 400 Bad Request in 8ms (Views: 0.4ms | ActiveRecord: 5.3ms (1 query, 0 cached) | GC: 0.0ms)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Restored [36mOPENWEATHER_API_KEY[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/weather?city=Copenhagen" for 127.0.0.1 at 2025-12-12 11:44:51 +0100
+Processing by Api::WeatherController#show as HTML
+  Parameters: {"city" => "Copenhagen"}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Restored [36mOPENWEATHER_API_KEY[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/weather" for 127.0.0.1 at 2025-12-12 11:44:51 +0100
+Processing by Api::WeatherController#show as HTML
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeatherSearch Create (3.3ms)[0m  [1m[32mINSERT INTO "weather_searches" ("city", "user_ip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["city", "Copenhagen"], ["user_ip", "127.0.0.1"], ["created_at", "2025-12-12 10:44:51.631062"], ["updated_at", "2025-12-12 10:44:51.631062"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 5.7ms (1 query, 0 cached) | GC: 0.0ms)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Restored [36mOPENWEATHER_API_KEY[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/weather?city=Copenhagen" for 127.0.0.1 at 2025-12-12 11:44:51 +0100
+Processing by Api::WeatherController#show as HTML
+  Parameters: {"city" => "Copenhagen"}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Restored [36mOPENWEATHER_API_KEY[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Ruby': {"query" => {"search" => [{"title" => "Ruby programming language"}, {"title" => "Ruby (gem)"}]}}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Python': nil
+WikiCrawlerService opensearch response for 'Python': ["Python", ["Python (programming language)", "Python (snake)"], ["Desc1", "Desc2"], ["url1", "url2"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Java': {"query" => {}}
+WikiCrawlerService opensearch response for 'Java': ["Java", ["Java (programming language)"], ["Desc"], ["url"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'unknown': {"query" => {"search" => nil}}
+WikiCrawlerService opensearch response for 'unknown': nil
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'nonexistent': {"query" => {"search" => []}}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Test': {"query" => {"search" => [{"title" => "Test"}]}}
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'NoContent': {"query" => {"search" => [{"title" => "NoContent"}]}}
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Programming Language': {"query" => {"search" => [{"title" => "Programming Language"}]}}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Ruby': {"query" => {"search" => [{"title" => "Ruby programming language"}, {"title" => "Ruby (gem)"}]}}
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Python': nil
+WikiCrawlerService opensearch response for 'Python': ["Python", ["Python (programming language)", "Python (snake)"], ["Desc1", "Desc2"], ["url1", "url2"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Java': {"query" => {}}
+WikiCrawlerService opensearch response for 'Java': ["Java", ["Java (programming language)"], ["Desc"], ["url"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'unknown': {"query" => {"search" => nil}}
+WikiCrawlerService opensearch response for 'unknown': nil
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'nonexistent': {"query" => {"search" => []}}
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Test': {"query" => {"search" => [{"title" => "Test"}]}}
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'NoContent': {"query" => {"search" => [{"title" => "NoContent"}]}}
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Programming Language': {"query" => {"search" => [{"title" => "Programming Language"}]}}
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+[dotenv] Set [36mOPENWEATHER_API_KEY[0m, [36mPOSTGRES_DB[0m, [36mPOSTGRES_HOST[0m, [36mPOSTGRES_PASSWORD[0m, [36mPOSTGRES_PORT[0m, and [36mPOSTGRES_USER[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:46:00.344736"], ["updated_at", "2025-12-12 10:46:00.344736"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:46:00.385422"], ["updated_at", "2025-12-12 10:46:00.385422"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:46:00.408066"], ["updated_at", "2025-12-12 10:46:00.408066"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:46:00.429585"], ["updated_at", "2025-12-12 10:46:00.429585"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeatherSearch Create (4.1ms)[0m  [1m[32mINSERT INTO "weather_searches" ("city", "user_ip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["city", "Copenhagen"], ["user_ip", nil], ["created_at", "2025-12-12 10:46:00.455502"], ["updated_at", "2025-12-12 10:46:00.455502"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+Started POST "/test/register" for 127.0.0.1 at 2025-12-12 11:46:00 +0100
+Processing by Test::UsersController#register as JSON
+  Parameters: {"user" => {"username" => "testuser_83eabe4c", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+TEST REGISTER called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_83eabe4c", "email" => "test_92e0a35b@example.com", "password" => "password", "password_confirmation" => "password"}, "controller" => "test/users", "action" => "register"} permitted: false>
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_83eabe4c"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_83eabe4c"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:46:00.632451"], ["updated_at", "2025-12-12 10:46:00.632451"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+User created successfully: id=824 username=testuser_83eabe4c
+Completed 201 Created in 60ms (Views: 0.3ms | ActiveRecord: 8.4ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+Processing by Test::UsersController#register as JSON
+  Parameters: {"user" => {"username" => "testuser_456cb600", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (4.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_456cb600"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_456cb600"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:46:00.683145"], ["updated_at", "2025-12-12 10:46:00.683145"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 15ms (Views: 0.3ms | ActiveRecord: 9.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+Started POST "/test/register" for 127.0.0.1 at 2025-12-12 11:46:00 +0100
+Processing by Test::UsersController#register as JSON
+  Parameters: {"user" => {"username" => "testuser_7bdf4241", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+TEST REGISTER called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_7bdf4241", "email" => "test_404abd6e@example.com", "password" => "password", "password_confirmation" => "mismatch"}, "controller" => "test/users", "action" => "register"} permitted: false>
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_7bdf4241"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+User creation failed: Password confirmation doesn't match Password
+Completed 422 Unprocessable Content in 10ms (Views: 0.2ms | ActiveRecord: 4.2ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+Started POST "/test/register" for 127.0.0.1 at 2025-12-12 11:46:00 +0100
+Processing by Test::UsersController#register as HTML
+  Parameters: {"user" => {"username" => "testuser_bd2a72d9", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+TEST REGISTER called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_bd2a72d9", "email" => "test_e0b56a39@example.com", "password" => "password", "password_confirmation" => "password"}, "controller" => "test/users", "action" => "register"} permitted: false>
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_bd2a72d9"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_bd2a72d9"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:46:00.741598"], ["updated_at", "2025-12-12 10:46:00.741598"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+User created successfully: id=826 username=testuser_bd2a72d9
+Completed 201 Created in 14ms (Views: 0.2ms | ActiveRecord: 6.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_dac64a42"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_dac64a42"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:46:00.761707"], ["updated_at", "2025-12-12 10:46:00.761707"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/test/login" for 127.0.0.1 at 2025-12-12 11:46:00 +0100
+Processing by Test::UsersController#login as JSON
+  Parameters: {"user" => {"username" => "testuser_dac64a42", "password" => "[FILTERED]"}}
+TEST LOGIN called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_dac64a42", "password" => "password"}, "controller" => "test/users", "action" => "login"} permitted: false>
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_dac64a42"], ["LIMIT", 1]]
+Login success via Test::UsersController for user=testuser_dac64a42 id=827
+  [1m[36mUser Update (2.1ms)[0m  [1m[33mUPDATE "users" SET "last_login" = $1 WHERE "users"."id" = $2[0m  [["last_login", "2025-12-12 10:46:00.782546"], ["id", 827]]
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 7.7ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_d0a622c3"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_d0a622c3"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:46:00.805921"], ["updated_at", "2025-12-12 10:46:00.805921"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/test/login" for 127.0.0.1 at 2025-12-12 11:46:00 +0100
+Processing by Test::UsersController#login as JSON
+  Parameters: {"user" => {"username" => "testuser_d0a622c3", "password" => "[FILTERED]"}}
+TEST LOGIN called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_d0a622c3", "password" => "wrong"}, "controller" => "test/users", "action" => "login"} permitted: false>
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_d0a622c3"], ["LIMIT", 1]]
+Login failed for username=testuser_d0a622c3
+Completed 401 Unauthorized in 7ms (Views: 0.3ms | ActiveRecord: 2.0ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_36be3977"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_36be3977"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:46:00.839409"], ["updated_at", "2025-12-12 10:46:00.839409"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/test/login" for 127.0.0.1 at 2025-12-12 11:46:00 +0100
+Processing by Test::UsersController#login as JSON
+  Parameters: {"user" => {"username" => "testuser_36be3977", "password" => "[FILTERED]"}}
+TEST LOGIN called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_36be3977", "password" => "password"}, "controller" => "test/users", "action" => "login"} permitted: false>
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_36be3977"], ["LIMIT", 1]]
+Login success via Test::UsersController for user=testuser_36be3977 id=829
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_719f194c"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "force_password_reset", "last_login", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "testuser_719f194c"], ["email", "[FILTERED]"], ["password", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["force_password_reset", "[FILTERED]"], ["last_login", nil], ["created_at", "2025-12-12 10:46:00.878331"], ["updated_at", "2025-12-12 10:46:00.878331"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/test/login" for 127.0.0.1 at 2025-12-12 11:46:00 +0100
+Processing by Test::UsersController#login as JSON
+  Parameters: {"user" => {"username" => "testuser_719f194c", "password" => "[FILTERED]"}}
+TEST LOGIN called with params: #<ActionController::Parameters {"user" => {"username" => "testuser_719f194c", "password" => "password"}, "controller" => "test/users", "action" => "login"} permitted: false>
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "testuser_719f194c"], ["LIMIT", 1]]
+Login success via Test::UsersController for user=testuser_719f194c id=830
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE "users" SET "last_login" = $1 WHERE "users"."id" = $2[0m  [["last_login", "2025-12-12 10:46:00.892533"], ["id", 830]]
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.8ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/test/logout" for 127.0.0.1 at 2025-12-12 11:46:00 +0100
+Processing by Test::UsersController#logout as JSON
+  Parameters: {"user" => {}}
+TEST LOGOUT called for session_user_id=830
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2025-12-12 11:46:00 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.3ms | GC: 0.0ms)
+Completed 200 OK in 55ms (Views: 43.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+Started GET "/change_password" for 127.0.0.1 at 2025-12-12 11:46:00 +0100
+Processing by PasswordsController#edit as HTML
+Redirected to http://test.host/login
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/passwords_controller.rb:5:in 'PasswordsController#edit'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+Started GET "/login" for 127.0.0.1 at 2025-12-12 11:46:01 +0100
+Processing by SessionsController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 8.6ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | GC: 0.0ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/register" for 127.0.0.1 at 2025-12-12 11:46:02 +0100
+Processing by SessionsController#register as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/register.html.erb within layouts/application
+  Rendered sessions/register.html.erb within layouts/application (Duration: 3.0ms | GC: 0.0ms)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/weather?city=Copenhagen" for 127.0.0.1 at 2025-12-12 11:46:02 +0100
+Processing by Api::WeatherController#show as HTML
+  Parameters: {"city" => "Copenhagen"}
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeatherSearch Create (3.6ms)[0m  [1m[32mINSERT INTO "weather_searches" ("city", "user_ip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["city", "Copenhagen"], ["user_ip", "127.0.0.1"], ["created_at", "2025-12-12 10:46:02.043467"], ["updated_at", "2025-12-12 10:46:02.043467"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 6.9ms (1 query, 0 cached) | GC: 0.0ms)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Restored [36mOPENWEATHER_API_KEY[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/weather?city=Copenhagen" for 127.0.0.1 at 2025-12-12 11:46:02 +0100
+Processing by Api::WeatherController#show as HTML
+  Parameters: {"city" => "Copenhagen"}
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeatherSearch Create (3.4ms)[0m  [1m[32mINSERT INTO "weather_searches" ("city", "user_ip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["city", "Copenhagen"], ["user_ip", "127.0.0.1"], ["created_at", "2025-12-12 10:46:02.068502"], ["updated_at", "2025-12-12 10:46:02.068502"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 400 Bad Request in 8ms (Views: 0.2ms | ActiveRecord: 6.3ms (1 query, 0 cached) | GC: 0.0ms)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Restored [36mOPENWEATHER_API_KEY[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/weather?city=Copenhagen" for 127.0.0.1 at 2025-12-12 11:46:02 +0100
+Processing by Api::WeatherController#show as HTML
+  Parameters: {"city" => "Copenhagen"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Restored [36mOPENWEATHER_API_KEY[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/weather" for 127.0.0.1 at 2025-12-12 11:46:02 +0100
+Processing by Api::WeatherController#show as HTML
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mWeatherSearch Create (3.6ms)[0m  [1m[32mINSERT INTO "weather_searches" ("city", "user_ip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["city", "Copenhagen"], ["user_ip", "127.0.0.1"], ["created_at", "2025-12-12 10:46:02.106062"], ["updated_at", "2025-12-12 10:46:02.106062"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 6.6ms (1 query, 0 cached) | GC: 0.0ms)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Restored [36mOPENWEATHER_API_KEY[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/weather?city=Copenhagen" for 127.0.0.1 at 2025-12-12 11:46:02 +0100
+Processing by Api::WeatherController#show as HTML
+  Parameters: {"city" => "Copenhagen"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+[dotenv] Restored snapshot of [32mENV[0m
+[dotenv] Restored [36mOPENWEATHER_API_KEY[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Ruby': {"query" => {"search" => [{"title" => "Ruby programming language"}, {"title" => "Ruby (gem)"}]}}
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Python': nil
+WikiCrawlerService opensearch response for 'Python': ["Python", ["Python (programming language)", "Python (snake)"], ["Desc1", "Desc2"], ["url1", "url2"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Java': {"query" => {}}
+WikiCrawlerService opensearch response for 'Java': ["Java", ["Java (programming language)"], ["Desc"], ["url"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'unknown': {"query" => {"search" => nil}}
+WikiCrawlerService opensearch response for 'unknown': nil
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'nonexistent': {"query" => {"search" => []}}
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Test': {"query" => {"search" => [{"title" => "Test"}]}}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'NoContent': {"query" => {"search" => [{"title" => "NoContent"}]}}
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+WikiCrawlerService search response for 'Programming Language': {"query" => {"search" => [{"title" => "Programming Language"}]}}
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
