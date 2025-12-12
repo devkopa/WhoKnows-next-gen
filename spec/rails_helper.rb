@@ -11,25 +11,35 @@ require 'pathname'
 
 SimpleCov.root(File.expand_path('..', __dir__))
 
+# Custom formatter to ensure forward slashes for SonarQube
+class SonarQubeFormatter < SimpleCov::Formatter::JSONFormatter
+  def format(result)
+    # First, normalize all file paths to use forward slashes
+    result.files.each do |file|
+      original_filename = file.instance_variable_get(:@filename)
+      relative_path = Pathname.new(original_filename)
+                              .relative_path_from(Pathname.new(SimpleCov.root))
+                              .to_s
+                              .gsub('\\', '/')
+      file.instance_variable_set(:@filename, relative_path)
+    end
+    
+    # Then call the original JSON formatter
+    super(result)
+  end
+end
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter,
-  SimpleCov::Formatter::JSONFormatter
+  SonarQubeFormatter
 ])
 
 SimpleCov.start 'rails' do
   add_filter '/bin/'
   add_filter '/db/'
   add_filter '/spec/'
-
-  # Make file paths relative and convert backslashes to forward slashes
-  at_exit do
-    result = SimpleCov.result
-    result.files.each do |file|
-      relative_path = Pathname.new(file.filename).relative_path_from(Pathname.new(SimpleCov.root)).to_s
-      file.instance_variable_set(:@filename, relative_path.gsub('\\', '/'))
-    end
-    result.format!
-  end
+  add_filter '/test/'
+  add_filter '/config/'
 end
 
 # --- REQUIRE STATEMENTS FOR COVERAGE / TOOLS ---
