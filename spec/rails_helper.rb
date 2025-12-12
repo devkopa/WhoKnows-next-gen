@@ -20,27 +20,27 @@ SimpleCov.start 'rails' do
   add_filter '/spec/'
   add_filter '/test/'
   add_filter '/config/'
-  
+
   # Post-process .resultset.json to convert absolute paths to relative paths for SonarQube
   at_exit do
     SimpleCov.result.format!
-    
+
     resultset_path = File.join(SimpleCov.coverage_dir, '.resultset.json')
     if File.exist?(resultset_path)
       data = JSON.parse(File.read(resultset_path))
       root_path = SimpleCov.root
-      
+
       # Convert absolute paths to relative paths in the coverage data
       data.each do |_command_name, command_data|
         next unless command_data['coverage']
-        
+
         new_coverage = {}
         command_data['coverage'].each do |file_path, coverage_data|
           relative_path = Pathname.new(file_path)
                                   .relative_path_from(Pathname.new(root_path))
                                   .to_s
                                   .gsub('\\', '/')
-          
+
           # SimpleCov uses different formats - normalize to just line array for SonarQube
           if coverage_data.is_a?(Hash) && coverage_data['lines']
             # If it's a hash with 'lines', extract just the lines array
@@ -50,10 +50,10 @@ SimpleCov.start 'rails' do
             new_coverage[relative_path] = coverage_data
           end
         end
-        
+
         command_data['coverage'] = new_coverage
       end
-      
+
       File.write(resultset_path, JSON.pretty_generate(data))
     end
   end
