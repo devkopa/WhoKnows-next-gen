@@ -28,6 +28,9 @@ module Openapi
     # config.eager_load_paths << Rails.root.join("extras")
 
 
-    config.middleware.use PrometheusMiddleware
+    # Register Prometheus middleware only outside test to avoid interfering with request specs
+    unless Rails.env.test?
+      config.middleware.use PrometheusMiddleware
+    end
   end
 end
