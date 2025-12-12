@@ -13,12 +13,8 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
+/.build
+/.devcontainer
 
 # misc
 .DS_Store
@@ -39,22 +35,21 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+/.build
+
 # env files (can opt-in for committing if needed)
 .env
 
 # vercel
 .vercel
 
-log/*.log
-
-/log/development.log
+/log/*.log
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
 /app/generated/prisma
-
 
 # dump files
 .sql
@@ -66,3 +61,5 @@ config/master.key
 *.sql
 
 public/assets
+
+EXAM_REPORT_DIAGRAMS.md
