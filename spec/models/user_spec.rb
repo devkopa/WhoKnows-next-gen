@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
     it "validates uniqueness of username" do
       User.create!(username: 'testuser', email: 'test1@example.com', password: 'password123')
       duplicate_user = User.new(username: 'testuser', email: 'test2@example.com', password: 'password123')
-      
+
       expect(duplicate_user).not_to be_valid
       expect(duplicate_user.errors[:username]).to include("has already been taken")
     end
@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
   describe "callbacks" do
     it "sets timestamps on creation" do
       user = User.create!(username: 'testuser', email: 'test@example.com', password: 'password123')
-      
+
       expect(user.created_at).not_to be_nil
       expect(user.updated_at).not_to be_nil
     end
