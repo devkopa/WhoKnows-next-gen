@@ -24,27 +24,43 @@ SimpleCov.start 'rails' do
   add_filter '/test/'
   add_filter '/config/'
 
-  # Post-process coverage.json to use relative paths for SonarQube
+  # Convert SimpleCov output to SonarQube Generic Coverage XML format
   at_exit do
-    SimpleCov.result.format!
+    result = SimpleCov.result
+    result.format!
 
-    coverage_json_path = File.join(SimpleCov.coverage_dir, 'coverage.json')
-    if File.exist?(coverage_json_path)
-      data = JSON.parse(File.read(coverage_json_path))
-      root_path = SimpleCov.root
+    # Generate SonarQube Generic Coverage XML
+    coverage_xml_path = File.join(SimpleCov.coverage_dir, 'coverage.xml')
+    root_path = SimpleCov.root
 
-      # Convert absolute paths to relative paths
-      data['files'].each do |file_data|
-        absolute_path = file_data['filename']
-        relative_path = Pathname.new(absolute_path)
+    File.open(coverage_xml_path, 'w') do |file|
+      file.puts '<?xml version="1.0" encoding="UTF-8"?>'
+      file.puts '<coverage version="1">'
+
+      result.files.each do |source_file|
+        relative_path = Pathname.new(source_file.filename)
                                 .relative_path_from(Pathname.new(root_path))
                                 .to_s
                                 .gsub('\\', '/')
-        file_data['filename'] = relative_path
+
+        file.puts "  <file path=\"#{relative_path}\">"
+
+        source_file.lines.each_with_index do |line, index|
+          line_number = index + 1
+          # line.coverage is nil for non-code lines, or integer for execution count
+          next if line.coverage.nil?
+
+          hits = line.coverage
+          file.puts "    <lineToCover lineNumber=\"#{line_number}\" covered=\"#{hits > 0}\"/>"
+        end
+
+        file.puts '  </file>'
       end
 
-      File.write(coverage_json_path, JSON.pretty_generate(data))
+      file.puts '</coverage>'
     end
+
+    puts "SonarQube Generic Coverage XML generated at #{coverage_xml_path}"
   end
 end
 
