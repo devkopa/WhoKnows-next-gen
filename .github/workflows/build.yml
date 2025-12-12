@@ -66,7 +66,7 @@ jobs:
         run: |
           pwd
           ls -l coverage/
-          cat coverage/coverage.json || echo "No JSON file generated!"
+          head -n 30 coverage/lcov.info || echo "No LCOV file generated!"
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6

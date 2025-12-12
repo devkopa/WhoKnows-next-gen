@@ -6,32 +6,20 @@ abort("The Rails environment is running in production mode!") if ENV['RAILS_ENV'
 
 # --- SIMPLECOV MUST BE CONFIGURED BEFORE ANY CODE IS LOADED ---
 require 'simplecov'
-require 'simplecov-json'
-require 'pathname'
+require 'simplecov-lcov'
 
 SimpleCov.root(File.expand_path('..', __dir__))
 
-# Custom formatter to ensure forward slashes for SonarQube
-class SonarQubeFormatter < SimpleCov::Formatter::JSONFormatter
-  def format(result)
-    # First, normalize all file paths to use forward slashes
-    result.files.each do |file|
-      original_filename = file.instance_variable_get(:@filename)
-      relative_path = Pathname.new(original_filename)
-                              .relative_path_from(Pathname.new(SimpleCov.root))
-                              .to_s
-                              .gsub('\\', '/')
-      file.instance_variable_set(:@filename, relative_path)
-    end
-    
-    # Then call the original JSON formatter
-    super(result)
-  end
+# Configure LCOV formatter for SonarQube
+SimpleCov::Formatter::LcovFormatter.config do |c|
+  c.report_with_single_file = true
+  c.single_report_path = 'coverage/lcov.info'
+  c.output_directory = 'coverage'
 end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter,
-  SonarQubeFormatter
+  SimpleCov::Formatter::LcovFormatter
 ])
 
 SimpleCov.start 'rails' do
@@ -40,6 +28,18 @@ SimpleCov.start 'rails' do
   add_filter '/spec/'
   add_filter '/test/'
   add_filter '/config/'
+  
+  # Post-process LCOV file to remove ./ prefix for SonarQube
+  at_exit do
+    SimpleCov.result.format!
+    
+    lcov_path = File.join(SimpleCov.coverage_dir, 'lcov.info')
+    if File.exist?(lcov_path)
+      content = File.read(lcov_path)
+      content.gsub!(/^SF:\.\//, 'SF:')
+      File.write(lcov_path, content)
+    end
+  end
 end
 
 # --- REQUIRE STATEMENTS FOR COVERAGE / TOOLS ---

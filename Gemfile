@@ -65,6 +65,7 @@ group :test do
   gem "rspec-rails"
   gem "simplecov", require: false
   gem "simplecov-json"
+  gem "simplecov-lcov"
 
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
