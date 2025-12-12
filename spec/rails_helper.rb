@@ -6,21 +6,13 @@ abort("The Rails environment is running in production mode!") if ENV['RAILS_ENV'
 
 # --- SIMPLECOV MUST BE CONFIGURED BEFORE ANY CODE IS LOADED ---
 require 'simplecov'
-require 'simplecov-lcov'
+require 'json'
+require 'pathname'
 
 SimpleCov.root(File.expand_path('..', __dir__))
 
-# Configure LCOV formatter for SonarQube
-SimpleCov::Formatter::LcovFormatter.config do |c|
-  c.report_with_single_file = true
-  c.single_report_path = 'coverage/lcov.info'
-  c.output_directory = 'coverage'
-end
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::HTMLFormatter,
-  SimpleCov::Formatter::LcovFormatter
-])
+# Use only HTML formatter - SimpleCov automatically generates .resultset.json
+SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
 
 SimpleCov.start 'rails' do
   add_filter '/bin/'
@@ -29,15 +21,32 @@ SimpleCov.start 'rails' do
   add_filter '/test/'
   add_filter '/config/'
   
-  # Post-process LCOV file to remove ./ prefix for SonarQube
+  # Post-process .resultset.json to convert absolute paths to relative paths for SonarQube
   at_exit do
     SimpleCov.result.format!
     
-    lcov_path = File.join(SimpleCov.coverage_dir, 'lcov.info')
-    if File.exist?(lcov_path)
-      content = File.read(lcov_path)
-      content.gsub!(/^SF:\.\//, 'SF:')
-      File.write(lcov_path, content)
+    resultset_path = File.join(SimpleCov.coverage_dir, '.resultset.json')
+    if File.exist?(resultset_path)
+      data = JSON.parse(File.read(resultset_path))
+      root_path = SimpleCov.root
+      
+      # Convert absolute paths to relative paths in the coverage data
+      data.each do |_command_name, command_data|
+        next unless command_data['coverage']
+        
+        new_coverage = {}
+        command_data['coverage'].each do |file_path, coverage_data|
+          relative_path = Pathname.new(file_path)
+                                  .relative_path_from(Pathname.new(root_path))
+                                  .to_s
+                                  .gsub('\\', '/')
+          new_coverage[relative_path] = coverage_data
+        end
+        
+        command_data['coverage'] = new_coverage
+      end
+      
+      File.write(resultset_path, JSON.pretty_generate(data))
     end
   end
 end
