@@ -144,7 +144,24 @@ To run the project you need:
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this section to show practical examples of how the project can be used. Screenshots, code samples, and demos fit well here. You can also link to additional resources.
+Once the application is running:
+
+1. **Access the application**
+   - Navigate to `http://localhost:3000` (or your configured port)
+
+2. **Perform searches**
+   - Use the search functionality to query indexed content
+   - View search results with match rate tracking
+
+3. **Check weather**
+   - Search for a city to see current weather information via the integrated Weather API
+
+4. **Register and login (optional)**
+   - Create an account and sign in if desired
+
+5. **Monitor metrics**
+   - Access Grafana dashboard to view system metrics and performance data
+   - Prometheus metrics available for monitoring application health
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
