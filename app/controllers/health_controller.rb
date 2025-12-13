@@ -13,11 +13,10 @@ class HealthController < ApplicationController
   # GET /health/ready - Readiness probe (checks dependencies)
   def ready
     checks = {
-      database: check_database,
-      redis: check_redis
+      database: check_database
     }
 
-    all_ready = checks.values.all? { |v| v[:status] == "ok" }
+    all_ready = checks.values.all? { |v| v[:status] == "ok" || v[:status] == "skipped" }
 
     status_code = all_ready ? :ok : :service_unavailable
 
@@ -75,18 +74,6 @@ class HealthController < ApplicationController
     { status: "ok", message: "Database connection successful" }
   rescue => e
     { status: "error", message: "Database connection failed: #{e.message}" }
-  end
-
-  def check_redis
-    # If Redis is configured, check it
-    if defined?(Redis)
-      Redis.current.ping
-      { status: "ok", message: "Redis connection successful" }
-    else
-      { status: "skipped", message: "Redis not configured" }
-    end
-  rescue => e
-    { status: "error", message: "Redis connection failed: #{e.message}" }
   end
 
   def uptime_seconds
