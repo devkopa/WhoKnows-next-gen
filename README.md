@@ -196,9 +196,24 @@ Once the application is running:
 .\scripts\backup_database.ps1
 ```
 
+**Create Backup (Linux/macOS):**
+```bash
+# Ensure Docker and docker compose are installed
+# Run from project root
+chmod +x ./scripts/backup_database.sh
+./scripts/backup_database.sh
+```
+
 **Restore Backup (Windows):**
 ```powershell
 .\scripts\restore_database.ps1 -BackupFile ".\backups\whoknows_backup_20251213_120000.sql.gz"
+```
+
+**Restore Backup (Linux/macOS):**
+```bash
+# Replace with your backup file path
+chmod +x ./scripts/restore_database.sh
+./scripts/restore_database.sh ./backups/whoknows_backup_20251213_120000.sql.gz
 ```
 
 **Verify Backup:**
@@ -210,6 +225,13 @@ Once the application is running:
 ```powershell
 # Run as Administrator
 .\scripts\setup_backup_schedule.ps1 -Schedule Daily -Time "02:00"
+```
+
+For Linux/macOS, consider using cron to schedule backups:
+```bash
+crontab -e
+# Example: daily at 02:00
+0 2 * * * /bin/bash /path/to/project/scripts/backup_database.sh >> /path/to/project/logs/backup_cron.log 2>&1
 ```
 
 ### Documentation
