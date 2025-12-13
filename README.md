@@ -208,7 +208,7 @@ Project Link: [[https://github.com/devkopa/WhoKnows-next-gen](https://github.com
 [stars-url]: https://github.com/devkopa/WhoKnows-next-gen/stargazers
 [issues-shield]: https://img.shields.io/github/issues/devkopa/WhoKnows-next-gen.svg?style=for-the-badge
 [issues-url]: https://github.com/devkopa/WhoKnows-next-gen/issues&nocache=1
-[product-screenshot]: readme_images/screenshot.png
+[product-screenshot]: readme_images/devkopa.png
 [Ruby-on-Rails]: https://img.shields.io/badge/Ruby_on_Rails-CC0000?logo=ruby-on-rails&logoColor=white
 [Ruby-url]: https://rubyonrails.org/
 [Prometheus]: https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white
