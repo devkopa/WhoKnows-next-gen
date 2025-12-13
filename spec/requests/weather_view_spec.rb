@@ -11,7 +11,7 @@ RSpec.describe "Weather", type: :request do
         weather_response = {
           "name" => "Copenhagen",
           "main" => { "temp" => 15.5 },
-          "weather" => [{ "description" => "cloudy" }],
+          "weather" => [ { "description" => "cloudy" } ],
           "coord" => { "lat" => 55.6761, "lon" => 12.5683 }
         }
 
@@ -32,7 +32,7 @@ RSpec.describe "Weather", type: :request do
         weather_response = {
           "name" => "Copenhagen",
           "main" => { "temp" => 10 },
-          "weather" => [{ "description" => "sunny" }],
+          "weather" => [ { "description" => "sunny" } ],
           "coord" => { "lat" => 55.6761, "lon" => 12.5683 }
         }
 
@@ -51,7 +51,7 @@ RSpec.describe "Weather", type: :request do
         weather_response = {
           "name" => "Paris",
           "main" => { "temp" => 12 },
-          "weather" => [{ "description" => "rainy" }],
+          "weather" => [ { "description" => "rainy" } ],
           "coord" => { "lat" => 48.8566, "lon" => 2.3522 }
         }
 
@@ -73,7 +73,7 @@ RSpec.describe "Weather", type: :request do
         weather_response = {
           "name" => "London",
           "main" => { "temp" => 8 },
-          "weather" => [{ "description" => "foggy" }],
+          "weather" => [ { "description" => "foggy" } ],
           "coord" => { "lat" => 51.5074, "lon" => -0.1278 }
         }
 
@@ -93,7 +93,7 @@ RSpec.describe "Weather", type: :request do
         weather_response = {
           "name" => "Berlin",
           "main" => { "temp" => 5 },
-          "weather" => [{ "description" => "snowy" }],
+          "weather" => [ { "description" => "snowy" } ],
           "coord" => { "lat" => 52.5200, "lon" => 13.4050 }
         }
 
@@ -115,7 +115,7 @@ RSpec.describe "Weather", type: :request do
         weather_response = {
           "name" => "Amsterdam",
           "main" => { "temp" => 6 },
-          "weather" => [{ "description" => "windy" }],
+          "weather" => [ { "description" => "windy" } ],
           "coord" => { "lat" => 52.3676, "lon" => 4.9041 }
         }
 
@@ -150,7 +150,7 @@ RSpec.describe "Weather", type: :request do
         weather_response = {
           "name" => "Stockholm",
           "main" => { "temp" => 2 },
-          "weather" => [{ "description" => "icy" }],
+          "weather" => [ { "description" => "icy" } ],
           "coord" => { "lat" => 59.3293, "lon" => 18.0686 }
         }
 

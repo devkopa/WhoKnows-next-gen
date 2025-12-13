@@ -13,8 +13,7 @@ require 'pathname'
 SimpleCov.root(File.expand_path('..', __dir__))
 
 SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::HTMLFormatter,
-  SimpleCov::Formatter::JSONFormatter
+  SimpleCov::Formatter::HTMLFormatter
 ])
 
 SimpleCov.start 'rails' do
