@@ -20,22 +20,14 @@ class WikiCrawlerService
 
     search_json = get_json(API_ENDPOINT, search_params)
 
-    if defined?(Rails)
-      Rails.logger.debug("WikiCrawlerService search response for '#{query}': #{search_json.inspect}")
-    else
-      puts "WikiCrawlerService search response for '#{query}': #{search_json.inspect}"
-    end
+    log_debug("WikiCrawlerService search response for '#{query}': #{search_json.inspect}")
 
     if search_json && search_json["query"] && search_json["query"]["search"]
       titles = search_json["query"]["search"].map { |s| s["title"] }
     else
       opensearch_params = { action: "opensearch", search: query, limit: limit, namespace: 0, format: "json" }
       opensearch_json = get_json(API_ENDPOINT, opensearch_params)
-      if defined?(Rails)
-        Rails.logger.debug("WikiCrawlerService opensearch response for '#{query}': #{opensearch_json.inspect}")
-      else
-        puts "WikiCrawlerService opensearch response for '#{query}': #{opensearch_json.inspect}"
-      end
+      log_debug("WikiCrawlerService opensearch response for '#{query}': #{opensearch_json.inspect}")
 
       titles = Array(opensearch_json && opensearch_json[1])
     end
@@ -63,7 +55,7 @@ class WikiCrawlerService
       { title: title, url: url, content: content }
     end
   rescue StandardError => e
-    Rails.logger.warn("WikiCrawlerService error for '#{query}': #{e.message}") if defined?(Rails)
+    log_warn("WikiCrawlerService error for '#{query}': #{e.message}")
     []
   end
 
@@ -82,6 +74,24 @@ class WikiCrawlerService
     resp = http.request(req)
     return nil unless resp.is_a?(Net::HTTPSuccess)
     JSON.parse(resp.body)
+  end
+
+  private
+
+  def self.log_debug(message)
+    if defined?(Rails) && Rails.logger
+      Rails.logger.debug(message)
+    else
+      puts message
+    end
+  end
+
+  def self.log_warn(message)
+    if defined?(Rails) && Rails.logger
+      Rails.logger.warn(message)
+    else
+      warn message
+    end
   end
 end
 end

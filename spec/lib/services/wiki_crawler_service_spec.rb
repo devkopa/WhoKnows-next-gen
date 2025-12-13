@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative '../../../lib/services/wiki_crawler_service'
 
 RSpec.describe Services::WikiCrawlerService do
   describe '.scrape_for' do
@@ -43,6 +42,14 @@ RSpec.describe Services::WikiCrawlerService do
       expect(result.first[:content]).to include('Ruby is a programming language')
     end
 
+    it 'returns [] when titles list is empty' do
+      search_json = { 'query' => { 'search' => [] } }
+      allow(described_class).to receive(:get_json).and_return(search_json)
+
+      results = described_class.scrape_for(query, limit: 1)
+      expect(results).to eq([])
+    end
+
     it 'falls back to opensearch and logs when no query.search present' do
       search_json = { 'query' => {} }
       opensearch_json = ['Ruby', ['Ruby (programming language)']]
@@ -68,6 +75,60 @@ RSpec.describe Services::WikiCrawlerService do
       result = described_class.scrape_for(query)
       expect(result).to eq([])
       expect(Rails.logger).to have_received(:warn).with(/WikiCrawlerService error for 'Ruby': network error/)
+    end
+  end
+
+  describe '.get_json' do
+    it 'returns parsed JSON on success' do
+      endpoint = Services::WikiCrawlerService::API_ENDPOINT
+      params = { action: 'query', format: 'json' }
+
+      fake_http = instance_double(Net::HTTP)
+      fake_resp = Net::HTTPOK.new('1.1', '200', 'OK')
+      allow(fake_resp).to receive(:body).and_return('{"result":"success"}')
+
+      allow(Net::HTTP).to receive(:new).and_return(fake_http)
+      allow(fake_http).to receive(:use_ssl=)
+      allow(fake_http).to receive(:open_timeout=)
+      allow(fake_http).to receive(:read_timeout=)
+      allow(fake_http).to receive(:request).and_return(fake_resp)
+
+      result = described_class.get_json(endpoint, params)
+      expect(result).to eq({ 'result' => 'success' })
+    end
+
+    it 'returns nil on non-success HTTP response' do
+      endpoint = Services::WikiCrawlerService::API_ENDPOINT
+      params = { action: 'query', format: 'json' }
+
+      fake_http = instance_double(Net::HTTP)
+      fake_resp = Net::HTTPBadRequest.new('1.1', '400', 'Bad Request')
+      allow(Net::HTTP).to receive(:new).and_return(fake_http)
+      allow(fake_http).to receive(:use_ssl=)
+      allow(fake_http).to receive(:open_timeout=)
+      allow(fake_http).to receive(:read_timeout=)
+      allow(fake_http).to receive(:request).and_return(fake_resp)
+
+      result = described_class.get_json(endpoint, params)
+      expect(result).to be_nil
+    end
+  end
+
+  describe '.log_debug (private)' do
+    it 'calls Rails.logger.debug when Rails is available' do
+      message = 'Test debug message'
+      allow(Rails.logger).to receive(:debug)
+      described_class.send(:log_debug, message)
+      expect(Rails.logger).to have_received(:debug).with(message)
+    end
+  end
+
+  describe '.log_warn (private)' do
+    it 'calls Rails.logger.warn when Rails is available' do
+      message = 'Test warn message'
+      allow(Rails.logger).to receive(:warn)
+      described_class.send(:log_warn, message)
+      expect(Rails.logger).to have_received(:warn).with(message)
     end
   end
 end
