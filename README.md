@@ -138,7 +138,7 @@ To run the project you need:
    git clone https://github.com/devkopa/WhoKnows-next-gen.git
    ```
 2. Configure environment variables
-   - Copy `.env.example` to `.env`
+   - Request the `.env` from the team
    - Update the values in `.env` with your configuration
    - Get OpenWeather API key from https://openweathermap.org/api
    
