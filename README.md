@@ -93,22 +93,6 @@ This solution helps to:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Motivation
-
-You are now entering software maintenance mode. Use your time wisely.
-
-### Tasks during software maintenance
-
-- **Bug Fixing**: Identifying and correcting defects in the software.
-- **Performance Optimization**: Enhancing system performance and resource usage.
-- **Security Patching**: Fixing vulnerabilities to protect against threats.
-- **Documentation**: Keeping documentation current with code changes.
-- **Logging/Monitoring**: Monitoring and managing log files for errors and performance issues.
-- **Backup/Restore**: Ensuring data integrity and availability.
-- **Implement remaining features**: Reprioritize the backlog and implement the remaining crucial features.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Built With
 
 This section highlights the main frameworks and libraries used in the project:
