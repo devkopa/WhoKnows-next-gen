@@ -121,6 +121,20 @@ RSpec.describe Services::WikiCrawlerService do
       described_class.send(:log_debug, message)
       expect(Rails.logger).to have_received(:debug).with(message)
     end
+
+    it 'calls puts when Rails is not available' do
+      message = 'Test debug without rails'
+      # Temporarily hide Rails
+      original_rails = ::Rails
+      Object.send(:remove_const, :Rails) if Object.const_defined?(:Rails)
+
+      begin
+        expect { described_class.send(:log_debug, message) }.to output(/#{Regexp.escape(message)}/).to_stdout
+      ensure
+        # Restore Rails
+        Object.const_set(:Rails, original_rails)
+      end
+    end
   end
 
   describe '.log_warn (private)' do
@@ -129,6 +143,20 @@ RSpec.describe Services::WikiCrawlerService do
       allow(Rails.logger).to receive(:warn)
       described_class.send(:log_warn, message)
       expect(Rails.logger).to have_received(:warn).with(message)
+    end
+
+    it 'calls warn when Rails is not available' do
+      message = 'Test warn without rails'
+      # Temporarily hide Rails
+      original_rails = ::Rails
+      Object.send(:remove_const, :Rails) if Object.const_defined?(:Rails)
+
+      begin
+        expect { described_class.send(:log_warn, message) }.to output(/#{Regexp.escape(message)}/).to_stderr
+      ensure
+        # Restore Rails
+        Object.const_set(:Rails, original_rails)
+      end
     end
   end
 end
