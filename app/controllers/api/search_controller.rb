@@ -21,17 +21,17 @@ module Api
         values = { t: "%#{terms.join('%')}%" }
 
         Page.where(conditions, values)
-            .select(:id, :title, :url, :content)
+            .select(Page.primary_key, :title, :url, :content)
             .limit(MAX_RESULTS)
       else
-        Page.select(:id, :title, :url, :content)
+        Page.select(Page.primary_key, :title, :url, :content)
             .limit(MAX_RESULTS)
       end
 
       @results = pages.map do |page|
         {
           title: page.title,
-          url: (page.respond_to?(:url) && page.url.present?) ? page.url : "#{BASE_PAGE_URL}#{page.id}",
+          url: (page.respond_to?(:url) && page.url.present?) ? page.url : "#{BASE_PAGE_URL}#{page.send(Page.primary_key)}",
           content: page.content&.truncate(150) || ""
         }
       end
