@@ -31,9 +31,7 @@ Rails.application.routes.draw do
   # Weather
   get "/weather", to: "weather#index"
 
-  # Security breach change password
-  get "/change_password", to: "passwords#edit", as: :change_password
-  patch "/change_password", to: "passwords#update", as: :update_password
+  # Password change feature removed
 
   namespace :api do
     get "/weather", to: "weather#show"

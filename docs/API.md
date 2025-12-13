@@ -56,7 +56,7 @@ Content-Type: application/x-www-form-urlencoded
 **Response:**
 ```http
 302 Found
-Location: / (or /change_password if forced reset)
+Location: /
 Set-Cookie: _openapi_session=...
 ```
 
@@ -182,50 +182,6 @@ curl "http://localhost:3000/api/weather?city=London"
 
 ---
 
-### Password Management
-
-#### Change Password (UI)
-```http
-GET /change_password
-```
-
-**Authentication:** Required (session)
-
-**Response:**
-- Returns password change form
-- Redirects to login if not authenticated
-
----
-
-#### Update Password
-```http
-PATCH /change_password
-Content-Type: application/x-www-form-urlencoded
-```
-
-**Authentication:** Required (session)
-
-**Parameters:**
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| user[password] | string | Yes | New password (minimum 8 characters) |
-| user[password_confirmation] | string | Yes | Must match password |
-
-**Response:**
-```http
-200 OK
-```
-
-**Success:**
-- Flash message: "Password changed successfully."
-- Increments `password_changes_total{status="success"}` metric
-- Clears `force_password_reset` flag
-
-**Error:**
-- Flash message: "Something went wrong. Please check the form."
-- Increments `password_changes_total{status="failure"}` metric
-
----
 
 ## Metrics Endpoint
 
@@ -256,10 +212,6 @@ search_requests_total 1823.0
 # TYPE weather_requests_total counter
 weather_requests_total 456.0
 
-# HELP password_changes_total Total password change attempts
-# TYPE password_changes_total counter
-password_changes_total{status="success"} 12.0
-password_changes_total{status="failure"} 3.0
 ```
 
 ---

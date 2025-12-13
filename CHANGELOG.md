@@ -18,8 +18,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Session expiration after 24 hours
   - `same_site: :lax` for CSRF protection
   - `secure: true` in production for HTTPS-only cookies
-- Password change tracking with Prometheus metrics
-- Authentication requirement for password change pages
 
 ### Added - Performance Optimizations
 - Optimized search queries:
@@ -73,7 +71,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Improved
 - Search controller with better error handling and result counting
-- Password controller with metric tracking and logging
 - Logging throughout the application with structured messages
 - Code quality and maintainability
 
@@ -84,7 +81,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 - Zero security vulnerabilities (verified with Brakeman 7.1.1)
-- All tests passing (40 examples, 0 failures)
+- All tests passing (39 examples, 0 failures, 1 pending)
 - Code compliant with Rubocop standards
 
 ### Documentation Updates
@@ -148,8 +145,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Maintenance Notes
 
 ### Current Test Coverage
-- Line Coverage: 28.15%
-- Passing Tests: 40
+- Line Coverage: 22.17%
+- Passing Tests: 39
 - Failed Tests: 0
 - Pending Tests: 1
 
