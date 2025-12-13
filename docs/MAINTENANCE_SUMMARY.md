@@ -51,7 +51,6 @@ Comprehensive software maintenance completed for WhoKnows application. All criti
 - `docs/MAINTENANCE.md` - Comprehensive operational guide
 - `docs/API.md` - Complete API reference with examples
 - `CHANGELOG.md` - Detailed version history
-- `.env.example` - Environment configuration template
 - Updated `README.md` with maintenance sections
 
 **Documentation Includes:**
