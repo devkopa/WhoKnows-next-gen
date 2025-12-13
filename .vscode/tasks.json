@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run RSpec suite",
+			"type": "shell",
+			"command": "bundle",
+			"args": [
+				"exec",
+				"rspec"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$rspec-stylish"
+			],
+			"group": "test"
+		}
+	]
+}
