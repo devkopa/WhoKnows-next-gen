@@ -65,7 +65,6 @@ RSpec.describe "Weathers", type: :request do
       expect(response.parsed_body["city"]).to eq("Copenhagen")
     end
 
-    # 🔥 Den manglende test for succesfuld WeatherSearch.create
     it "opretter en WeatherSearch når API svarer korrekt" do
       allow(Api::WeatherController).to receive(:get).with(any_args).and_return(
         double(success?: true, parsed_response: {

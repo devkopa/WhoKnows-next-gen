@@ -47,7 +47,6 @@ RSpec.describe Api::UsersController, type: :request do
     end
 
     it "fails registration and redirects with flash alert" do
-      # Invalid email format to trigger validation errors
       post "/api/register", params: { username: "baduser", email: "not-an-email", password: password, password_confirmation: password }
       expect(response).to have_http_status(:found)
       expect(response).to redirect_to(Rails.application.routes.url_helpers.register_path)
