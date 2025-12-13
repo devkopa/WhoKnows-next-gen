@@ -6,9 +6,10 @@ RSpec.describe "Passwords", type: :request do
 
   describe "GET /change_password" do
     context "when user is not logged in" do
-      it "returns not found" do
+      it "redirects to login page" do
         get change_password_path
-        expect(response).to have_http_status(:not_found)
+        expect(response).to have_http_status(:found)
+        expect(response).to redirect_to(login_path)
       end
     end
 

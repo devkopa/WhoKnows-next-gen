@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, length: { minimum: 3, maximum: 50 }
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
+  validates :password, length: { minimum: 8 }, if: -> { new_record? || password.present? }
 
   # Ensure timestamps exist for new users in case records are created
   # outside the usual ActiveRecord flow or via raw SQL.

@@ -9,6 +9,13 @@ Rails.application.routes.draw do
 
   get "up" => "rails/health#show", as: :rails_health_check
   get "/metrics", to: "metrics#index"
+
+  # Health checks for monitoring
+  get "/health", to: "health#show"
+  get "/health/ready", to: "health#ready"
+  get "/health/live", to: "health#live"
+  get "/health/metrics", to: "health#metrics_summary"
+
   root "home#index"
 
   get "/sla", to: "pages#sla"

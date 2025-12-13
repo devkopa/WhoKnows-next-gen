@@ -93,6 +93,22 @@ This solution helps to:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Motivation
+
+You are now entering software maintenance mode. Use your time wisely.
+
+### Tasks during software maintenance
+
+- **Bug Fixing**: Identifying and correcting defects in the software.
+- **Performance Optimization**: Enhancing system performance and resource usage.
+- **Security Patching**: Fixing vulnerabilities to protect against threats.
+- **Documentation**: Keeping documentation current with code changes.
+- **Logging/Monitoring**: Monitoring and managing log files for errors and performance issues.
+- **Backup/Restore**: Ensuring data integrity and availability.
+- **Implement remaining features**: Reprioritize the backlog and implement the remaining crucial features.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Built With
 
 This section highlights the main frameworks and libraries used in the project:
@@ -121,9 +137,10 @@ To run the project you need:
    ```sh
    git clone https://github.com/devkopa/WhoKnows-next-gen.git
    ```
-2. Add the environment file
-   - Create a `.env` file in the project root.
-   - Request the `.env` file from the team.
+2. Configure environment variables
+   - Copy `.env.example` to `.env`
+   - Update the values in `.env` with your configuration
+   - Get OpenWeather API key from https://openweathermap.org/api
    
 3. Update the git remote to avoid pushing to the base project
    ```sh
@@ -160,8 +177,61 @@ Once the application is running:
    - Create an account and sign in if desired
 
 5. **Monitor metrics**
-   - Access Grafana dashboard to view system metrics and performance data
-   - Prometheus metrics available for monitoring application health
+   - Access Grafana dashboard at `http://localhost:5000`
+   - Prometheus metrics at `http://localhost:3000/metrics`
+   - Health checks at `http://localhost:3000/health`
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Maintenance & Operations
+
+### Security Features (Latest Updates)
+- ✅ Enhanced password validation (minimum 8 characters)
+- ✅ Secure session management with httponly cookies
+- ✅ Email validation with RFC compliance
+- ✅ CSRF protection enabled
+- ✅ Force SSL in production
+- ✅ Zero security vulnerabilities (Brakeman scan)
+
+### Performance Optimizations
+- ✅ Database query optimization with selective field loading
+- ✅ Result limiting (100 max per request)
+- ✅ GIN indexes for full-text search
+- ✅ Connection pooling configured
+
+### Monitoring & Health Checks
+- `/health` - Basic health check
+- `/health/ready` - Readiness probe (checks dependencies)
+- `/health/live` - Liveness probe
+- `/health/metrics` - Application metrics summary
+
+### Backup & Restore
+
+**Create Backup (Windows):**
+```powershell
+.\scripts\backup_database.ps1
+```
+
+**Restore Backup (Windows):**
+```powershell
+.\scripts\restore_database.ps1 -BackupFile ".\backups\whoknows_backup_20251213_120000.sql.gz"
+```
+
+**Verify Backup:**
+```powershell
+.\scripts\verify_backup.ps1
+```
+
+**Setup Automated Backups:**
+```powershell
+# Run as Administrator
+.\scripts\setup_backup_schedule.ps1 -Schedule Daily -Time "02:00"
+```
+
+### Documentation
+- [API Documentation](./docs/API.md) - Complete API reference
+- [Maintenance Guide](./docs/MAINTENANCE.md) - Operational procedures
+- [OpenAPI Specification](./Mandatory%20I/openapispecification.yaml) - API specification
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

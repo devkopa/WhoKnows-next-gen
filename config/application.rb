@@ -1,4 +1,4 @@
-# Prometheus monitoring middleware
+# Middleware
 require_relative "../app/middleware/prometheus_middleware"
 
 require_relative "boot"
@@ -27,6 +27,11 @@ module Openapi
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # Track application boot time for uptime monitoring
+    config.boot_time = Time.current
+
+    # Version tracking
+    config.version = ENV.fetch("APP_VERSION", "1.0.0")
 
     # Register Prometheus middleware only outside test to avoid interfering with request specs
     unless Rails.env.test?
