@@ -10,8 +10,8 @@ class ScraperService
     doc = Nokogiri::HTML(response.body)
     {
       url: url,
-      title: doc.at("title")&.text || "No title",
-      content: doc.at("body")&.text&.squish || "No content"
+      title: doc.at("title")&.text&.squish.presence || "No title",
+      content: doc.at("body")&.text&.squish.presence || "No content"
     }
   rescue => e
     Rails.logger.error("Scrape failed for #{url}: #{e.message}")
