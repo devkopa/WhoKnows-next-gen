@@ -9,38 +9,38 @@ December 13, 2025
 ## Maintenance Tasks Completed
 
 ### 1. Security Enhancements
--  **Password Security**: Enhanced password validation (minimum 8 characters)
--  **Email Validation**: Added proper email format validation with RFC compliance
--  **Username Validation**: Added length constraints (3-50 characters)
--  **Session Security**: Configured secure session cookies with:
+- **Password Security**: Enhanced password validation (minimum 8 characters)
+- **Email Validation**: Added proper email format validation with RFC compliance
+- **Username Validation**: Added length constraints (3-50 characters)
+- **Session Security**: Configured secure session cookies with:
   - `httponly: true` - Prevents JavaScript access to cookies
   - `secure: true` (production) - Ensures HTTPS-only transmission
   - `same_site: :lax` - CSRF protection
   - `expire_after: 24.hours` - Automatic session expiration
--  **Brakeman Security Scan**: Zero vulnerabilities detected
+- **Brakeman Security Scan**: Zero vulnerabilities detected
 
 ### 2. Performance Optimizations
--  **Search Query Optimization**:
+- **Search Query Optimization**:
   - Added result limiting (100 max results)
   - Implemented selective field loading with `.select()`
   - Normalized queries for better cache hits
--  **Database Indexes**: Existing GIN indexes on pages table for full-text search
--  **Connection Pooling**: Configured in database.yml (5 connections)
--  **Error Handling**: Improved error handling in search logging
+- **Database Indexes**: Existing GIN indexes on pages table for full-text search
+- **Connection Pooling**: Configured in database.yml (5 connections)
+- **Error Handling**: Improved error handling in search logging
 
 ### 3. Code Quality
--  **Rubocop Compliance**: Code passes linting standards
--  **Test Coverage**: 40 passing tests, 28.15% line coverage
--  **Error Handling**: Enhanced error recovery in critical paths
+- **Rubocop Compliance**: Code passes linting standards
+- **Test Coverage**: 40 passing tests, 0 failures
+- **Error Handling**: Enhanced error recovery in critical paths
 
 ### 4. Logging & Monitoring
--  **Prometheus Metrics**:
+- **Prometheus Metrics**:
   - HTTP request tracking (total, duration)
   - User behavior (registrations, logins)
   - Weather API requests
   - Search requests
   - Password changes
--  **Application Logging**: Structured logging for:
+- **Application Logging**: Structured logging for:
   - User authentication events
   - Search queries
   - Password changes
@@ -108,19 +108,19 @@ Access metrics at: http://localhost:3000/metrics
 ### Database Backup Strategy
 ```bash
 # Create backup
-docker-compose exec postgres pg_dump -U $POSTGRES_USER $POSTGRES_DB > backup_$(date +%Y%m%d).sql
+docker compose exec postgres pg_dump -U $POSTGRES_USER $POSTGRES_DB > backup_$(date +%Y%m%d).sql
 
 # Create compressed backup
-docker-compose exec postgres pg_dump -U $POSTGRES_USER $POSTGRES_DB | gzip > backup_$(date +%Y%m%d).sql.gz
+docker compose exec postgres pg_dump -U $POSTGRES_USER $POSTGRES_DB | gzip > backup_$(date +%Y%m%d).sql.gz
 ```
 
 ### Restore Procedure
 ```bash
 # Restore from backup
-docker-compose exec -T postgres psql -U $POSTGRES_USER $POSTGRES_DB < backup_20251213.sql
+docker compose exec -T postgres psql -U $POSTGRES_USER $POSTGRES_DB < backup_20251213.sql
 
 # Restore from compressed backup
-gunzip -c backup_20251213.sql.gz | docker-compose exec -T postgres psql -U $POSTGRES_USER $POSTGRES_DB
+gunzip -c backup_20251213.sql.gz | docker compose exec -T postgres psql -U $POSTGRES_USER $POSTGRES_DB
 ```
 
 ### Backup Schedule
@@ -190,25 +190,25 @@ bundle audit
 #### Database Connection Errors
 ```bash
 # Check database status
-docker-compose ps postgres
+docker compose ps postgres
 
 # Restart database
-docker-compose restart postgres
+docker compose restart postgres
 
 # View database logs
-docker-compose logs postgres
+docker compose logs postgres
 ```
 
 #### Application Not Starting
 ```bash
 # Check logs
-docker-compose logs web
+docker compose logs web
 
 # Restart application
-docker-compose restart web
+docker compose restart web
 
 # Rebuild if needed
-docker-compose up --build web
+docker compose up --build web
 ```
 
 #### High Memory Usage
@@ -217,7 +217,7 @@ docker-compose up --build web
 docker stats
 
 # Restart services
-docker-compose restart
+docker compose restart
 
 # Clear logs if needed
 truncate -s 0 log/development.log
