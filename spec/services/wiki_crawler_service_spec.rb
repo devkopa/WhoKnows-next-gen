@@ -67,9 +67,9 @@ RSpec.describe Services::WikiCrawlerService, type: :service do
 
         opensearch_response = [
           'Python',
-          ['Python (programming language)', 'Python (snake)'],
-          ['Desc1', 'Desc2'],
-          ['url1', 'url2']
+          [ 'Python (programming language)', 'Python (snake)' ],
+          [ 'Desc1', 'Desc2' ],
+          [ 'url1', 'url2' ]
         ]
 
         extract_response = {
@@ -106,9 +106,9 @@ RSpec.describe Services::WikiCrawlerService, type: :service do
 
         opensearch_response = [
           'Java',
-          ['Java (programming language)'],
-          ['Desc'],
-          ['url']
+          [ 'Java (programming language)' ],
+          [ 'Desc' ],
+          [ 'url' ]
         ]
 
         extract_response = {
@@ -163,7 +163,7 @@ RSpec.describe Services::WikiCrawlerService, type: :service do
     context 'with opensearch returning array with empty titles' do
       it 'returns empty array' do
         search_response = { "query" => { "search" => [] } }
-        opensearch_response = ['term', [], [], []]
+        opensearch_response = [ 'term', [], [], [] ]
 
         extract_response = { "query" => { "pages" => {} } }
 
@@ -187,7 +187,7 @@ RSpec.describe Services::WikiCrawlerService, type: :service do
       it 'treats as empty hash' do
         search_response = {
           "query" => {
-            "search" => [{ "title" => "Test" }]
+            "search" => [ { "title" => "Test" } ]
           }
         }
 
@@ -212,7 +212,7 @@ RSpec.describe Services::WikiCrawlerService, type: :service do
       it 'uses empty string for content' do
         search_response = {
           "query" => {
-            "search" => [{ "title" => "NoContent" }]
+            "search" => [ { "title" => "NoContent" } ]
           }
         }
 
@@ -256,7 +256,7 @@ RSpec.describe Services::WikiCrawlerService, type: :service do
       it 'encodes spaces in title as underscores' do
         search_response = {
           "query" => {
-            "search" => [{ "title" => "Programming Language" }]
+            "search" => [ { "title" => "Programming Language" } ]
           }
         }
 

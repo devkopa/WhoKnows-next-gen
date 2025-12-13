@@ -5,7 +5,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-<!-- PROJEKT LOGO -->
+<!-- PROJECT LOGO -->
 <br />
 <div align="center">
 
@@ -13,153 +13,164 @@
 
 <p align="center">
     <br />
-    <a href="https://github.com/devkopa/WhoKnows-next-gen"><strong>Udforsk dokumentationen »</strong></a>
+    <a href="https://github.com/devkopa/WhoKnows-next-gen"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/devkopa/WhoKnows-next-gen">Se Demo</a>
+    <a href="https://github.com/devkopa/WhoKnows-next-gen">View Demo</a>
     &middot;
-    <a href="https://github.com/devkopa/WhoKnows-next-gen/issues/new?labels=bug&template=bug-report---.md">Rapporter fejl</a>
+    <a href="https://github.com/devkopa/WhoKnows-next-gen/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
-    <a href="https://github.com/devkopa/WhoKnows-next-gen/issues/new?labels=enhancement&template=feature-request---.md">Anmod om funktion</a>
+    <a href="https://github.com/devkopa/WhoKnows-next-gen/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
-<!-- INDHOLDSFORTEGNELSE -->
+<!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Indholdsfortegnelse</summary>
+  <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">Om Projektet</a>
+      <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Bygget Med</a></li>
+        <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Kom Godt I Gang</a>
+      <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Forudsætninger</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Brug</a></li>
+    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Bidrag</a></li>
-    <li><a href="#contact">Kontakt</a></li>
-    <li><a href="#acknowledgments">Tak</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
-<!-- OM PROJEKTET -->
-## Om Projektet
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-[![Produkt Skærmbillede mangler][product-screenshot]](https://localhost:3000)
+[![Product screenshot missing][product-screenshot]](https://localhost:3000)
 
-# Intelligent Virksomhedskategorisering for Banktransaktioner
+# Modernized WhoKnows Search Engine
 
-Dette projekt har til formål at være en migreret og forbedret version af legacy WhoKnows. En søgemaskine.
+This project is a migrated and improved version of the legacy WhoKnows search engine.
 
-## Funktioner
+## Features
 
-- **Søgning**
+- **Search**
+  - Fast search across indexed content.
 
-- **Vejr**
-  - Integreret Weather API, viser vejret for den søgte by.
+- **Weather**
+  - Integrated Weather API that shows the weather for the searched city.
     
 - **Monitoring**
-  - Monitoring med Prometheus, PostgreSQL på en Grafana grænseoverflade.
-  - Monitorer antal API-kald, user registrations, CPU-forbrug.
+  - Monitoring with Prometheus and PostgreSQL visualized in Grafana.
+  - Tracked metrics:
+    - Uptime (%) and uptime (weeks)
+    - User logins and user registrations
+    - Weather API requests
+    - Search requests and search match rate
+    - CPU usage (%) and per-CPU idle rate (average idle per instant, %)
+    - Memory usage (%)
+    - Disk usage (%) per mount
+    - Network traffic (bytes/s) in vs out
+    - Load average (1m / 5m / 15m)
     
 - **Authentication**
-  - Brugerne kan oprette en bruger og logge ind.
+  - Users can sign up and sign in.
+  - Session cookies are used for authenticated requests.
 
-## Formål
+## Purpose
 
-Denne løsning hjælper med at:  
+This solution helps to:  
 
-- Vise en legacy applikation i en modern stack.  
-- Reducere fejl og langsom respons.  
-- Monitorere miljøjet og hvordan brugerne interagerer med appen.
+- Showcase a legacy application in a modern stack.  
+- Reduce errors and slow responses.  
+- Monitor the environment and how users interact with the app.
 
-<p align="right">(<a href="#readme-top">til toppen</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Bygget Med
+### Built With
 
-Dette afsnit viser de vigtigste frameworks/biblioteker brugt til at starte projektet. Eventuelle ekstra plugins kan nævnes under tak. Her er nogle eksempler:
+This section highlights the main frameworks and libraries used in the project:
 
 * [![Ruby][Ruby-on-Rails]][Ruby-url]
 * [![Prometheus][Prometheus]][Prometheus-url]
 * [![Grafana][Grafana]][Grafana-url]
 * [![Tailwind][TailwindCSS]][TailwindCSS-url]
 
-<p align="right">(<a href="#readme-top">til toppen</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Kom Godt I Gang
+## Getting Started
 
-### Forudsætninger
+### Prerequisites
 
-Følgende er påkrævet for at køre projektet:
+To run the project you need:
 
-- Seneste version af **Docker**
-- Seneste version af **Docker Compose** (inkluderet i Docker Desktop)
+- Latest version of **Docker**
+- Latest version of **Docker Compose**
 
 ---
 
 ### Installation
 
-1. Klon repositoriet
+1. Clone the repository
    ```sh
    git clone https://github.com/devkopa/WhoKnows-next-gen.git
    ```
-2. Tilføj environment-fil
-   - Opret en ``.env`` fil i projektets rodmappe.
-   - Anmod ``.env`` filen hos teamet.
+2. Add the environment file
+   - Create a `.env` file in the project root.
+   - Request the `.env` file from the team.
    
-3. Skift git remote url for at undgå uheldige pushes til base project
+3. Update the git remote to avoid pushing to the base project
    ```sh
    git remote set-url origin github_username/repo_name
    git remote -v # confirm the changes
    ```
 
-<p align="right">(<a href="#readme-top">til toppen</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Kør projektet
+### Run the project
 
-1. Start applikationen med Docker
+1. Start the application with Docker
    ```sh
-   docker-compose up
+   docker compose up
    ```
-   Applikationen vil herefter være tilgængelig via den konfigurerede port.
+   The app will be available on the configured port.
 
-<!-- BRUGSEKSEMPLER -->
-## Brug
+<!-- USAGE EXAMPLES -->
+## Usage
 
-Brug dette afsnit til at vise nyttige eksempler på, hvordan projektet kan anvendes. Skærmbilleder, kodeeksempler og demoer fungerer godt her. Du kan også linke til yderligere ressourcer.
+Use this section to show practical examples of how the project can be used. Screenshots, code samples, and demos fit well here. You can also link to additional resources.
 
-<p align="right">(<a href="#readme-top">til toppen</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] CRUD for transaktioner
-- [x] Test algoritmerne på rigtig data
+- [x] CRUD for transactions
+- [x] Test algorithms on real data
 
-Se [åbne issues](https://github.com/TheOriginalJiozx/TrustBank/issues) for en komplet liste over foreslåede funktioner (og kendte problemer).
+See [open issues](https://github.com/TheOriginalJiozx/TrustBank/issues) for a full list of proposed features (and known issues).
 
-<p align="right">(<a href="#readme-top">til toppen</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- BIDRAG -->
-## Bidrag
+<!-- CONTRIBUTING -->
+## Contributing
 
-Bidrag er det, der gør open source-community så fantastisk at lære, inspirere og skabe. Enhver form for bidrag er meget værdsat.
+Contributions make the open source community a fantastic place to learn, inspire, and create. Any contribution is appreciated.
 
-Hvis du har en idé til forbedringer, kan du fork repoen og lave en pull request. Du kan også blot oprette en issue med tagget "enhancement".  
-Glem ikke at give projektet en stjerne! Tak!
+If you have an improvement idea, fork the repo and create a pull request. You can also open an issue with the "enhancement" tag.  
+And please give the project a star! Thank you!
 
-1. Fork projektet
-2. Opret din feature-branch (`git checkout -b feature/AmazingFeature`)
-3. Commit dine ændringer (`git commit -m 'Tilføj AmazingFeature'`)
-4. Push til branchen (`git push origin feature/AmazingFeature`)
-5. Lav en Pull Request
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ### Top contributors:
 
@@ -167,25 +178,25 @@ Glem ikke at give projektet en stjerne! Tak!
   <img src="https://contrib.rocks/image?repo=devkopa/WhoKnows-next-gen&nocache=1" alt="contrib.rocks image" />
 </a>
 
-<p align="right">(<a href="#readme-top">til toppen</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- KONTAKT -->
-## Kontakt
+<!-- CONTACT -->
+## Contact
 
 Omar Al-Ali - [TheOriginalJiozx](https://github.com/TheOriginalJiozx)<p />
 Yasin Dhalin - [Dhalinn](https://github.com/Dhalinn) <p />
 Maksym Yuzefovych - [maksyuze456](https://github.com/maksyuze456)
 
-Projekt Link: [[https://github.com/devkopa/WhoKnows-next-gen](https://github.com/devkopa/WhoKnows-next-gen)]
+Project Link: [[https://github.com/devkopa/WhoKnows-next-gen](https://github.com/devkopa/WhoKnows-next-gen)]
 
-<p align="right">(<a href="#readme-top">til toppen</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- SPECIELT TAK TIL -->
-## Specielt tak til
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
 
 * [Img Shields](https://shields.io)
 
-<p align="right">(<a href="#readme-top">til toppen</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
