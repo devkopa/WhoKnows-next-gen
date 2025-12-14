@@ -5,7 +5,7 @@ require_relative '../../app/middleware/prometheus_middleware'
 RSpec.describe PrometheusMiddleware do
   let(:inner_app) do
     # Simple Rack app returning 200 and a body
-    lambda { |_env| [200, { 'Content-Type' => 'text/plain' }, ['OK']] }
+    lambda { |_env| [ 200, { 'Content-Type' => 'text/plain' }, [ 'OK' ] ] }
   end
 
   let(:middleware) { described_class.new(inner_app) }
@@ -25,7 +25,7 @@ RSpec.describe PrometheusMiddleware do
   def call(env_overrides = {})
     env = {
       'REQUEST_METHOD' => 'GET',
-      'PATH_INFO' => '/users/123',
+      'PATH_INFO' => '/users/123'
     }.merge(env_overrides)
     middleware.call(env)
   end

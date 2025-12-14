@@ -18,7 +18,7 @@ RSpec.describe 'HealthController', type: :request do
       it 'returns ready status' do
         connection = double('connection')
         allow(ActiveRecord::Base).to receive(:connection).and_return(connection)
-        allow(connection).to receive(:execute).with('SELECT 1').and_return([[1]])
+        allow(connection).to receive(:execute).with('SELECT 1').and_return([ [ 1 ] ])
 
         get '/health/ready'
         expect(response).to have_http_status(:ok)

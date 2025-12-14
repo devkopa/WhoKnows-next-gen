@@ -16,7 +16,7 @@ RSpec.describe Services::WikiCrawlerService do
     it 'logs search response and returns extracted pages' do
       search_json = {
         'query' => {
-          'search' => [{ 'title' => 'Ruby (programming language)' }]
+          'search' => [ { 'title' => 'Ruby (programming language)' } ]
         }
       }
 
@@ -52,7 +52,7 @@ RSpec.describe Services::WikiCrawlerService do
 
     it 'falls back to opensearch and logs when no query.search present' do
       search_json = { 'query' => {} }
-      opensearch_json = ['Ruby', ['Ruby (programming language)']]
+      opensearch_json = [ 'Ruby', [ 'Ruby (programming language)' ] ]
       extracts_json = {
         'query' => {
           'pages' => {

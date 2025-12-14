@@ -11,7 +11,7 @@ RSpec.describe SearchRepository do
     it 'delegates to Item.where with LIKE pattern and returns results' do
       item1 = double('Item', name: 'Alpha')
       item2 = double('Item', name: 'Alphabet Soup')
-      relation = [item1, item2]
+      relation = [ item1, item2 ]
 
       fake_item_class = Class.new do
         def self.where(*args); end

@@ -57,7 +57,7 @@ RSpec.describe ScraperService do
 
   describe '.scrape_multiple' do
     it 'scrapes multiple urls and compacts nils' do
-      urls = ['http://a.test', 'http://b.test']
+      urls = [ 'http://a.test', 'http://b.test' ]
       first = { url: urls[0], title: 'A', content: 'Content A' }
       second = nil
 
@@ -65,7 +65,7 @@ RSpec.describe ScraperService do
       allow(described_class).to receive(:scrape).with(urls[1]).and_return(second)
 
       result = described_class.scrape_multiple(urls)
-      expect(result).to eq([first])
+      expect(result).to eq([ first ])
     end
   end
 end

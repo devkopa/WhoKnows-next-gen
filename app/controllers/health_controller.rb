@@ -1,6 +1,8 @@
 class HealthController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [ :show, :ready, :live ]
 
+  RECENT_24H_CONDITION = "created_at > ?".freeze
+
   # GET /health - Basic health check
   def show
     render json: {
@@ -44,15 +46,15 @@ class HealthController < ApplicationController
       metrics: {
         users: {
           total: User.count,
-          recent_24h: User.where("created_at > ?", 24.hours.ago).count
+          recent_24h: User.where(RECENT_24H_CONDITION, 24.hours.ago).count
         },
         searches: {
           total: SearchLog.count,
-          recent_24h: SearchLog.where("created_at > ?", 24.hours.ago).count
+          recent_24h: SearchLog.where(RECENT_24H_CONDITION, 24.hours.ago).count
         },
         weather_searches: {
           total: WeatherSearch.count,
-          recent_24h: WeatherSearch.where("created_at > ?", 24.hours.ago).count
+          recent_24h: WeatherSearch.where(RECENT_24H_CONDITION, 24.hours.ago).count
         },
         pages: {
           total: Page.count

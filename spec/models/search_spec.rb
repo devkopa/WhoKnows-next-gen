@@ -11,7 +11,7 @@ RSpec.describe Search do
     it 'delegates to Item.where with ILIKE pattern and returns results' do
       alpha = double('Item', name: 'Alpha')
       alphabet = double('Item', name: 'Alphabet Soup')
-      relation = [alpha, alphabet]
+      relation = [ alpha, alphabet ]
 
       fake_item_class = Class.new do
         def self.where(*args); end
