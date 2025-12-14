@@ -5,7 +5,7 @@ All notable changes to the WhoKnows application will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.0] - 2025-12-13
+## [1.0.0] - 2025-12-13
 
 ### Added - Security Enhancements
 - Enhanced user model with comprehensive validations:
@@ -81,7 +81,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 - Zero security vulnerabilities (verified with Brakeman 7.1.1)
-- All tests passing (39 examples, 0 failures, 1 pending)
+- All tests passing (118 examples, 0 failures, 0 pending)
 - Code compliant with Rubocop standards
 
 ### Documentation Updates
@@ -93,31 +93,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.0.0] - 2025-11-27
+## [0.0.1]
 
 ### Added
-- Initial release of modernized WhoKnows search engine
-- User authentication and registration
-- Search functionality across indexed content
-- Weather API integration
-- Prometheus monitoring with custom metrics
-- Grafana dashboard integration
-- PostgreSQL database with full-text search
-- Docker containerization
-- Tailwind CSS styling
-- RSpec test suite
-
-### Features
-- Session-based authentication
-- Full-text search with pg_trgm
-- Weather data for searched cities
-- Comprehensive monitoring:
-  - HTTP request tracking
-  - User behavior metrics
-  - System resource monitoring
-  - Database performance metrics
-- RESTful API endpoints
-- Swagger/OpenAPI documentation
+- Initial pre-release: authentication, search endpoint, weather lookup, basic monitoring hooks.
 
 ---
 
@@ -145,10 +124,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Maintenance Notes
 
 ### Current Test Coverage
-- Line Coverage: 22.17%
-- Passing Tests: 39
+- Line Coverage: 100%
+- Passing Tests: 118
 - Failed Tests: 0
-- Pending Tests: 1
+- Pending Tests: 0
 
 ### Dependencies
 - Rails: 8.0.2

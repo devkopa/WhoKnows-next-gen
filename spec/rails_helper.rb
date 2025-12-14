@@ -16,11 +16,11 @@ SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter
 ])
 
-SimpleCov.start 'rails' do
+SimpleCov.start do
   add_filter '/bin/'
   add_filter '/db/'
   add_filter '/spec/'
-  add_filter '/test/'
+  # Include test controllers in coverage (was filtered out)
   add_filter '/config/'
 
   # Convert SimpleCov output to SonarQube Generic Coverage XML format

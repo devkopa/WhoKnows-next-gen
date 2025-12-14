@@ -108,6 +108,17 @@ RSpec.describe 'Test::UsersController', type: :request do
 
         post '/test/login', params: { user: { username: 'existinguser', password: 'password123' } }
       end
+
+      it 'still succeeds if last_login update fails (covers rescue path)' do
+        user = User.find_by(username: 'existinguser')
+        allow(user).to receive(:update_columns).and_raise(StandardError)
+        allow(User).to receive(:find_by).and_return(user)
+
+        post '/test/login', params: { user: { username: 'existinguser', password: 'password123' } }
+
+        expect(response).to have_http_status(:ok)
+        expect(session[:user_id]).to eq(user.id)
+      end
     end
 
     context 'with invalid credentials' do
