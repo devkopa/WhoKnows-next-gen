@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   LOGIN_PATH = "/login".freeze
   REGISTER_PATH = "/register".freeze
 
-  # Swagger / OpenAPI
-  mount Rswag::Ui::Engine => "/api-docs"
-  mount Rswag::Api::Engine => "/api-docs"
+  # Swagger / OpenAPI - only available in development and test
+  unless Rails.env.production?
+    mount Rswag::Ui::Engine => "/api-docs"
+    mount Rswag::Api::Engine => "/api-docs"
+  end
 
   get "up" => "rails/health#show", as: :rails_health_check
   get "/metrics", to: "metrics#index"

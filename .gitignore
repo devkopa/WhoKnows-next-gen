@@ -68,3 +68,7 @@ public/assets
 EXAM_REPORT_DIAGRAMS.md
 
 /swagger/v1/swagger.yaml
+
+# rswag configuration files
+/config/initializers/rswag_api.rb
+/config/initializers/rswag_ui.rb
