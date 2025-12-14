@@ -63,5 +63,8 @@ config/master.key
 
 public/assets
 
+/spec/swagger_helper.rb
+
 EXAM_REPORT_DIAGRAMS.md
+
 /swagger/v1/swagger.yaml
