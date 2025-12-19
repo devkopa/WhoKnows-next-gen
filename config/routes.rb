@@ -33,13 +33,11 @@ Rails.application.routes.draw do
   # Weather
   get "/weather", to: "weather#index"
 
-  # Password change feature removed
-
   namespace :api do
     get "/weather", to: "weather#show"
     post REGISTER_PATH, to: "users#register"
     post LOGIN_PATH, to: "users#login"
-    post "/logout", to: "users#logout"
+    get "/logout", to: "users#logout"
     get "/search", to: "search#index"
   end
 

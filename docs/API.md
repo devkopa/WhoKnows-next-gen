@@ -75,7 +75,7 @@ Set-Cookie: _openapi_session=...
 #### Logout
 ```http
 GET /logout
-POST /api/logout
+GET /api/logout
 ```
 
 **Response (HTML):**

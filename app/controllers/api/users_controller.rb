@@ -48,7 +48,7 @@ module Api
     end
 
     # GET /logout (browser)
-    # POST /api/logout (API)
+    # GET /api/logout (API)
     def logout
       session[:user_id] = nil
 
