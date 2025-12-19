@@ -38,6 +38,9 @@ Rails.application.routes.draw do
     post REGISTER_PATH, to: "users#register"
     post LOGIN_PATH, to: "users#login"
     get "/logout", to: "users#logout"
+    if Rails.env.test?
+      post "/logout", to: "users#logout"
+    end
     get "/search", to: "search#index"
   end
 

@@ -69,7 +69,7 @@ RSpec.describe Api::UsersController, type: :request do
     end
 
     it "clears session and returns JSON for API request" do
-      post "/api/logout", as: :json
+      get "/api/logout", as: :json
       expect(session[:user_id]).to be_nil
       expect(response).to have_http_status(:ok)
       body = JSON.parse(response.body)

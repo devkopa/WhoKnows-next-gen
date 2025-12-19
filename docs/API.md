@@ -284,7 +284,7 @@ curl "http://localhost:3000/api/search?q=ruby" \
   -b cookies.txt
 
 # 4. Logout
-curl -X POST http://localhost:3000/api/logout \
+curl -X GET http://localhost:3000/api/logout \
   -H "Accept: application/json" \
   -b cookies.txt
 ```
