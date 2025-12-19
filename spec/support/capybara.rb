@@ -28,14 +28,8 @@ Capybara.configure do |config|
   config.default_driver = :selenium_edge_headless
 
   # App and server settings
-  # Allow overriding in CI or local runs via env vars; otherwise let Capybara pick a free port.
-  if ENV['CAPYBARA_APP_HOST']
-    config.app_host = ENV['CAPYBARA_APP_HOST']
-  end
-
-  if ENV['CAPYBARA_SERVER_PORT']
-    config.server_port = Integer(ENV['CAPYBARA_SERVER_PORT']) rescue nil
-  end
+  config.app_host = "http://localhost:3000"
+  config.server_port = 3000
 
   # Optional: Capybara wait time for async requests
   config.default_max_wait_time = 5
