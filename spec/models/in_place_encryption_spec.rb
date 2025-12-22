@@ -27,28 +27,14 @@ RSpec.describe InPlaceEncryption, type: :model do
     expect(rec.secret_col).to be_nil
   end
 
-  it 'encrypts on write and decrypts on read' do
-    rec = InPlaceTest.new
-    rec.secret_col = 'my-ip'
-    # underlying stored value should not equal plaintext
-    stored = rec.read_attribute(:secret_col)
-    expect(stored).to be_a(String)
-    expect(stored).not_to eq('my-ip')
-    # getter returns plaintext
-    expect(rec.secret_col).to eq('my-ip')
-    # class-level encrypt/decrypt
-    c = InPlaceTest.encrypt_value('x')
-    expect(InPlaceTest.decrypt_value(c)).to eq('x')
+  it 'computes a stable HMAC for the same input' do
+    rec1 = InPlaceTest.new
+    rec1.secret_col = '90.102.94.230'
+    rec2 = InPlaceTest.new
+    rec2.secret_col = '90.102.94.230'
+    expect(rec1.read_attribute(:secret_col)).to eq(rec2.read_attribute(:secret_col))
+    expect(rec1.read_attribute(:secret_col)).not_to eq('90.102.94.230')
   end
-
-  it 'returns raw ciphertext and logs a warning when decryption fails' do
-    rec = InPlaceTest.new
-    # put invalid ciphertext directly into column
-    rec.write_attribute(:secret_col, 'not-a-valid-ciphertext')
-    expect(Rails.logger).to receive(:warn).with(/Failed to decrypt InPlaceTest#secret_col/)
-    expect(rec.secret_col).to eq('not-a-valid-ciphertext')
-  end
-
   it 'writes nil when setter given nil' do
     rec = InPlaceTest.new
     rec.secret_col = nil

@@ -3,45 +3,29 @@ module InPlaceEncryption
 
   class_methods do
     def in_place_encrypts(*attributes)
-      attributes.each do |attr_name|
-        define_method(attr_name) do
-          ciphertext = read_attribute(attr_name)
-          return nil if ciphertext.nil?
-          begin
-            self.class.decrypt_value(ciphertext)
-          rescue => e
-            # If decryption fails, return the raw ciphertext to avoid breaking reads
-            Rails.logger.warn("Failed to decrypt #{self.class.name}##{attr_name}: ") if defined?(Rails)
-            ciphertext
-          end
-        end
+      # use find to operate on the first provided attribute
+      attr_name = attributes.find { true }
+      return unless attr_name
 
-        define_method("#{attr_name}=") do |val|
-          if val.nil?
-            write_attribute(attr_name, nil)
-          else
-            ciphertext = self.class.encrypt_value(val.to_s)
-            write_attribute(attr_name, ciphertext)
-          end
+      define_method(attr_name) do
+        # Return stored HMAC (non-reversible). This value is not the plaintext IP.
+        read_attribute(attr_name)
+      end
+
+      define_method("#{attr_name}=") do |val|
+        if val.nil?
+          write_attribute(attr_name, nil)
+        else
+          # Compute keyed HMAC (non-reversible) so same IP yields same stored value.
+          secret = self.class.ip_hash_secret
+          h = OpenSSL::HMAC.hexdigest('SHA256', secret, val.to_s)
+          write_attribute(attr_name, h)
         end
       end
     end
-
-    def encrypt_value(value)
-      encryptor.encrypt_and_sign(value)
-    end
-
-    def decrypt_value(ciphertext)
-      encryptor.decrypt_and_verify(ciphertext)
-    end
-
-    def encryptor
-      secret = ENV.fetch("SECRET_KEY_BASE") do
-        Rails.application.secret_key_base || (raise KeyError, "SECRET_KEY_BASE not set and Rails.application.secret_key_base is nil")
-      end
-      # prefer explicit ENV value; fallback to Rails.application.secret_key_base when present
-      key = ActiveSupport::KeyGenerator.new(secret).generate_key("in_place_encryption", ActiveSupport::MessageEncryptor.key_len)
-      ActiveSupport::MessageEncryptor.new(key)
+    def ip_hash_secret
+      # Use SECRET_KEY_BASE as the single source of secret for HMAC
+      ENV.fetch('SECRET_KEY_BASE') { Rails.application.secret_key_base || (raise KeyError, "SECRET_KEY_BASE not set and Rails.application.secret_key_base is nil") }
     end
   end
 end
