@@ -18,14 +18,14 @@ module InPlaceEncryption
         else
           # Compute keyed HMAC (non-reversible) so same IP yields same stored value.
           secret = self.class.ip_hash_secret
-          h = OpenSSL::HMAC.hexdigest('SHA256', secret, val.to_s)
+          h = OpenSSL::HMAC.hexdigest("SHA256", secret, val.to_s)
           write_attribute(attr_name, h)
         end
       end
     end
     def ip_hash_secret
       # Use SECRET_KEY_BASE as the single source of secret for HMAC
-      ENV.fetch('SECRET_KEY_BASE') { Rails.application.secret_key_base || (raise KeyError, "SECRET_KEY_BASE not set and Rails.application.secret_key_base is nil") }
+      ENV.fetch("SECRET_KEY_BASE") { Rails.application.secret_key_base || (raise KeyError, "SECRET_KEY_BASE not set and Rails.application.secret_key_base is nil") }
     end
   end
 end
