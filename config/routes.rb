@@ -42,8 +42,8 @@ Rails.application.routes.draw do
   end
 
   namespace :test do
-      post REGISTER_PATH, to: "users#register"
-      post LOGIN_PATH, to: "users#login"
-      get  "/logout", to: "users#logout"
+    post REGISTER_PATH, to: "users#register"
+    post LOGIN_PATH, to: "users#login"
+    get  "/logout", to: "users#logout"
   end
 end
