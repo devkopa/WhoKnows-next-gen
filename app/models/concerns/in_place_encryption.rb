@@ -36,7 +36,7 @@ module InPlaceEncryption
     end
 
     def encryptor
-      key = ActiveSupport::KeyGenerator.new(Rails.application.secret_key_base || ENV['SECRET_KEY_BASE']).generate_key('in_place_encryption', ActiveSupport::MessageEncryptor.key_len)
+      key = ActiveSupport::KeyGenerator.new(Rails.application.secret_key_base || ENV["SECRET_KEY_BASE"]).generate_key("in_place_encryption", ActiveSupport::MessageEncryptor.key_len)
       ActiveSupport::MessageEncryptor.new(key)
     end
   end

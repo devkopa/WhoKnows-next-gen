@@ -6,6 +6,6 @@ class SearchService
     return [] if q.empty?
 
     normalized = q.downcase.strip
-    Item.where('LOWER(name) LIKE ?', "%#{normalized}%").limit(MAX_RESULTS)
+    Item.where("LOWER(name) LIKE ?", "%#{normalized}%").limit(MAX_RESULTS)
   end
 end
