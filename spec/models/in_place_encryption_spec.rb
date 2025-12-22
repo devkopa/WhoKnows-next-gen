@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe InPlaceEncryption, type: :model do
   before(:all) do
     @old_secret_key_base = ENV['SECRET_KEY_BASE']
-    ENV['SECRET_KEY_BASE'] = 'test-secret-key-base'
+    ENV['SECRET_KEY_BASE'] = ENV.fetch('SECRET_KEY_BASE') { 'test-secret-key-base' }
     ActiveRecord::Base.connection.create_table :in_place_tests, force: true do |t|
       t.text :secret_col
     end
