@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/jnunemaker/httparty.git
+  revision: 0529bcd6309c9fd9bfdd50ae211843b10054c240
+  ref: 0529bcd6309c9fd9bfdd50ae211843b10054c240
+  specs:
+    httparty (0.23.2)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -122,10 +132,6 @@ GEM
       raabro (~> 1.4)
     globalid (1.3.0)
       activesupport (>= 6.1)
-    httparty (0.23.1)
-      csv
-      mini_mime (>= 1.0.0)
-      multi_xml (>= 0.5.2)
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.2.2)
@@ -419,7 +425,7 @@ DEPENDENCIES
   debug
   dotenv-rails
   faker (~> 3.5)
-  httparty
+  httparty!
   importmap-rails
   jbuilder
   kamal
