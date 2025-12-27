@@ -81,7 +81,7 @@ gem "rswag-ui"
 gem "rswag-specs"
 
 # HTTP requests
-gem "httparty"
+gem 'httparty', github: 'jnunemaker/httparty', branch: 'main'
 
 # Nokogiri
 gem "nokogiri"
