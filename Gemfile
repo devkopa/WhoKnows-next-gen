@@ -81,7 +81,7 @@ gem "rswag-ui"
 gem "rswag-specs"
 
 # HTTP requests
-gem "httparty"
+gem "httparty", "0.23.1"
 
 # Nokogiri
 gem "nokogiri"
