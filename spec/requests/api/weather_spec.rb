@@ -133,7 +133,7 @@ RSpec.describe "Weathers", type: :request do
       end
 
       it 'WeatherController response_parsed parses JSON body when body present' do
-        data = { "name" => "TestCity", "main" => { "temp" => 7 }, "weather" => [{ "description" => "mild" }], "coord" => { "lat" => 0 } }
+        data = { "name" => "TestCity", "main" => { "temp" => 7 }, "weather" => [ { "description" => "mild" } ], "coord" => { "lat" => 0 } }
         obj = double(body: data.to_json)
         controller = WeatherController.new
         parsed = controller.send(:response_parsed, obj)
