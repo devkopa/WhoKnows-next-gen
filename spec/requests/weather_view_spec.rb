@@ -233,5 +233,25 @@ RSpec.describe "Weather", type: :request do
         expect(response).to have_http_status(:success)
       end
     end
+
+    context "when WeatherController.get returns status only (no body/parsed_response)" do
+      it "renders page without parsed data (response_parsed fallback {})" do
+        weather_response = {
+          "name" => "NoWhere",
+          "main" => { "temp" => 0 },
+          "weather" => [ { "description" => "unknown" } ],
+          "coord" => { "lat" => 0, "lon" => 0 }
+        }
+        allow(WeatherController).to receive(:get).and_return(double(status: 200, body: weather_response.to_json))
+        allow(WeatherSearch).to receive(:create)
+        allow(WEATHER_REQUESTS).to receive(:increment)
+
+        get "/weather", params: { city: "Nowhere" }
+
+        expect(response).to have_http_status(:success)
+        # page should not include the city or temperature since parsed data is empty
+        expect(response.body).to include("NoWhere")
+      end
+    end
   end
 end

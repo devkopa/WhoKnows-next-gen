@@ -64,6 +64,22 @@ RSpec.describe ScraperService, type: :service do
 
       expect(ScraperService.send(:allowed_url?, url)).to be false
     end
+
+    it 'returns true for public addresses' do
+      url = 'http://93.184.216.34'
+      stub_const('IPAddr', Class.new do
+        def self.getaddr(_)
+          Object.new.tap do |o|
+            def o.private?; false; end
+            def o.loopback?; false; end
+            def o.link_local?; false; end
+            def o.multicast?; false; end
+          end
+        end
+      end)
+
+      expect(ScraperService.send(:allowed_url?, url)).to be true
+    end
   end
 end
 require 'rails_helper'

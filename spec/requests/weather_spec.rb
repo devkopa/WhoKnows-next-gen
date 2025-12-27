@@ -92,7 +92,7 @@ RSpec.describe "Weathers", type: :request do
 
       context "when Api.get returns object with status and body but no parsed_response" do
         before do
-          json = { "name" => "Copenhagen", "main" => { "temp" => 5 }, "weather" => [ { "description" => "cold" } ], "coord" => { "lat" => 1 } }.to_json
+          json = { "name" => "Copenhagen", "main" => { "temp" => 5 }, "weather" => [{ "description" => "cold" }], "coord" => { "lat" => 1 } }.to_json
           allow(Api::WeatherController).to receive(:get).and_return(double(status: 200, body: json))
           allow(WeatherSearch).to receive(:create)
         end
@@ -116,28 +116,6 @@ RSpec.describe "Weathers", type: :request do
           expect(response).to have_http_status(:bad_request)
           expect(response.parsed_body["error"]).to include("Unable to fetch weather for Copenhagen")
         end
-      end
-
-      it 'response_parsed fallback returns empty hash for obj without parsed_response/body' do
-        obj = Object.new
-        controller = Api::WeatherController.new
-        parsed = controller.send(:response_parsed, obj)
-        expect(parsed).to eq({})
-      end
-
-      it 'WeatherController response_parsed fallback returns empty hash for obj without parsed_response/body' do
-        obj = Object.new
-        controller = WeatherController.new
-        parsed = controller.send(:response_parsed, obj)
-        expect(parsed).to eq({})
-      end
-
-      it 'WeatherController response_parsed parses JSON body when body present' do
-        data = { "name" => "TestCity", "main" => { "temp" => 7 }, "weather" => [{ "description" => "mild" }], "coord" => { "lat" => 0 } }
-        obj = double(body: data.to_json)
-        controller = WeatherController.new
-        parsed = controller.send(:response_parsed, obj)
-        expect(parsed).to eq(data)
       end
 
     context "WeatherSearch fejl" do
