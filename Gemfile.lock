@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/jnunemaker/httparty.git
   revision: 0529bcd6309c9fd9bfdd50ae211843b10054c240
-  ref: 0529bcd6309c9fd9bfdd50ae211843b10054c240
+  branch: fix-ssrf-base-uri-bypass
   specs:
     httparty (0.23.2)
       csv

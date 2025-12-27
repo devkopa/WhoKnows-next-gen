@@ -82,7 +82,7 @@ gem "rswag-specs"
 
 # HTTP requests
 # Use the upstream commit that contains the SSRF fix until a patched gem is released
-gem "httparty", git: "https://github.com/jnunemaker/httparty.git", ref: "0529bcd6309c9fd9bfdd50ae211843b10054c240"
+gem "httparty", git: "https://github.com/jnunemaker/httparty.git", branch: "fix-ssrf-base-uri-bypass"
 
 # Nokogiri
 gem "nokogiri"
