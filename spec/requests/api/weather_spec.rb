@@ -92,7 +92,7 @@ RSpec.describe "Weathers", type: :request do
 
       context "when Api.get returns object with status and body but no parsed_response" do
         before do
-          json = { "name" => "Copenhagen", "main" => { "temp" => 5 }, "weather" => [{ "description" => "cold" }], "coord" => { "lat" => 1 } }.to_json
+          json = { "name" => "Copenhagen", "main" => { "temp" => 5 }, "weather" => [ { "description" => "cold" } ], "coord" => { "lat" => 1 } }.to_json
           allow(Api::WeatherController).to receive(:get).and_return(double(status: 200, body: json))
           allow(WeatherSearch).to receive(:create)
         end
