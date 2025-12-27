@@ -12,7 +12,16 @@ class User < ApplicationRecord
 
   def ensure_timestamps
     now = Time.current
+    unless respond_to?(:created_at)
+      define_singleton_method(:created_at) { @created_at }
+      define_singleton_method(:created_at=) { |v| @created_at = v }
+    end
     self.created_at ||= now
+
+    unless respond_to?(:updated_at)
+      define_singleton_method(:updated_at) { @updated_at }
+      define_singleton_method(:updated_at=) { |v| @updated_at = v }
+    end
     self.updated_at ||= now
   end
 end

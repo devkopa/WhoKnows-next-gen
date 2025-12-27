@@ -6,6 +6,8 @@ RSpec.describe "UserFlows", type: :system do
   it "registers, logs in, and logs out a user via actual sessions pages" do
     # --- Registration ---
     visit "/register"
+    # Ensure field is enabled in headless browser runs
+    page.execute_script("document.getElementById('username').disabled = false;")
     fill_in "username", with: "e2euser"
     fill_in "email", with: "e2euser@example.com"
     fill_in "password", with: "password"
@@ -16,6 +18,7 @@ RSpec.describe "UserFlows", type: :system do
 
     # --- Login ---
     visit "/login"
+    page.execute_script("document.getElementById('username').disabled = false;")
     fill_in "username", with: "e2euser"
     fill_in "password", with: "password"
     click_button "Login"

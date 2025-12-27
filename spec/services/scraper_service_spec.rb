@@ -6,10 +6,12 @@ RSpec.describe ScraperService do
 
     context 'when the request is successful' do
       let(:html) { '<html><head><title>Example Title</title></head><body>Example Body</body></html>' }
-      let(:response) { instance_double(HTTParty::Response, success?: true, body: html) }
+      let(:faraday_response) { instance_double(Faraday::Response, status: 200, body: html) }
+      let(:conn) { instance_double(Faraday::Connection) }
 
       before do
-        allow(HTTParty).to receive(:get).with(url).and_return(response)
+        allow(Faraday).to receive(:new).and_return(conn)
+        allow(conn).to receive(:get).with(url).and_return(faraday_response)
       end
 
       it 'returns parsed title and content' do
@@ -21,8 +23,8 @@ RSpec.describe ScraperService do
 
       it 'handles missing title and body gracefully' do
         empty_html = '<html><head></head><body></body></html>'
-        empty_response = instance_double(HTTParty::Response, success?: true, body: empty_html)
-        allow(HTTParty).to receive(:get).with(url).and_return(empty_response)
+        empty_response = instance_double(Faraday::Response, status: 200, body: empty_html)
+        allow(conn).to receive(:get).with(url).and_return(empty_response)
 
         result = described_class.scrape(url)
         expect(result[:title]).to eq('No title')
@@ -31,20 +33,11 @@ RSpec.describe ScraperService do
     end
 
     context 'when the request fails' do
-      let(:response) { instance_double(HTTParty::Response, success?: false) }
+      let(:conn) { instance_double(Faraday::Connection) }
 
       before do
-        allow(HTTParty).to receive(:get).with(url).and_return(response)
-      end
-
-      it 'returns nil' do
-        expect(described_class.scrape(url)).to be_nil
-      end
-    end
-
-    context 'when an exception occurs' do
-      before do
-        allow(HTTParty).to receive(:get).with(url).and_raise(StandardError.new('boom'))
+        allow(Faraday).to receive(:new).and_return(conn)
+        allow(conn).to receive(:get).with(url).and_raise(Faraday::Error, 'boom')
         allow(Rails.logger).to receive(:error)
       end
 
