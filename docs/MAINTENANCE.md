@@ -4,7 +4,7 @@
 This document provides comprehensive maintenance guidelines for the WhoKnows search engine application.
 
 ## Last Updated
-December 14, 2025
+December 27, 2025
 
 ## Maintenance Tasks Completed
 
@@ -18,6 +18,7 @@ December 14, 2025
   - `same_site: :lax` - CSRF protection
   - `expire_after: 24.hours` - Automatic session expiration
 - **Brakeman Security Scan**: Zero vulnerabilities detected
+- **SSRF Mitigation**: Replaced `HTTParty` with `Faraday` to mitigate server-side request forgery (SSRF) risks.
 
 ### 2. Performance Optimizations
 - **Search Query Optimization**:
@@ -30,7 +31,7 @@ December 14, 2025
 
 ### 3. Code Quality
 - **Rubocop Compliance**: Code passes linting standards
-- **Test Coverage**: 118 passing tests, 0 failures
+- **Test Coverage**: 134 passing tests, 0 failures
 - **Error Handling**: Enhanced error recovery in critical paths
 
 ### 4. Logging & Monitoring
@@ -234,6 +235,9 @@ truncate -s 0 log/development.log
 - Monitoring: http://localhost:5000 (Grafana)
 
 ## Changelog
+
+### 2025-12-27
+- Fixed SSRF vulnerability by replacing `HTTParty` with `Faraday` (server-side request forgery mitigation)
 
 ### 2025-12-14
 - Enhanced user model validations

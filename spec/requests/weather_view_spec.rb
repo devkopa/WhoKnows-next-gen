@@ -7,6 +7,26 @@ RSpec.describe "Weather", type: :request do
     end
 
     context "successful weather response" do
+      it "executes WeatherController.get (Faraday wrapper) when Faraday returns status and body" do
+        weather_response = {
+          "name" => "Copenhagen",
+          "main" => { "temp" => 15.5 },
+          "weather" => [ { "description" => "cloudy" } ],
+          "coord" => { "lat" => 55.6761, "lon" => 12.5683 }
+        }
+
+        # Simulate Faraday.get returning a low-level response; this will cause WeatherController.get to build the wrapper object
+        allow(Faraday).to receive(:get).and_return(double(status: 200, body: weather_response.to_json))
+        allow(WeatherSearch).to receive(:create)
+        allow(WEATHER_REQUESTS).to receive(:increment)
+
+        get "/weather", params: { city: "Copenhagen" }
+
+        expect(response).to have_http_status(:success)
+        expect(response.body).to include("Copenhagen")
+        expect(response.body).to include("15.5")
+      end
+
       it "fetches weather data and displays it" do
         weather_response = {
           "name" => "Copenhagen",
@@ -110,6 +130,21 @@ RSpec.describe "Weather", type: :request do
       end
     end
 
+    context "when Faraday.get raises an exception inside WeatherController.get" do
+      it "logs the error and shows unable to fetch message" do
+        allow(Faraday).to receive(:get).and_raise(StandardError.new('boom'))
+        allow(WeatherSearch).to receive(:create)
+        allow(WEATHER_REQUESTS).to receive(:increment)
+
+        expect(Rails.logger).to receive(:error).with(/Weather API request failed: boom/)
+
+        get "/weather", params: { city: "Nowhere" }
+
+        expect(response).to have_http_status(:success)
+        expect(response.body).to include("Unable to fetch weather for Nowhere")
+      end
+    end
+
     context "when WEATHER_REQUESTS.increment fails" do
       it "logs a warning and continues" do
         weather_response = {
@@ -142,6 +177,40 @@ RSpec.describe "Weather", type: :request do
 
         expect(response).to have_http_status(:success)
         expect(response.body).to include("Unable to fetch weather for UnknownCity")
+      end
+    end
+
+    context "when WeatherController.get returns a plain object (no status/success?)" do
+      it "treats response as failure and shows error message" do
+        allow(WeatherController).to receive(:get).and_return(Object.new)
+        allow(WeatherSearch).to receive(:create)
+        allow(WEATHER_REQUESTS).to receive(:increment)
+
+        get "/weather", params: { city: "Broken" }
+
+        expect(response).to have_http_status(:success)
+        expect(response.body).to include("Unable to fetch weather for Broken")
+      end
+    end
+
+    context "when WeatherController.get returns status+body but no parsed_response" do
+      it "parses body via JSON.parse and displays values" do
+        weather_response = {
+          "name" => "Oslo",
+          "main" => { "temp" => 3 },
+          "weather" => [ { "description" => "cold" } ],
+          "coord" => { "lat" => 59.9, "lon" => 10.7 }
+        }
+
+        allow(WeatherController).to receive(:get).and_return(double(status: 200, body: weather_response.to_json))
+        allow(WeatherSearch).to receive(:create)
+        allow(WEATHER_REQUESTS).to receive(:increment)
+
+        get "/weather", params: { city: "Oslo" }
+
+        expect(response).to have_http_status(:success)
+        expect(response.body).to include("Oslo")
+        expect(response.body).to include("3")
       end
     end
 

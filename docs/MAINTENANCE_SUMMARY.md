@@ -1,4 +1,4 @@
-# Software Maintenance Summary - December 14, 2025
+# Software Maintenance Summary
 
 ## Executive Summary
 Comprehensive software maintenance completed for WhoKnows application. All critical maintenance tasks have been successfully implemented, tested, and documented.
@@ -23,6 +23,7 @@ Comprehensive software maintenance completed for WhoKnows application. All criti
 - Password strength requirements (8+ characters)
 - Authentication requirements for sensitive endpoints
 - CSRF protection maintained
+- SSRF mitigation: replaced `HTTParty` with `Faraday` to improve request validation and prevent server-side request forgery
 
 **Security Scan Results:**
 - Brakeman: 0 vulnerabilities detected
@@ -125,8 +126,8 @@ Comprehensive software maintenance completed for WhoKnows application. All criti
 
 ### Current Status
 ```
-118 examples, 0 failures
-Line Coverage: 100% (305 / 305)
+134 examples, 0 failures
+Line Coverage: 99.23% (387 / 390)
 ```
 
 ### Test Categories
@@ -272,5 +273,5 @@ All software maintenance tasks have been successfully completed. The application
 
 ---
 
-*Generated: December 14, 2025*
-*Version: 1.1.1*
+*Updated: December 27, 2025*
+*Version: 1.1.2*
