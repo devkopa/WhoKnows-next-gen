@@ -27,6 +27,29 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H "$AZURE_VM_HOST" >> ~/.ssh/known_hosts
 
+      - name: Deploy Nginx config (devkopa.conf)
+        env:
+          VM_USER: ${{ secrets.AZURE_VM_USER }}
+          VM_HOST: ${{ secrets.AZURE_VM_HOST }}
+        run: |
+          FILE=network/devkopa.conf
+          if [ ! -f "$FILE" ]; then
+            echo "Config file $FILE not found in repository. Aborting." >&2
+            exit 1
+          fi
+
+          echo "Uploading $FILE to $VM_HOST:/devkopa.conf"
+          cat "$FILE" | ssh $VM_USER@$VM_HOST "sudo tee /devkopa.conf > /dev/null"
+
+          echo "Uploading $FILE to /etc/nginx/sites-available/devkopa.conf"
+          cat "$FILE" | ssh $VM_USER@$VM_HOST "sudo tee /etc/nginx/sites-available/devkopa.conf > /dev/null"
+
+          echo "Uploading $FILE to /etc/nginx/sites-enabled/devkopa.conf"
+          cat "$FILE" | ssh $VM_USER@$VM_HOST "sudo tee /etc/nginx/sites-enabled/devkopa.conf > /dev/null"
+
+          echo "Testing nginx configuration and reloading nginx"
+          ssh $VM_USER@$VM_HOST "sudo nginx -t && sudo systemctl reload nginx || true"
+
       - name: Deploy latest image from GHCR
         env:
           GHCR_PAT: ${{ secrets.AZURE_VM_GHCR_PAT }}
