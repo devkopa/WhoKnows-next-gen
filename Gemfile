@@ -90,4 +90,4 @@ gem "nokogiri"
 gem "dotenv-rails"
 gem "prometheus-client"
 
-gem "faker", "~> 3.5"
+gem "faker", "~> 3.6"
