@@ -18,6 +18,7 @@
 /.bundle
 
 # misc
+~$*
 .DS_Store
 *.pem
 

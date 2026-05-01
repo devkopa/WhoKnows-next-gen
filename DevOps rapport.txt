@@ -1,0 +1,49 @@
+﻿Gruppenavn: Devkopa
+DevOps rapport
+Security
+Security i whoknows-nextgen var en løbende proces. Vi har sikret vores server, scannet vores kode, kørt automatiske tests og sikret vores CI/CD flow.
+Sikkerhed er afgørende i et DevOps-miljø for at sikre, at applikationer og systemer bygges og implementeres sikkert fra starten, hvilket reducerer sårbarheder og beskytter mod cybertrusler gennem hele udviklingscyklussen.
+Vi har sat fail2ban op på vores server for at forhindre, at folk konstant forsøger at gætte vores password. Fail2ban kigger på logs og blokerer IP adresser når der er for mange mislykkede login-forsøg. Det giver et ekstra lag sikkerhed uden, at vi selv skal holde øje hele tiden.
+Vi har også tjekket vores server med et værktøj kaldet Lynis, som hjælper os med at finde svagheder. Lynis giver en rapport med forslag til forbedringer, f.eks. manglende konfigurationer, outdatede pakker eller services der burde slukkes. Det gav os et bedre overblik over hvad der manglede på serverniveau.
+Vi har fået HTTPS op at køre med nginx på vores hjemmeside med TLS. Det betyder, at kommunikationen mellem bruger og hjemmeside er sikret, og at data ikke kan opsnappes af andre på nettet. Vi satte certifikater op og konfigurerede nginx til at tvinge HTTPS, så der ikke er mulighed for at besøge siden via HTTP.
+Vi brugte Snyk til at scanne vores Ruby og JavaScript kode. Det hjalp os med at finde sårbarheder i dependencies, som ellers kan være svære at opdage manuelt.
+En anden scanner vi har brugt er Trivy. Trivy scanner vores docker environments, og finder svagheder i både vores images, pakker og konfigurationer. Trivy bliver kørt som en del af vores workflow for at sikre, at det vi deployer, ikke indeholder sårbarheder.
+Vores GitHub Actions system sørger for sikkerheden ved automatisk at installere dependencies, køre analyseværktøjer som RuboCop og køre tests før vi sender nye ting ud. Det betyder, at vi opdager problemer tidligt, både i forhold til kodekvalitet og sikkerhed.
+Med Mozillas HTTP Observatory har vi scannet vores hjemmeside for at finde fejl, f.eks. problemer med caching, HSTS, TLS opsætning og andre web security og performance issues. Resultatet gav et bedre indblik i hvor godt vores side var konfigureret, og hvilke headers vi manglede for at gøre den mere sikker. Mozillas HTTP Observatory gav os en HSTS error, som resulterede i en score på 75/100. Her handlede vi straks på fejlen og kørte scanneren igen og fik en score på 120/100 ud af et maksimum på 145/100.
+Monitoring
+Monitorering i whoknows-nextgen pegede på de tekniske sårbarheder, der markant sløvede vores applikation og førte til langsom serverrespons.
+Monitorering i DevOps er vigtig, fordi den gør det muligt for teams at reagere hurtigt og automatisk på problemer i brugeroplevelsen. Samtidigt understøtter den “Shift Left”-tilgangen, hvor fejl opdages tidligere i udviklingen og forstyrrende ændringer i produktionen reduceres.
+Monitorering i DevOps leverer automatisering og overblik på tværs af hele udviklingslivscyklussen, fra udvikling, integration og test til endelig deployment. Det giver et samlet og realtids baseret billede af produktionsmiljøet.
+Vi har brugt det med fokus på hurtigt at styrke system performance og brugeroplevelse, når problemer bliver identificeret.
+Den værdi, som monitorering med Prometheus og Grafana har givet os, er det tydelige, visualiserede billede af vores software performance og brugernes interaktion med applikationen. Med monitoring kunne vi hurtigt identificere en overbelastet server, hvor CPU-forbruget lå alt for højt. Det førte til en utilfredsstillende brugeroplevelse og langsom serverrespons.
+Vi har ud over Prometheus også gjort brug af PostgreSQL Datasource, som gav os et overblik i belastningen af vores API’er ved at visualisere centrale aktivitetsdata over valgte perioder i Grafana.
+Der findes flere typer monitorering i DevOps, såsom infrastrukturmonitorering, applikations-performance monitorering og netværksmonitorering. Hver type har sit eget fokusområde.
+1. Værktøjer til infrastrukturmonitorering skal kunne observere og monitorere eksempelvis server tilgængelighed og CPU-forbrug.
+2. Applikations-performance monitorering handler om at måle ydeevne og tilgængelighed for specifikke applikationer, hvor typiske metrikker er API-kald, hvad brugerne søger efter, og hvor lang tid de bruger på de enkelte sider.
+3. Sidst har vi netværksmonitorering, som dækker vigtige metrikker som serverens uptime, båndbredde osv.
+I vores projekt har vi udplukket flere af disse monitorerings-typer og valgt dem, vi vurderede som mest relevante for vores behov.
+Vi monitorerer antallet af nye brugere, antal søgninger og andre interaktioner, som naturligt hører under applikations-performance monitorering. Samtidig holder vi øje med CPU-forbrug og andre driftsparametre fra infrastrukturmonitorering for at sikre, at platformen kan følge med belastningen. Denne tilgang har givet os et mere præcist billede af både systemets tekniske sundhed og den faktiske brugeradfærd, hvilket har gjort vores beslutningsgrundlag skarpere.
+Software Maintenance
+Software Maintenance i whoknows-nextgen har været en integreret del af hele udviklingsforløbet og ikke blot noget, der blev taget højde for efterfølgende
+Software Maintenance spiller en vigtig rolle i DevOps, da løbende vedligeholdelse mindsker teknisk gæld og understøtter et mere robust og langsigtet system.
+Software Maintenance dækker administration, opdatering og forbedring af software efter implementering for at håndtere fejl, foretage forbedringer og tilpasse sig ændrede forretningskrav.
+I tråd med DevOps-principperne har vi løbende arbejdet med håndtering af bugs, opdatering og opsamling af viden fra tidligere fejl og forbedringer. Denne viden er aktivt blevet taget i overvejelse i den fremadrettede udvikling af systemet.
+Ved kontinuerlig vedligeholdelse har vi sikret, at applikationen forblev stabil, overskuelig og nem at videreudvikle. Fejlrettelser blev anvendt som læring, hvilket reducerede gentagelser og bidrog til forbedret kode og systemstruktur.
+Software Quality
+Software Quality i whoknows-nextgen spillede en vigtig rolle og havde stor værdi for os da vi stræbte efter at have god kvalitet på tværs af hele vores applikation – både code quality, men også software quality.
+Software Quality spiller generelt en stor rolle i DevOps da integrationen af Quality Assurance i et DevOps workflow er en hjørnesten i moderne softwareudvikling.
+Uden Quality Assurance, vil der opstå manglende kvalitet, hvilket kan medføre softwarefejl, sikkerhedssårbarheder, en dårlig brugeroplevelse og øgede omkostninger til software fejlrettelser.
+Manglende Quality Assurance øger risikoen for fejl i softwaren, herunder sikkerhedssårbarheder og problemer, som kan påvirke brugeroplevelsen negativt og føre til øgede omkostninger til fejlrettelser. Når Quality Assurance indgår som en fast del af et DevOps workflow, bliver kvalitet løbende vurderet og forbedret gennem hele udviklingsprocessen.
+I denne sammenhæng anvendes testning kontinuerligt, eksempelvis via CI, så fejl opdages tidligt. Dette hænger sammen med Shift Left-tilgangen, hvor testaktiviteter placeres tidligere i udviklingsforløbet, tæt på planlægning og kodning. Ved at identificere problemer tidligt kan teams i højere grad undgå, at fejl udvikler sig og først opdages sent i processen, hvor de typisk kræver flere ressourcer at rette.
+En mere stabil og gennemtestet løsning bidrager til en bedre og mere ensartet brugeroplevelse. Dette kan øge brugertilfredsheden og styrke kundeloyaliteten, ligesom positiv feedback fra brugerne kan fungere som input til videre forbedringer. Samtidig giver den løbende kvalitetssikring bedre forudsætninger for at videreudvikle løsningen og dermed understøtte både innovation og organisationens konkurrenceevne.
+Automatisering er det centrale i Quality Assurance i DevOps (hjertet af Quality Assurance). Automatiserede test scripts giver tid til vigtigere opgaver, da de supplerer manuelle testing af gentagne opgaver. Automatiseringen muliggør hurtigere feedback-loops.
+Traditionelt opererer Quality Assurance i siloer (selvstændigt og undlader at dele information), ikke tilknyttet DevOps teams. I DevOps arbejder Quality Assurance eksperter i samarbejde med DevOps personale for at sikre, at kvalitet er en del af hver proces.
+* Nøglen i samarbejdspraksisser, er at man skal have fælles planlægningsmøder, delt ansvar for testing, og løbende feedback-loops.
+Linting
+Linting er en vigtig del af DevOps, fordi det hjælper med at opretholde en kodebase, der følger fælles stilstandarder og et konsekvent kvalitetsniveau. Dette gør koden mere ensartet, lettere at læse og reducerer risikoen for fejl. En linter kan fange potentielle problemer tidligt i udviklingsprocessen og er samtidig mindre ressourcekrævende end fuld statisk analyse, hvilket gør den velegnet både lokalt og i CI/CD-pipelines.
+Linters identificerer syntaktiske fejl, stilbrud og tekniske problemer såsom code smells, der kan pege på dybere strukturelle udfordringer i designet. Ved at opdage disse tidligt kan udviklere rette problemer, før de vokser sig større eller ender i produktionen. Afhængigt af konfigurationen kan en linter automatisk rette visse fejl via quick-fixes eller kræve manuel indgriben, hvis der er tale om mere komplekse afvigelser.
+At køre linting i IDE’en, før commits og som en fast del af CI/CD-processen, giver løbende kvalitetssikring og hurtigere feedback. Det forbedrer både udviklernes produktivitet og den samlede kvalitet af softwareleverancerne ved at sikre, at kode lever op til teamets standarder, før den integreres i projektet.
+Diagrammer
+  
+
+                Bilag

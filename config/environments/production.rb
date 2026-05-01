@@ -63,6 +63,15 @@ Rails.application.configure do
   config.hosts << "www.devkopa.dk"
   config.hosts << "localhost"
   config.hosts << "127.0.0.1"
+  config.hosts << /web(?::\d+)?/
+  config.hosts << /prometheus(?::\d+)?/
+
+  # Allow local dockerized Prometheus to scrape metrics over HTTP directly.
+  config.ssl_options = {
+    redirect: {
+      exclude: ->(request) { request.path == "/metrics" }
+    }
+  }
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {

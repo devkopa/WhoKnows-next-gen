@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   web:
     build:
@@ -8,8 +6,9 @@ services:
     image: ghcr.io/devkopa/whoknows-next-gen:latest
     env_file:
       - .env
+    # Thruster listens on 80 inside the image (see Dockerfile EXPOSE 80); map host 3000 to that.
     ports:
-      - "3000:3000"
+      - "3000:80"
     depends_on:
       - postgres
 

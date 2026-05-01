@@ -16,6 +16,10 @@ Rails.application.configure do
   config.hosts << "127.0.0.1"
   config.hosts << "host.docker.internal"
 
+  #Allow docker hostnames
+  config.hosts << "web"
+  config.hosts << "prometheus"
+  config.hosts << "localhost"
   # Allow web console from any IP
   config.web_console.permissions = "0.0.0.0/0"
 
