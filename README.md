@@ -9,7 +9,7 @@
 <br />
 <div align="center">
 
-  <h3 align="center">WhoKnows README</h3>
+  <h3 align="center">WhoKnowss README</h3>
 
 <p align="center">
     <br />
